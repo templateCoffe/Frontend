@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -22,13 +22,7 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+
 
 h1 {
   font-size: 3.2em;
@@ -76,4 +70,77 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+/* --- */
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 0.9fr 2.2fr 0.5fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Header"
+    "Banner"
+    "Body"
+    "Footer";
+}
+
+.Header {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-area: Header;
+  background: red;
+  width: 100vw;
+  min-height: 100px;
+  align-items: center;
+}
+
+.MidPart {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.ButtonPlaces {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.LogoPlace {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.Banner {
+  grid-area: Banner;
+}
+
+.Body {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Description FormPlace";
+  grid-area: Body;
+}
+
+.Description {
+  grid-area: Description;
+}
+
+.FormPlace {
+  grid-area: FormPlace;
+}
+
+.Footer {
+  grid-area: Footer;
 }

@@ -9,7 +9,11 @@ import Footer from './Footer.vue';
         <div class="Body">
             <div class="Description">
                 <h2>haz tu reserva</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima deserunt magnam inventore ipsum sunt animi. Qui, blanditiis quibusdam! Repellat, ab assumenda aperiam quaerat veniam distinctio sint corrupti quis aut quo?</p>
+                <p>Diligencia los datos del formulario y nos comunicaremos contigo para informarte si podemos atender tu
+                    solicitud.</p>
+                <hr />
+                <h3>Horarios de atención</h3>
+
             </div>
             <div class="FormPlace">
                 <h2>Form</h2>
@@ -23,16 +27,26 @@ import Footer from './Footer.vue';
 </template>
 
 <style scoped>
-.container {
-    /* Resta la altura del header y footer */
-    background-color: lightgray;
-    /* Para visualizar el contenedor */
-}
 
 .Description {
     grid-area: Description;
     width: 25vw;
-    margin: 50px;
+    padding: 150px 50px 150px 50px;
+    background: lightblue;
+    text-align: center;
+}
+
+@media screen and (min-width: 601px) {
+    .Description {
+        font-size: 1.5vw;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    .Description {
+        font-size: 1vw;
+    }
 }
 
 .FormPlace {

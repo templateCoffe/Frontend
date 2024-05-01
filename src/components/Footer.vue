@@ -6,6 +6,7 @@
 
 <style scoped>
 .Footer {
+    grid-area: Footer;
     background-color: black;
     bottom: 0;
     height: 40px;

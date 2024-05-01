@@ -7,7 +7,11 @@
             MidPart
         </div>
         <div class="ButtonPlaces">
-            Button Places
+            <button type="button" class="tal">Save</button>
+            <button type="button" class="tal">Save</button>
+            <button type="button" class="tal">Save</button>
+            <button type="button" class="tal">Save</button>
+            <button type="button" class="tal">Save</button>
         </div>
     </div>
     <div class="Banner">
@@ -16,21 +20,44 @@
 </template>
 
 <style scoped>
+.Header {
+    display: grid;
+    grid-auto-flow: row;
+    grid-area: Header;
+    background: red;
+    min-height: 100px;
+    align-items: center;
+}
+
 .Banner {
-    grid-area: Banner;
     background: blue;
     height: 200px;
-  }
+}
 
-  .MidPart {
-    grid-area: 1 / 1 / 2 / 2;
-  }
-  
-  .ButtonPlaces {
-    grid-area: 1 / 2 / 2 / 3;
-  }
-  
-  .LogoPlace {
-    grid-area: 1 / 1 / 2 / 1;
-  }
+.LogoPlace {
+    grid-column: 1;
+    /* Primera columna */
+    grid-row: 1;
+    /* Primera fila */
+}
+
+.MidPart {
+    grid-column: 2;
+    /* Segunda columna */
+    grid-row: 1;
+    /* Primera fila */
+    
+}
+
+.ButtonPlaces {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column: 3;
+    /* Tercera columna */
+    grid-row: 1;
+    /* Primera fila */
+    text-align: center;
+    gap: 0 38px;
+    margin: 50px;
+}
 </style>

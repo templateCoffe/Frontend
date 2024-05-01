@@ -11,6 +11,13 @@
         </div>
     </div>
     <div class="Banner">
-
+        TestPL
     </div>
 </template>
+
+<style scoped>
+.Banner {
+    background: blue;
+    height: 200px;
+  }
+</style>

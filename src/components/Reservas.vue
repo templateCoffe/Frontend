@@ -8,10 +8,13 @@ import Footer from './Footer.vue';
     <div class="container">
         <div class="Body">
             <div class="Description">
-                testA
+                <h2>haz tu reserva</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima deserunt magnam inventore ipsum sunt animi. Qui, blanditiis quibusdam! Repellat, ab assumenda aperiam quaerat veniam distinctio sint corrupti quis aut quo?</p>
             </div>
             <div class="FormPlace">
-                testB
+                <h2>Form</h2>
+                <label for="s">Tal</label>
+                <input type="text" name="s" value="s">
             </div>
         </div>
 
@@ -21,12 +24,20 @@ import Footer from './Footer.vue';
 
 <style scoped>
 .container {
-    min-height: calc(100% - 100px);
     /* Resta la altura del header y footer */
     background-color: lightgray;
     /* Para visualizar el contenedor */
 }
+
 .Description {
-    min-height: 100%;
+    grid-area: Description;
+    width: 25vw;
+    margin: 50px;
+}
+
+.FormPlace {
+    grid-area: FormPlace;
+    text-align: center;
+    align-content: center
 }
 </style>

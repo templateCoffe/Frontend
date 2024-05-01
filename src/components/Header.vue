@@ -1,23 +1,36 @@
 <template>
     <div class="Header">
+        <div class="LogoPlace">
+            logo
+        </div>
         <div class="MidPart">
-            test
+            MidPart
         </div>
         <div class="ButtonPlaces">
-            test
-        </div>
-        <div class="LogoPlace">
-            test
+            Button Places
         </div>
     </div>
     <div class="Banner">
-        TestPL
+        Banner
     </div>
 </template>
 
 <style scoped>
 .Banner {
+    grid-area: Banner;
     background: blue;
     height: 200px;
+  }
+
+  .MidPart {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  
+  .ButtonPlaces {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  
+  .LogoPlace {
+    grid-area: 1 / 1 / 2 / 1;
   }
 </style>

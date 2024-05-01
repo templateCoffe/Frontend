@@ -76,7 +76,6 @@ button:focus-visible {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
 }
 
@@ -92,7 +91,7 @@ body {
     "Banner"
     "Body"
     "Footer";
-    position:relative;
+    height: 100%;
 }
 
 .Header {
@@ -103,26 +102,11 @@ body {
   grid-auto-flow: row;
   grid-area: Header;
   background: red;
-  width: 100vw;
   min-height: 100px;
   align-items: center;
 }
 
-.MidPart {
-  grid-area: 1 / 1 / 2 / 2;
-}
 
-.ButtonPlaces {
-  grid-area: 1 / 2 / 2 / 3;
-}
-
-.LogoPlace {
-  grid-area: 1 / 1 / 2 / 2;
-}
-
-.Banner {
-  grid-area: Banner;
-}
 
 .Body {
   display: grid;
@@ -135,13 +119,7 @@ body {
   grid-area: Body;
 }
 
-.Description {
-  grid-area: Description;
-}
 
-.FormPlace {
-  grid-area: FormPlace;
-}
 
 .Footer {
   grid-area: Footer;

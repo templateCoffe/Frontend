@@ -78,6 +78,8 @@ button:focus-visible {
 
 html {
   font-family: Ubuntu;
+  color: #847577;
+  background: FBFBF2;
 }
 
 
@@ -87,7 +89,6 @@ body {
 }
 
 .container {
-  background-color: lightgray;
   display: grid;
   grid-template-columns: 1fr;
   /* grid-template-rows: 0.4fr 0.9fr 2.2fr 0.5fr; */
@@ -112,3 +113,4 @@ body {
     "Description FormPlace";
   grid-area: Body;
 }
+

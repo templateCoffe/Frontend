@@ -1,22 +1,20 @@
 <template>
     <div class="Header">
         <div class="LogoPlace">
-            logo
+            <a href="http://">
+                <img src="https://github.com/templateCoffe/.github/blob/main/profile/images/logo.png?raw=true" alt="logo"
+                width="150" />
+            </a>
         </div>
-        <div class="MidPart">
-            MidPart
-        </div>
+        <div class="MidPart"></div>
         <div class="ButtonPlaces">
-            <button type="button" class="headerButtons">Save</button>
-            <button type="button" class="headerButtons">Save</button>
-            <button type="button" class="headerButtons">Save</button>
-            <button type="button" class="headerButtons">Save</button>
-            <button type="button" class="headerButtons">Save</button>
+            <button type="button" class="headerButtons" name="">Menú</button>
+            <button type="button" class="headerButtons">Reservas</button>
+            <button type="button" class="headerButtons">Comentarios</button>
+            <button type="button" class="headerButtons">Blog</button>
         </div>
     </div>
-    <div class="Banner">
-        Banner
-    </div>
+    <div class="Banner"></div>
 </template>
 
 <style scoped>
@@ -33,32 +31,30 @@
     color: #847577;
     font-size: 20px;
     background-color: transparent;
-    padding: 14px 30px;
+    padding: 14px 20px;
     border: none;
-    display: flex;
-    flex-direction: row;
+    display: absolute;
     text-align: center;
-    align-items: center;
     cursor: pointer;
-  }
-  
-  .headerButtons:hover {
-  
+}
+
+.headerButtons:hover {
+
     transition: 0ms;
-    padding: 14px 30px;
+    padding: 14px 20px;
     transform: translateY(-0px);
     background-color: #A6A2A2;
     color: #E5E6E4;
     border: none;
-  }
+}
 
 .Banner {
-    background-image: url('https://image.slidesdocs.com/responsive-images/background/coffee-shop-bar-interior-powerpoint-background_0e0a795d8e__960_540.jpg');
-    height: 300px;
-    width: auto;
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/restaurant-bar_THXU08ODDE.jpg');
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center bottom;
 }
 
 .LogoPlace {
@@ -66,6 +62,7 @@
     /* Primera columna */
     grid-row: 1;
     /* Primera fila */
+    text-align: center;
 }
 
 .MidPart {

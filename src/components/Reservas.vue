@@ -8,29 +8,38 @@ import Footer from './Footer.vue';
     <div class="container">
         <div class="Body">
             <div class="Description">
-                <h2>Realiza tu reserva</h2>
+                <h2>Realiza una reservación en</h2>
+                <img src="https://github.com/templateCoffe/.github/blob/main/profile/images/logo.png?raw=true"
+                    alt="logo" width="150" />
                 <p>Diligencia los datos del formulario y nos comunicaremos contigo para informarte si podemos atender tu
                     solicitud.</p>
                 <hr />
                 <h3>Horarios de atención</h3>
+                <p>XX:XX - XX:XX</p>
 
             </div>
             <div class="FormPlace">
                 <h2>Detalles de la Solicitud</h2>
-                <label for="fullname">Nombre Completo</label>
-                <input class="input" type="text" name="fullname">
-                <label for="idDoc">Documento de identidad</label>
-                <input class="input" type="text" name="idDoc">
-                <label for="email">Correo Electrónico</label>
-                <input class="input" type="text" name="email">
-                <label for="date">Fecha de Reserva (Día y Hora)</label>
-                <input class="input" type="text" name="date">
-                <label for="assistants">Número de asistentes</label>
-                <input class="input" type="number" min="2" max="20" name="assistants">
-                <div class="form-check">
-                    <input type="checkbox" name="isBusiness">
-                    <label for="assistants">Reserva empresarial</label>
-                </div>
+                <form @submit.prevent="editData" ref="Post">
+                    <label for="fullname">Nombre Completo</label>
+                    <input class="input" type="text" name="fullname" placeholder="Ingrese su nombre completo">
+                    <label for="idDoc">Documento de identidad</label>
+                    <input class="input" type="text" name="idDoc" placeholder="Ingrese su Documento de identidad">
+                    <label for="email">Correo Electrónico</label>
+                    <input class="input" type="text" name="email" placeholder="Ingrese su Correo electrónico">
+                    <label for="date">Fecha de Reserva (Día y Hora)</label>
+                    <input class="input" type="text" name="date" placeholder="Ingrese la fecha y hora de su reserva">
+                    <label for="assistants">Número de asistentes</label>
+                    <input class="input" type="number" min="2" max="20" name="assistants"
+                        placeholder="Ingrese el número asistentes a la reserva">
+                    <div class="form-check">
+                        <input type="checkbox" name="isBusiness">
+                        <label for="assistants">Reserva empresarial</label>
+                    </div>
+                    <button type="submit">Enviar solicitud</button>
+                </form>
+
+
 
             </div>
         </div>
@@ -54,6 +63,42 @@ import Footer from './Footer.vue';
     }
 }
 
+button[type="submit"] {
+    text-align: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    color: #847577;
+    font-size: 20px;
+    background-color: #E5E6E4;
+    padding: 14px 20px;
+    border: none;
+    display: absolute;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button[type="submit"]:hover {
+    text-align: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    color: #E5E6E4;
+    font-size: 20px;
+    background-color: #847577;
+    padding: 14px 20px;
+    border: none;
+    display: absolute;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 600px) {
     .Description {
@@ -63,13 +108,18 @@ import Footer from './Footer.vue';
 
 .FormPlace {
     display: grid;
-    grid-auto-flow: row;
     grid-area: FormPlace;
+}
+
+.FormPlace form{
+    display: grid;
+    grid-auto-flow: row;
     text-align: center;
     align-content: center;
     margin: 100px;
     padding: 0 200px;
     gap: 10px;
+    justify-items: center;
 }
 
 .form-check {
@@ -102,3 +152,9 @@ input[type="checkbox"] {
     color: #DDDDDD;
 }
 </style>
+
+<script>
+export default {
+    name: 'Reservas',
+}
+</script>

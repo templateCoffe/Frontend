@@ -20,13 +20,22 @@ import FormReserva from './reservasTemplates/FormReserva.vue';
 
             </div>
             <div class="FormPlace">
-                <FormReserva/>
+                <FormReserva />
             </div>
         </div>
 
     </div>
     <Footer />
 </template>
+
+<script>
+export default {
+    name: 'Reserva',
+    components: {
+        FormReserva,
+    },
+}
+</script>
 
 <style scoped>
 .Description {

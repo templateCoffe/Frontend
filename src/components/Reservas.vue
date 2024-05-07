@@ -1,6 +1,7 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
+import FormReserva from './reservasTemplates/FormReserva.vue';
 </script>
 
 <template>
@@ -19,28 +20,7 @@ import Footer from './Footer.vue';
 
             </div>
             <div class="FormPlace">
-                <h2>Detalles de la Solicitud</h2>
-                <form @submit.prevent="editData" ref="Post">
-                    <label for="fullname">Nombre Completo</label>
-                    <input class="input" type="text" name="fullname" placeholder="Ingrese su nombre completo">
-                    <label for="idDoc">Documento de identidad</label>
-                    <input class="input" type="text" name="idDoc" placeholder="Ingrese su Documento de identidad">
-                    <label for="email">Correo Electrónico</label>
-                    <input class="input" type="text" name="email" placeholder="Ingrese su Correo electrónico">
-                    <label for="date">Fecha de Reserva (Día y Hora)</label>
-                    <input class="input" type="text" name="date" placeholder="Ingrese la fecha y hora de su reserva">
-                    <label for="assistants">Número de asistentes</label>
-                    <input class="input" type="number" min="2" max="20" name="assistants"
-                        placeholder="Ingrese el número asistentes a la reserva">
-                    <div class="form-check">
-                        <input type="checkbox" name="isBusiness">
-                        <label for="assistants">Reserva empresarial</label>
-                    </div>
-                    <button type="submit">Enviar solicitud</button>
-                </form>
-
-
-
+                <FormReserva/>
             </div>
         </div>
 
@@ -110,51 +90,4 @@ button[type="submit"]:hover {
     display: grid;
     grid-area: FormPlace;
 }
-
-.FormPlace form{
-    display: grid;
-    grid-auto-flow: row;
-    text-align: center;
-    align-content: center;
-    margin: 100px;
-    padding: 0 200px;
-    gap: 10px;
-    justify-items: center;
-}
-
-.form-check {
-    grid-auto-flow: column;
-}
-
-input[type="checkbox"] {
-    padding: 1px;
-}
-
-.input {
-    font-size: 16px;
-    padding: 10px 10px;
-    width: 100%;
-    outline: none;
-    background: #FFFFFF;
-    color: #000000;
-    border: 1px solid #C4D1EB;
-    border-radius: 5px;
-    transition: .3s ease;
-}
-
-.input:focus {
-    background: #F2F2F2;
-    border: 1px solid #5A7EC7;
-    border-radius: 10px;
-}
-
-.input::placeholder {
-    color: #DDDDDD;
-}
 </style>
-
-<script>
-export default {
-    name: 'Reservas',
-}
-</script>

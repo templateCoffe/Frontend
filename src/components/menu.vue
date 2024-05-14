@@ -52,8 +52,15 @@
               <a><button type="button" class="TableButtons"> Postres artesanales  </button></a>
               <a><button type="button" class="TableButtons">Especialidades</button></a>
         </div>
-        <div id = cuerpo>
-          <p>este es el cuerpo</p>
+        <div id = cuerpo >
+          <div id = producto class="row my-3">
+            <p>este es el producto 1</p>
+
+          </div>
+          <div id = producto class="row my-3">
+            <p>este es el producto 2</p>
+
+          </div>
 
 
         </div>
@@ -84,6 +91,14 @@ width: 70%;
 margin: 0px auto;
 border-bottom-right-radius: 5px;
 border-bottom-left-radius: 5px;
+}
+#producto {
+background-color: #FBFBF2;
+padding: 19px;
+width: 70%;
+margin: 0px auto;
+border-radius: 20px;
+
 }
 
   .TableButtons {

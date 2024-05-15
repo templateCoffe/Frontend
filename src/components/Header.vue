@@ -12,7 +12,7 @@ const imglogo = {img:"logo.png"}
         </div>
         <div class="MidPart"></div>
         <div class="ButtonPlaces">
-            <button type="button" class="headerButtons">Menú</button>
+            <button type="button" class="headerButtons" name="">Menú</button>
             <button type="button" class="headerButtons">Reservas</button>
             <button type="button" class="headerButtons">Comentarios</button>
             <button type="button" class="headerButtons">Blog</button>

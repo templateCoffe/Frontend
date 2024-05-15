@@ -1,14 +1,54 @@
 <script setup>
+import Header from './Header.vue';
+  import Footer from './Footer.vue';
   const cafe = {img:"cafe.jpg"}
   const cappucchino = {img:"cappucchino.jpg"}
-  import Header from './Header.vue';
-  import Footer from './Footer.vue';
-      
+  const frappucchino = {img:"frappucchino.webp"}
+  const Café_Mocha_Helado = {img:"Café_Mocha_Helado.webp"}
 </script>
+<script>
+export default {
+  data() {
+    return {
+         current: 1,
+         pagesize: 5,
+      }
+  },
+
+  computed: {
+      indexstart() {
+         return (this.current - 1) * this.pagesize;
+      },
+      indexend() {
+         return this.indexstart + this.pagesize;
+      },
+      paginated() {
+         return this.categories.slice(this.indexstart, this.indexend);
+      },
+   },
+   methods: {
+    prev() {
+         this.current--;
+         if (this.current < 1){
+            this.current = 3
+         }
+      },
+      next() {
+         this.current++;
+         if(this.current > 3){
+            this.current = 1
+         }
+      }
+   }
+
+   }
+
+</script>
+
 
 <template>
   <Header />
-<div class="row my-3">
+  <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id = "cabecera">
 
@@ -20,13 +60,44 @@
         </div>
         <div id = cuerpo >
           <div id = producto class="row my-3">
+            <div class="col-md-4">
             <img :src=cafe.img id="img">
-            <h1>cafe</h1>
-            <p>cafe echo a a base de leche con granos traidos de colombia</p>
+          </div>
+          <div class="col-md-8" id="informacion">
+            <h1>Café</h1>
+            <p>El Café con Leche es la armonía perfecta entre la intensidad del espresso y la suavidad de la leche caliente. Cada sorbo ofrece un equilibrio exquisito, ideal para comenzar el día con energía o para disfrutar de una tarde de descanso. Es una bebida clásica que calienta el alma y reconforta el paladar.</p>
+          </div>
           </div>
           <div id = producto class="row my-3">
+            <div class="col-md-4">
             <img :src=cappucchino.img id="img">
+          </div>
+          <div class="col-md-8" id="informacion">
             <h1>cappucchino</h1>
+            <p>El Cappuccino es una bebida elegante y equilibrada que combina la fuerza del espresso con la cremosidad de la leche al vapor y la suavidad de la espuma. Se caracteriza por su capa perfectamente aireada que corona el café, ofreciendo una textura que es un placer al paladar. Con cada sorbo, se descubre la rica profundidad del café, complementada por la dulzura sutil de la leche. Es una opción ideal para quienes buscan un toque de indulgencia en su rutina de café.</p>
+          </div>
+
+          </div>
+
+          <div id = producto class="row my-3">
+            <div class="col-md-4">
+            <img :src=frappucchino.img id="img">
+          </div>
+          <div class="col-md-8" id="informacion">
+            <h1>frappucchino</h1>
+            <p>Es una delicia helada que combina la intensidad de un extracto de grano tostado con la suavidad de la leche, creando una armonía de sabores. Su textura es espesa y espumosa, ofreciendo un contraste refrescante al paladar. A menudo se endulza y se personaliza con una variedad de sabores, lo que lo convierte en una opción versátil para cualquier momento del día.</p>
+          </div>
+
+          </div>
+
+          <div id = producto class="row my-3">
+            <div class="col-md-4">
+            <img :src=Café_Mocha_Helado.img id="img">
+          </div>
+          <div class="col-md-8" id="informacion">
+            <h1>café Mocha Helado</h1>
+            <p>El café mocha helado es una exquisitez congelada que fusiona la fuerza de un extracto de café oscuro con la delicadeza de la leche fría, resultando en una sinfonía de gustos. Posee una consistencia densa y espumosa que brinda una sensación refrescante al degustarlo. Comúnmente se endulza y se personaliza con una diversidad de sabores, transformándolo en una bebida adaptable para disfrutar en cualquier instante.</p>
+          </div>
 
           </div>
 
@@ -82,23 +153,12 @@ color:  #A6A2A2;
 border: none;
 }
 #img{
-  width: 40%;
-  
-  
+  width: 100%; 
 }
-#producto h1 {
-  position:absolute ;
-  left:20%;
+#informacion h1{
   text-align: center;
-  font-size: 20px;
-
 }
-#producto p{
-  position:absolute;
-  left:20%;
-  text-align: center;
-  top: 45px;
-  
-  
+#informacion p{
+  text-align: left;
 }
 </style>

@@ -1,20 +1,21 @@
 <template>
     <div class="Header">
         <div class="LogoPlace">
-            <a href="http://">
-                <img src="https://github.com/templateCoffe/.github/blob/main/profile/images/logo.png?raw=true" alt="logo"
-                width="150" />
-            </a>
+            <router-link to="/">
+                <img src="https://github.com/templateCoffe/.github/blob/main/profile/images/logo.png?raw=true"
+                    alt="logo" width="150" />
+            </router-link>
         </div>
         <div class="MidPart"></div>
         <div class="ButtonPlaces">
-            <button type="button" class="headerButtons" name="">Menú</button>
-            <button type="button" class="headerButtons">Reservas</button>
-            <button type="button" class="headerButtons">Comentarios</button>
-            <button type="button" class="headerButtons">Blog</button>
+            <router-link to="/menu"><button type="button" class="headerButtons" name="">Menú</button></router-link>
+            <router-link to="/comentarios"><button type="button" class="headerButtons">Comentarios</button></router-link>
+            <router-link to="/reservas"><button type="button" class="headerButtons">Reservas</button></router-link>
+            <router-link to="/blog"><button type="button" class="headerButtons">Blog</button></router-link>
         </div>
     </div>
     <div class="Banner"></div>
+    <router-view></router-view>
 </template>
 
 <style scoped>

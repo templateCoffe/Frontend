@@ -1,8 +1,8 @@
 <script setup>
-import Reservas from './components/Reservas.vue';
+import Index from './components/Index.vue';
 </script>
 
 <template>
-  <Reservas/> <!-- Provisional, mientras se prueba el funcionamiento. Lo ideal sería que este fuese el index-->
+  <Index /> <!-- Provisional, mientras se prueba el funcionamiento. Lo ideal sería que este fuese el index-->
 </template>
 

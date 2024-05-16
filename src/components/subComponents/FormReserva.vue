@@ -122,7 +122,7 @@ export default {
         "Access-Control-Allow-Origin": "*"
     },
 
-    name: 'Reserva',
+    name: 'FormReserva',
 
     data() {
         return {

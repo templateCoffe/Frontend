@@ -8,7 +8,7 @@ const Café_Mocha_Helado = {img:"Café_Mocha_Helado.webp"}
 <template>
 <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=frappucchino.img id="img">
+            <img :src=frappucchino.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
             <h1>frappucchino</h1>
@@ -19,7 +19,7 @@ const Café_Mocha_Helado = {img:"Café_Mocha_Helado.webp"}
 
           <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=Café_Mocha_Helado.img id="img">
+            <img :src=Café_Mocha_Helado.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
             <h1>café Mocha Helado</h1>

@@ -6,7 +6,7 @@ const cafe = {img:"cafe.jpg"}
 <template>
     <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=cafe.img id="img">
+            <img :src=cafe.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
             <h1>Café</h1>
@@ -15,7 +15,7 @@ const cafe = {img:"cafe.jpg"}
           </div>
           <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=cappucchino.img id="img">
+            <img :src=cappucchino.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
             <h1>cappucchino</h1>

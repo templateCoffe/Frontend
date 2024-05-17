@@ -7,7 +7,7 @@ const coctel_Monte_cristo = {img:"coctel_Monte_cristo.webp"}
 
     <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=coctel_Monte_cristo.img id="img">
+            <img :src=coctel_Monte_cristo.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
             <h1>coctel_Monte_cristo</h1>
@@ -17,10 +17,10 @@ const coctel_Monte_cristo = {img:"coctel_Monte_cristo.webp"}
           </div>
           <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=Dirthy_Mother.img id="img">
+            <img :src=Dirthy_Mother.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
-            <h1>cappucchino</h1>
+            <h1>Dirthy Mother</h1>
             <p>Un cóctel con personalidad, el Dirty Mother es una mezcla audaz de brandy y licor de café. Servido en un vaso de vidrio, su apariencia es tan intrigante como su sabor: una mezcla no homogénea de colores marrón oscuro con destellos más claros, reflejando la rica combinación de sus ingredientes. Es un trago fuerte, con una presencia que perdura en el paladar, invitando a saborear cada sorbo lentamente. <br><br> Este cóctel es perfecto para aquellos que buscan una bebida con profundidad y complejidad, una que se mantenga en la memoria mucho después de haberla disfrutado.</p>
           </div>
 

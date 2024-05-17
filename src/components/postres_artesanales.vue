@@ -6,7 +6,7 @@ const Crema_de_cafe_chocolate_y_mascarpone = {img:"Crema_de_café_chocolate_y_ma
 <template>
     <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=Caprichos_de_cafe.img id="img">
+            <img :src=Caprichos_de_cafe.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
             <h1>Caprichos de café</h1>
@@ -15,7 +15,7 @@ const Crema_de_cafe_chocolate_y_mascarpone = {img:"Crema_de_café_chocolate_y_ma
           </div>
           <div id = producto class="row my-3">
             <div class="col-md-4">
-            <img :src=Crema_de_cafe_chocolate_y_mascarpone.img id="img">
+            <img :src=Crema_de_cafe_chocolate_y_mascarpone.img id="img_menu">
           </div>
           <div class="col-md-8" id="informacion">
             <h1>crema de café chocolate y mascarpone</h1>

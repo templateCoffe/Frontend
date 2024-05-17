@@ -5,6 +5,7 @@ import bebidas_frias from './bebidas_frias.vue';
 import bebidas_calientes from './bebidas_calientes.vue';
 import bebidas_con_licor from './bebidas_con_licor.vue';
 import Postres_artesanales from './postres_artesanales.vue';
+import especialidades from './especialidades.vue';
 import {ref} from 'vue'
 let op = 1
 let change = ref(1)
@@ -20,6 +21,9 @@ const opciones = (op) => {
       }
     if(op==4){
         change.value = 4
+      }
+    if(op==5){
+        change.value = 5
       }
       
     }
@@ -43,6 +47,7 @@ const opciones = (op) => {
           <bebidas_frias v-else-if="(change==2)" />
           <bebidas_con_licor v-else-if="(change==3)" />
           <postres_artesanales v-else-if="(change==4)" />
+          <especialidades v-else-if="(change==5)" />
 
 
         </div>

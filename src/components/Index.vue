@@ -5,5 +5,14 @@ import Footer from './Footer.vue';
 
 <template>
     <Header />
+    <div class="content">
+
+    </div>
     <Footer />
 </template>
+
+<style>
+.content {
+    height: 120px;
+}
+</style>

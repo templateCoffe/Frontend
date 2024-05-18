@@ -1,0 +1,52 @@
+#cabecera {    
+    padding: 19px;
+    background-color: #A6A2A2 ;
+    width: 90%;
+    margin: 0px auto;
+    }
+    #cuerpo {
+    background-color: #E5E6E4;    
+    border:3px solid #A6A2A2;
+    padding: 19px;
+    width: 90%;
+    margin: 0px auto;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    }
+    #producto {
+      position:relative;
+    background-color: #FBFBF2;
+    padding: 20px;
+    width: 100%;
+    margin: 0px auto;
+    border-radius: 20px;
+    }
+    
+      .TableButtons {
+    display: inline-block;
+    color: #FBFBF2;
+    font-size: 20px;
+    background-color: transparent;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    }
+    
+    .TableButtons:hover {
+    transition: 0ms;
+    transform: translateX(0px);
+    background-color: #E5E6E4;
+    color:  #A6A2A2;
+    border: none;
+    }
+    #img_menu{
+      width: 100%; 
+    }
+    #informacion h1{
+      text-align: center;
+    }
+    #informacion p{
+      text-align: left;
+    }

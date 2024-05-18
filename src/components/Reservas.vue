@@ -1,7 +1,7 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-import FormReserva from './reservasTemplates/FormReserva.vue';
+import FormReserva from './subComponents/FormReserva.vue';
 </script>
 
 <template>

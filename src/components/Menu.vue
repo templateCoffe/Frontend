@@ -36,7 +36,7 @@ const opciones = (op) => {
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id = "cabecera">
 
-              <a><button type="button" @click="opciones(1)" class="TableButtons"> Bebidas Calientes  </button></a>
+              <a><button type="button" @click="opciones(1)" class="TableButtons"> Bebidas Calientes </button></a>
               <a><button type="button" @click="opciones(2)" class="TableButtons"> Bebidas Frias  </button></a>
               <a><button type="button" @click="opciones(3)" class="TableButtons"> Bebidas con Licor  </button></a>
               <a><button type="button" @click="opciones(4)" class="TableButtons"> Postres artesanales  </button></a>

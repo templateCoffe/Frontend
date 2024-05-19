@@ -1,6 +1,11 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
+import Administrador_bebidas_calientes from './subComponents/ComponentsAdministradorMenu/Administrador_bebidas_calientes.vue';
+import Administrador_bebidas_frias from './subComponents/ComponentsAdministradorMenu/Administrador_bebidas_frias.vue'
+import Administrador_bebidas_con_licor from './subComponents/ComponentsAdministradorMenu/Administrador_bebidas_con_licor.vue'
+import Administrador_postres_artesanales from './subComponents/ComponentsAdministradorMenu/Administrador_postres_artesanales.vue'
+import Administrador_especialidades from './subComponents/ComponentsAdministradorMenu/Administrador_especialidades.vue'
 import {ref} from 'vue'
 let op = 1
 let change = ref(1)
@@ -22,7 +27,6 @@ const opciones = (op) => {
       }
       
     }
-
 </script>
 
 <template>
@@ -39,82 +43,20 @@ const opciones = (op) => {
           </div>
     
         <div id = g_cuerpo >
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>Café</h1>
-            
-          </div>
-          </div>
-        
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>cappucchino</h1>
-          </div>
-          </div>
-        
-       
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>frappuchino</h1>
-            
-         
-          </div>
+
+          <Administrador_bebidas_calientes v-if="(change == 1)"/>
+          <Administrador_bebidas_frias v-if="(change == 2)"/>
+          <Administrador_bebidas_con_licor v-if="(change == 3)"/>
+          <Administrador_postres_artesanales v-if="(change == 4)"/>
+          <Administrador_especialidades v-if="(change == 5)"/>
         </div>
-        
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>Café mocha helado</h1>
-            
-          </div>
-          </div>
-        
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>coctel monte cristo</h1>
-            
-          
-          </div>
-        </div>
-        
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>dirthy mother</h1>
-            
-          </div>
-          </div>
-        
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>caprichos de café</h1>
-            
-          
-          </div>
-        </div>
-        
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>crema de café chocolate y mascarpone</h1>
-          </div>
-          </div>
-        
-        
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>cortado</h1>
-            
-          </div>
-          </div>
        
-       
-          <div id = g_producto class="row my-3">
-          <div class="col-md-12" id="g_informacion">
-            <h1>affogato</h1>
-            
-          </div>
-          </div>
+          <div id="g_botones">
+         <button type="button" class="TableButtons"> añadir producto </button> 
+         <button type="button" class="TableButtons"  > eliminar producto </button>
+        </div>
         </div>
       </div>
-    </div>
 
     <Footer />
     </template>

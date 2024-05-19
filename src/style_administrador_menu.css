@@ -1,8 +1,8 @@
 #g_cabecera {    
-    padding: 19px;
-    background-color: #A6A2A2 ;
-    width: 90%;
-    margin: 0px auto;
+  padding: 19px;
+  background-color: #A6A2A2 ;
+  width: 90%;
+  margin: 0px auto;
     }
     #g_cuerpo {
     background-color: #E5E6E4;    
@@ -26,4 +26,19 @@
     }
     #g_informacion p{
       text-align: left;
+    }
+    #g_botones{
+      
+      padding: 19px;
+      width: 90%;
+      
+      margin: 0px auto;
+
+    }
+    #g_botones button{
+      background: #CFD2CD;
+      margin-left:20%;
+      margin-right:12% ;
+      
+
     }

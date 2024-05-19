@@ -5,6 +5,8 @@ import Comentarios from './components/Comentarios.vue'
 import Blog from './components/Blog.vue'
 import Login from './components/Login.vue'
 import Admin from './components/Admin.vue'
+import Administrador_menu from './components/Administrador_menu.vue'
+
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -17,6 +19,7 @@ const router = createRouter({
         { path: '/blog', component: Blog },
         { path: '/login', component: Login },
         { path: '/admin', component: Admin },
+        { path: '/administrador_menu', component: Administrador_menu},
 
     ]
 });

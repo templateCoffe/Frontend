@@ -1,7 +1,7 @@
 <template>
     <Header />
     <div class="Place">
-        <h1>Deja tus comentarios</h1>
+        <h1>Conoce los comentarios de otros clientes y crea los tuyos mediante GOOGLE REVIEWS</h1>
         <div class="elfsight-app-2adf9dd9-c072-4aaa-bb4b-c6f88d7cb15b" data-elfsight-app-lazy></div>
     </div>
     <Footer />
@@ -38,7 +38,9 @@ onMounted(() => { //Mecanismo interesante para incluir scripts externos en el c√
     padding: 100px;
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     gap: 50px;
+    color: #847577
 }
 </style>

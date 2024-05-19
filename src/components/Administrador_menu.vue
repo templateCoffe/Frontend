@@ -52,11 +52,12 @@ const opciones = (op) => {
         </div>
        
           <div id="g_botones">
-         <button type="button" class="TableButtons"> añadir producto </button> 
+        <button type="button" class="TableButtons"> añadir producto </button>
          <button type="button" class="TableButtons"  > eliminar producto </button>
         </div>
         </div>
       </div>
 
     <Footer />
+    <router-view></router-view>
     </template>

@@ -6,6 +6,7 @@ import Blog from './components/Blog.vue'
 import Login from './components/Login.vue'
 import Admin from './components/Admin.vue'
 import Administrador_menu from './components/Administrador_menu.vue'
+import Modificar_menu from './components/Modificar_menu.vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -20,6 +21,7 @@ const router = createRouter({
         { path: '/login', component: Login },
         { path: '/admin', component: Admin },
         { path: '/administrador_menu', component: Administrador_menu},
+        { path: '/modificar_menu', component: Modificar_menu},
 
     ]
 });

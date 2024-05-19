@@ -1,11 +1,11 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-import bebidas_frias from './bebidas_frias.vue';
-import bebidas_calientes from './bebidas_calientes.vue';
-import bebidas_con_licor from './bebidas_con_licor.vue';
-import Postres_artesanales from './postres_artesanales.vue';
-import especialidades from './especialidades.vue';
+import bebidas_frias from './subComponents/ComponentsMenu/bebidas_frias.vue';
+import bebidas_calientes from './subComponents/ComponentsMenu/bebidas_calientes.vue';
+import bebidas_con_licor from './subComponents/ComponentsMenu/bebidas_con_licor.vue';
+import Postres_artesanales from './subComponents/ComponentsMenu/postres_artesanales.vue';
+import especialidades from './subComponents/ComponentsMenu/especialidades.vue';
 import {ref} from 'vue'
 let op = 1
 let change = ref(1)

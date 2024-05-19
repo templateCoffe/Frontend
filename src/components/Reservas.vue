@@ -6,7 +6,7 @@ import FormReserva from './subComponents/FormReserva.vue';
 
 <template>
     <Header />
-    <div class="container">
+    <div>
         <div class="Body">
             <div class="Description">
                 <h2>Realiza una reservación en</h2>
@@ -38,7 +38,12 @@ export default {
 </script>
 
 <style scoped>
+.Body {
+    align-items: left
+}
+
 .Description {
+    display: flexbox;
     grid-area: Description;
     width: 25vw;
     padding: 150px 50px 150px 50px;
@@ -49,6 +54,13 @@ export default {
 @media screen and (min-width: 601px) {
     .Description {
         font-size: 1.5vw;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    .Description {
+        font-size: 1vw;
     }
 }
 
@@ -86,13 +98,6 @@ button[type="submit"]:hover {
     display: absolute;
     cursor: pointer;
     border-radius: 10px;
-}
-
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 600px) {
-    .Description {
-        font-size: 1vw;
-    }
 }
 
 .FormPlace {

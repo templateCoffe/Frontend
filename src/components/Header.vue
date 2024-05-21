@@ -6,7 +6,7 @@
                     alt="logo" width="150" />
             </router-link>
         </div>
-        <div class="MidPart"></div>
+        <div></div>
         <div class="ButtonPlaces">
             <router-link to="/menu"><button type="button" class="headerButtons" name="">Menú</button></router-link>
             <router-link to="/comentarios"><button type="button" class="headerButtons">Comentarios</button></router-link>
@@ -21,7 +21,7 @@
 <style scoped>
 .Header {
     display: grid;
-    grid-auto-flow: row;
+    grid-auto-flow: flow;
     grid-area: Header;
     min-height: 100px;
     align-items: center;
@@ -34,7 +34,6 @@
     background-color: transparent;
     padding: 14px 20px;
     border: none;
-    display: absolute;
     text-align: center;
     cursor: pointer;
 }
@@ -66,18 +65,11 @@
     text-align: center;
 }
 
-.MidPart {
-    grid-column: 2;
-    /* Segunda columna */
-    grid-row: 1;
-    /* Primera fila */
-
-}
 
 .ButtonPlaces {
     display: grid;
-    grid-auto-flow: column;
-    grid-column: 3;
+    grid-template-columns: repeat(auto-fill, minmax(7rem,1fr));
+    grid-column: 2;
     /* Tercera columna */
     grid-row: 1;
     /* Primera fila */

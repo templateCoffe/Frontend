@@ -32,10 +32,6 @@ import MenuProductFrame from './subComponents/MenuProductFrame.vue';
 
 <script>
 import axios from 'axios';
-/* import Swal from 'sweetalert2'; */
-
-/* optimizar luego */
-const token = localStorage.getItem("token");
 
 export default {
   name: 'Menu',
@@ -52,11 +48,7 @@ export default {
 
   methods: {
     getProducts() {
-      axios.get('http://127.0.0.1:8001/menu/product?product_type=' + this.filter, { //ajustar la url en el futuro
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        }
-      })
+      axios.get('http://127.0.0.1:8001/menu/product?product_type=' + this.filter)//ajustar la url en el futuro
         .then((res) => {
 
           console.log(res.data.data);

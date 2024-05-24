@@ -7,4 +7,6 @@ import './assets/css/bootstrap.min.css'
 import './assets/js/bootstrap.bundle.min.js'
 import router from './router.js'
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+
+app.use(router).mount("#app")

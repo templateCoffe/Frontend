@@ -1,57 +1,71 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-import bebidas_frias from './subComponents/ComponentsMenu/bebidas_frias.vue';
-import bebidas_calientes from './subComponents/ComponentsMenu/bebidas_calientes.vue';
-import bebidas_con_licor from './subComponents/ComponentsMenu/bebidas_con_licor.vue';
-import Postres_artesanales from './subComponents/ComponentsMenu/postres_artesanales.vue';
-import especialidades from './subComponents/ComponentsMenu/especialidades.vue';
-import {ref} from 'vue'
-let op = 1
-let change = ref(1)
-const opciones = (op) => {
-  if(op==1){
-    change.value = 1
-      }
-    if(op==2){
-        change.value = 2
-      }
-    if(op==3){
-        change.value = 3
-      }
-    if(op==4){
-        change.value = 4
-      }
-    if(op==5){
-        change.value = 5
-      }
-      
-    }
-
+import MenuProductFrame from './subComponents/MenuProductFrame.vue';
 </script>
 
 <template>
   <Header />
   <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <div id = "cabecera">
+      <div id="cabecera">
 
-              <a><button type="button" @click="opciones(1)" class="TableButtons"> Bebidas Calientes </button></a>
-              <a><button type="button" @click="opciones(2)" class="TableButtons"> Bebidas Frias  </button></a>
-              <a><button type="button" @click="opciones(3)" class="TableButtons"> Bebidas con Licor  </button></a>
-              <a><button type="button" @click="opciones(4)" class="TableButtons"> Postres artesanales  </button></a>
-              <a><button type="button" @click="opciones(5)" class="TableButtons">Especialidades</button></a>
-        </div>
-        <div id = cuerpo >
-          <bebidas_calientes v-if="( change==1)" />
-          <bebidas_frias v-else-if="(change==2)" />
-          <bebidas_con_licor v-else-if="(change==3)" />
-          <postres_artesanales v-else-if="(change==4)" />
-          <especialidades v-else-if="(change==5)" />
-
-
-        </div>
+        <a><button type="button" @click="filter = 'hot_drink'; getProducts()" class="TableButtons"> Bebidas Calientes
+          </button></a>
+        <a><button type="button" @click="filter = 'cold_drink'; getProducts()" class="TableButtons"> Bebidas Frias
+          </button></a>
+        <a><button type="button" @click="filter = 'liquor_drink'; getProducts()" class="TableButtons"> Bebidas con Licor
+          </button></a>
+        <a><button type="button" @click="filter = 'handmade_dessert'; getProducts()" class="TableButtons"> Postres
+            artesanales </button></a>
+        <a><button type="button" @click="filter = 'specialties'; getProducts()"
+            class="TableButtons">Especialidades</button></a>
       </div>
+      <div id=cuerpo>
+        <MenuProductFrame v-for="product in products" v-bind:key="product.id" v-bind:product="product" />
+
+      </div>
+    </div>
   </div>
-<Footer />
+  <Footer />
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'Menu',
+  components: {
+    MenuProductFrame,
+  },
+
+  data() {
+    return {
+      products: [],
+      filter: 'hot_drink',
+    };
+  },
+
+  methods: {
+    getProducts() {
+      axios.get('http://127.0.0.1:8001/menu/product?product_type=' + this.filter)//ajustar la url en el futuro
+        .then((res) => {
+
+          console.log(res.data.data);
+          if (res.data.data) {
+            this.products = res.data.data;
+            console.log(this.products[0].id);
+          }
+
+        }).catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+
+  mounted() {
+    this.getProducts();
+  }
+
+}
+</script>

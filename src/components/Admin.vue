@@ -7,3 +7,18 @@
         <router-link><button type="button">Inventario</button></router-link>
     </div>
 </template>
+
+<style>
+.lista-de-botones {
+    display: flex;
+    height: 100%;
+}
+</style>
+
+<script>
+import axios from 'axios';
+export default {
+
+}
+
+</script>

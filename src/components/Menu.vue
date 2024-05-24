@@ -36,8 +36,12 @@ import MenuProductFrame from './subComponents/MenuProductFrame.vue';
 
 <style>
 .arrows {
+  display: flex;
+  flex-direction: row;
   text-align: center;
-  gap:50 px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
 </style>
 

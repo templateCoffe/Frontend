@@ -23,12 +23,27 @@ import MenuProductFrame from './subComponents/MenuProductFrame.vue';
       </div>
       <div id=cuerpo>
         <MenuProductFrame v-for="product in products" v-bind:key="product.id" v-bind:product="product" />
-
+        <div class="arrows">
+          <button v-if="has_previous" type="button" @click="pagination('left')">
+            < </button>
+              <button v-if="has_next" type="button" @click="pagination('right')">></button>
+        </div>
       </div>
     </div>
   </div>
   <Footer />
 </template>
+
+<style>
+.arrows {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+</style>
 
 <script>
 import axios from 'axios';
@@ -43,29 +58,46 @@ export default {
     return {
       products: [],
       filter: 'hot_drink',
+      page: 1,
+      has_next: '',
+      has_previous: ''
     };
   },
 
   methods: {
     getProducts() {
-      axios.get('http://127.0.0.1:8001/menu/product?product_type=' + this.filter)//ajustar la url en el futuro
+      axios.get('http://127.0.0.1:8001/menu/product?page=' + this.page + '&product_type=' + this.filter)//ajustar la url en el futuro
         .then((res) => {
 
-          console.log(res.data.data);
+          console.log(res.data);
           if (res.data.data) {
             this.products = res.data.data;
-            console.log(this.products[0].id);
+            this.has_next = res.data.has_next;
+            this.has_previous = res.data.has_previous;
           }
 
         }).catch((err) => {
           console.log(err);
         });
     },
+
+    pagination(movement) {
+      if (this.has_next && movement == 'right') {
+        this.page = this.page + 1;
+        this.getProducts();
+        console.log(this.page)
+      }
+      else if (this.has_previous && movement == 'left') {
+        this.page = this.page - 1;
+        this.getProducts();
+      }
+    }
   },
 
   mounted() {
     this.getProducts();
+    console.log(this.has_next);
+    console.log(this.has_previous);
   }
-
 }
 </script>

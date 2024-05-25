@@ -1,3 +1,20 @@
+<script setup>
+import {ref} from "vue"
+let ver = ref(false)
+
+const mostrar = () =>{
+    if(ver.value==false){
+        ver.value = true
+    }
+    else if (ver.value==true){
+        ver.value = false
+    }
+}
+
+
+</script>
+
+
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="Header">
@@ -8,11 +25,12 @@
             </router-link>
             
         </div>
-        <nav class="ButtonPlaces">
-            <input type="checkbox" id="check">
+        <input type="checkbox" @click="mostrar" id="check">
             <label for="check" class="checkbtn">
                 <i class="fas fa-bars"></i>
             </label>
+        <nav class="ButtonPlaces" :class="{visible:ver}">
+            
            
             <router-link to="/menu"><button type="button" class="headerButtons" name="">Menú</button></router-link>
             <router-link to="/comentarios"><button type="button" class="headerButtons">Comentarios</button></router-link>
@@ -48,13 +66,9 @@
 }
 
 .headerButtons:hover {
-
-    transition: 0ms;
     padding: 14px 20px;
-    transform: translateY(-0px);
     background-color: #A6A2A2;
     color: #E5E6E4;
-    border: none;
 }
 
 .Banner {
@@ -76,7 +90,7 @@
 
 
 .ButtonPlaces {
-    position: relative;
+    
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(10rem,1fr));
     grid-column: 2;
@@ -104,16 +118,41 @@
         display: block;
 
     }
-    button{
-        position:fixed;
-        width: 100%;
-        height: 100vh;
-        background: #2c3e50;
-        top:80px;
-        left:-100%;
-        text-align: center;
-        transition: all .5s;
+    .ButtonPlaces{
+        opacity:0;
+        visibility:hidden;
+        position: absolute;
+        left:-4rem;
+        right: -4rem;
+        bottom: 1;
+        top: 50px;
+        background: #FFFFFF;
+        transition:all 0.5s;
+        
+        
 
     }
+    .ButtonPlaces.visible{
+        opacity: 1;
+        visibility: visible;
+    }
+    .headerButtons{
+       margin:10px
+        
+    }
+    .LogoPlace {
+
+        position:absolute;
+   
+    }
+    .checkbtn{
+
+        position: absolute;
+        right: 10px;
+        top:30px
+
+    }
+    
 }
+
 </style>

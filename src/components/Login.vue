@@ -9,9 +9,9 @@
                         required>
                     <div>
                         <input v-model="keepLogin" type="checkbox">
-                        <label for="keepLogin"> Mantener sesión iniciada</label>
+                        <label for="keepLogin">Mantener sesión iniciada</label>
                     </div>
-                    <input class="btn btn-primary" @click="doLogin">
+                    <input type="button" class="btn btn-primary" @click="doLogin" value="Iniciar Sesión">
                 </form>
             </div>
         </div>
@@ -24,7 +24,6 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 export default {
-
 
     name: 'Login',
     data() {
@@ -50,7 +49,7 @@ export default {
                     .then((res) => {
                         let token = res.data.token;
                         console.log(token);
-                        axios.defaults.headers.common['Authorization'] = res.data.token;
+                        localStorage.setItem('authToken', 'token');
                         this.$router.push('/admin');
                     }).catch((err) => {
                         console.log(err);
@@ -76,14 +75,11 @@ export default {
                                     confirmButtonText: 'Cool'
                                 })
                                 break;
-
-
                             default:
                                 break;
                         }
                     });
             }
-
         }
     }
 }
@@ -91,16 +87,18 @@ export default {
 </script>
 
 <style>
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+label {
+    padding-left: 10px
 }
 
 p {

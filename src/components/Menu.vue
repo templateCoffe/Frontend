@@ -85,7 +85,6 @@ export default {
       if (this.has_next && movement == 'right') {
         this.page = this.page + 1;
         this.getProducts();
-        console.log(this.page)
       }
       else if (this.has_previous && movement == 'left') {
         this.page = this.page - 1;
@@ -96,8 +95,6 @@ export default {
 
   mounted() {
     this.getProducts();
-    console.log(this.has_next);
-    console.log(this.has_previous);
   }
 }
 </script>

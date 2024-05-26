@@ -113,7 +113,7 @@ const mostrar = () =>{
     display: none
 }
 
-@media(max-width: 1368px){
+@media(max-width: 1386px){
     .checkbtn{
         display: block;
 

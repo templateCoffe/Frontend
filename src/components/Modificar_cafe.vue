@@ -8,7 +8,7 @@ import Footer from './Footer.vue';
     <Header/>
    <div class="row my-3 " id="edit_menu">
       <div class="col-md-6" id="edit_menu" >
-        <h1>cappucchino</h1>
+        <h1>café</h1>
 
         <form class="  row my-5 ">
 
@@ -34,7 +34,14 @@ import Footer from './Footer.vue';
             </div>
 
             <div class="col-md-12 " >
-            <input type=" text" class="form-control tamaño" placeholder="descripcion">
+                <div class="row">
+                <textarea rows="5"  placeholder="descripción"></textarea>
+            </div>
+            </div>
+            <div class="col-md-12 ">
+
+                    <input type="submit" class="form-control  aceptar" value="Editar">
+
             </div>
 </form>
 
@@ -49,10 +56,6 @@ import Footer from './Footer.vue';
     #edit_menu{
         margin: 0 auto;
         width: 100%;
-
-    
-        
-
     }
 
     #edit_menu h1{
@@ -75,9 +78,14 @@ import Footer from './Footer.vue';
     #edit_menu input, select{
         margin: 10px;
     }
-    .tamaño{
-        padding-bottom: 100px;
+
+    #edit_menu textarea{
+        margin-left: 20px;
+        max-width: 90%;
     }
-    
+    .aceptar{
+        background: #A6A2A2;
+        color: #FBFBF2
+    }
 
 </style>

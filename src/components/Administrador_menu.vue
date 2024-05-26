@@ -42,8 +42,7 @@ const opciones = (op) => {
       <div id=cuerpo>
         <AdminMenuProductFrame v-for="product in products" v-bind:key="product.id" v-bind:product="product" />
         <div class="arrows">
-          <button v-if="has_previous" type="button" @click="pagination('left')">
-            < </button>
+          <button v-if="has_previous" type="button" @click="pagination('left')"> < </button>
               <button v-if="has_next" type="button" @click="pagination('right')">></button>
         </div>
       </div>

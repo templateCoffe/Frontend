@@ -32,10 +32,15 @@ import Footer from './Footer.vue';
              <div class="col-md-6 " >
             <input type="text" class="form-control" placeholder="precio">
             </div>
-
-            <div class="col-md-12 " >
-            <input type=" text" class="form-control tamaño" placeholder="descripcion">
+            <div class="col-md-12 row " >
+            <textarea rows="5" placeholder="Descripción..."></textarea>
             </div>
+            <div class="col-md-12" >
+
+                <input type="submit" value="Editar" class="form-control style-submit">
+
+            </div>
+
 </form>
 
       </div>
@@ -47,6 +52,7 @@ import Footer from './Footer.vue';
 <style>
      
     #edit_menu{
+        
         margin: 0 auto;
         width: 100%;
 
@@ -69,15 +75,23 @@ import Footer from './Footer.vue';
     #edit_menu form{
         margin: 0 auto;
         width: 50%;
+        
 
     }
 
     #edit_menu input, select{
         margin: 10px;
     }
-    .tamaño{
-        padding-bottom: 100px;
+    
+    textarea{
+        margin-left: 23px;
     }
     
-
+    .style-submit{
+        color:#E5E6E4;
+        background-color: #A6A2A2;
+        height: 60px;
+        font-size: 30px;
+    }
+    
 </style>

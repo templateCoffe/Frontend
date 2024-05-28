@@ -2,6 +2,7 @@ import { isAuthenticated } from './auth'
 import Index from './components/Index.vue'
 import Menu from './components/Menu.vue'
 import Reservas from './components/Reservas.vue'
+import Reservas_2 from './components/Reservas_2.vue'
 import Comentarios from './components/Comentarios.vue'
 import Modificar_menu from './components/Modificar_menu.vue'
 import Blog from './components/Blog.vue'
@@ -19,6 +20,8 @@ import Administrador_chatbot from './components/Administrador_chatbot.vue'
 import Modificar_chatbot from './components/Modificar_chatbot.vue'
 import Anadir_chatbot from './components/Anadir_chatbot.vue'
 import Chatbot from './components/Chatbot.vue'
+import Administrador_reservas from './components/Administrador_reservas.vue'
+import Procesar_reservas from './components/Procesar_reservas.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -26,6 +29,7 @@ const router = createRouter({
     routes: [
         { path: '/', component: Index },
         { path: '/reservas', component: Reservas },
+        { path: '/reservas_2', component: Reservas_2 },
         { path: '/menu', component: Menu },
         { path: '/comentarios', component: Comentarios },
         { path: '/Chatbot', component: Chatbot },
@@ -93,6 +97,7 @@ const router = createRouter({
                 requiresAuth: true 
             }
         },
+
 
         {
             path: '/admin', component: Admin,

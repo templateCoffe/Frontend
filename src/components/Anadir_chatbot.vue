@@ -26,11 +26,11 @@ import Footer from './Footer.vue';
             </div>
 
             <div class="col-md-12 row " >
-            <textarea rows="5" placeholder="respuesta"></textarea>
+            <textarea rows="5" id="posarea_ac" placeholder="respuesta"></textarea>
             </div>
             <div class="col-md-12" >
 
-                <input type="submit" value="Editar" class="form-control style-submit">
+                <input type="submit" value="Editar" class="form-control style-submit_ac">
 
             </div>
 </form>
@@ -68,11 +68,11 @@ import Footer from './Footer.vue';
         margin: 10px;
     }
     
-    textarea{
+    #posarea_ac{
         margin-left: 23px;
     }
     
-    .style-submit{
+    .style-submit_ac{
         color:#E5E6E4;
         background-color: #A6A2A2;
         height: 60px;

@@ -77,7 +77,6 @@ button[type="submit"] {
     padding: 14px 20px;
     border: none;
     display: absolute;
-    cursor: pointer;
     border-radius: 10px;
 }
 
@@ -95,7 +94,6 @@ button[type="submit"]:hover {
     padding: 14px 20px;
     border: none;
     display: absolute;
-    cursor: pointer;
     border-radius: 10px;
 }
 

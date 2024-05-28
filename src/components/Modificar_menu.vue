@@ -218,10 +218,6 @@ export default {
   z-index: -1;
 }
 
-label {
-  cursor: pointer;
-}
-
 #edit_menu {
   margin: 0 auto;
   width: 100%;

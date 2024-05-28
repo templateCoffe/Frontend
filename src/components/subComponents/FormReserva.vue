@@ -1,22 +1,32 @@
 <template>
-    <form @submit.prevent="sendData" ref="Post">
+    <form @submit.prevent="sendData" ref="Post" class="row">
+        <div class="col-md-12 row">
         <h2>Detalles de la Solicitud</h2>
         <label for="fullname">Nombre Completo</label>
         <input class="input" type="text" name="fullname" placeholder="Ingrese su nombre completo" v-model="fullname"
             required>
+        </div>
+        <div class="col-md-12 row">
         <label for="idDoc">Documento de identidad</label>
         <input class="input" type="number" name="idDoc" placeholder="Ingrese su Documento de identidad"
             pattern="^((\d{8})|(\d{10})|(\d{11})|(\d{6}-\d{5}))?$" v-model="idDoc" required>
+        </div>
+        <div class="col-md-12 row">
         <label for="email">Correo Electrónico</label>
         <input class="input" type="email" name="email" placeholder="Ingrese su Correo electrónico" v-model="email"
             required>
+        </div>
+        <div class="col-md-12 row">
         <label for="date">Fecha de Reserva (Día y Hora)</label>
         <input class="input" type="datetime-local" name="date" placeholder="Ingrese la fecha y hora de su reserva"
             v-model="date" required>
+        </div>
+        <div class="col-md-12 row">
         <label for="assistants">Número de asistentes</label>
         <input class="input" type="number" min="2" max="30" name="assistants"
             placeholder="Ingrese el número asistentes a la reserva" v-model="assistants" required>
-        <div class="form-check">
+        </div>
+        <div class="form-check col-md-12 row">
             <input type="checkbox" name="isBusiness" v-model="isBussiness">
             <label for="assistants">Reserva empresarial</label>
         </div>
@@ -39,7 +49,6 @@ button[type="submit"] {
     padding: 14px 20px;
     border: none;
     display: absolute;
-    cursor: pointer;
     border-radius: 10px;
 }
 
@@ -57,13 +66,12 @@ button[type="submit"]:hover {
     padding: 14px 20px;
     border: none;
     display: absolute;
-    cursor: pointer;
     border-radius: 10px;
 }
 
 form {
     display: grid;
-    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, minmax(20rem,1fr));
     text-align: center;
     align-content: center;
     margin: 100px;

@@ -5,9 +5,11 @@ import Reservas from './components/Reservas.vue'
 import Comentarios from './components/Comentarios.vue'
 import Modificar_menu from './components/Modificar_menu.vue'
 import Blog from './components/Blog.vue'
+import Publicacion from './components/Publicacion.vue'
 import Login from './components/Login.vue'
 import Admin from './components/Admin.vue'
 import Administrador_menu from './components/Administrador_menu.vue'
+import Administrador_inventario from './components/Administrador_inventario.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -21,6 +23,8 @@ const router = createRouter({
         { path: '/login', component: Login },
         { path: '/admin', component: Admin },
         { path: '/Modificar_menu/:id', name:'Modificar_menu', component: Modificar_menu},
+        { path: '/Publicacion', component: Publicacion},
+        { path: '/Administrador_inventario', component: Administrador_inventario},
         {
             path: '/admin', component: Admin,
             meta: {

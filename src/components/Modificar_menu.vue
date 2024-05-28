@@ -134,6 +134,7 @@ label {
 #edit_menu form {
   margin: 0 auto;
   width: 50%;
+        
 }
 
 #edit_menu input,

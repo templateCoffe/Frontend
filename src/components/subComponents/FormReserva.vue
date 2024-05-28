@@ -17,8 +17,8 @@
         <input class="input" type="number" min="2" max="30" name="assistants"
             placeholder="Ingrese el número asistentes a la reserva" v-model="assistants" required>
         <div class="form-check">
-            <label for="assistants">Reserva empresarial</label>
             <input type="checkbox" name="isBusiness" v-model="isBussiness">
+            <label for="assistants">Reserva empresarial</label>
         </div>
         <button type="submit">Enviar solicitud</button>
     </form>

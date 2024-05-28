@@ -2,6 +2,7 @@ import { isAuthenticated } from './auth'
 import Index from './components/Index.vue'
 import Menu from './components/Menu.vue'
 import Reservas from './components/Reservas.vue'
+import Reservas_2 from './components/Reservas_2.vue'
 import Comentarios from './components/Comentarios.vue'
 import Modificar_menu from './components/Modificar_menu.vue'
 import Blog from './components/Blog.vue'
@@ -26,6 +27,7 @@ const router = createRouter({
     routes: [
         { path: '/', component: Index },
         { path: '/reservas', component: Reservas },
+        { path: '/reservas_2', component: Reservas_2 },
         { path: '/menu', component: Menu },
         { path: '/comentarios', component: Comentarios },
         { path: '/Chatbot', component: Chatbot },

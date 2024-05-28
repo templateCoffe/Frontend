@@ -114,9 +114,7 @@ label {
     padding-left: 10px
 }
 
-p {
-    line-height: 1rem;
-}
+
 
 .card {
     padding: 20px;

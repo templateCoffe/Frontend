@@ -49,8 +49,9 @@ export default {
                     .then((res) => {
                         let token = res.data.token;
                         console.log(token);
-                        localStorage.setItem('authToken', 'token');
+                        localStorage.setItem('authToken', token)
                         this.$router.push('/admin');
+                        
                     }).catch((err) => {
                         console.log(err);
                         let code = err.response.data.code;

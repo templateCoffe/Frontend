@@ -1,12 +1,11 @@
 <script setup>
-import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 </script>
 
 <template>
   <div class="row my-3" id="edit_menu">
     <div class="col-md-6" id="edit_menu">
-      <h1>Editar "{{ products.name }}"</h1>
+      <h1>Editar "{{ product.name }}"</h1>
 
       <form class="row my-5">
         <div class="col-md-6">
@@ -14,17 +13,17 @@ import Footer from "./Footer.vue";
             type="text"
             class="form-control"
             placeholder="nombre"
-            v-bind:value="products.name"
+            v-model="product.name"
           />
         </div>
 
         <div class="col-md-6">
-          <select class="form-select" v-model="products.product_type">
-            <option value="hot_drink" label="Bebida Caliente"/>
-            <option value="cold_drink" label="Bebida Fría"/>
-            <option value="liquor_drink" label="Bebida con licór"/>
-            <option value="handmade_dessert" label="Postres Artesanales"/>
-            <option value="specialties" label="Especialidades"/>
+          <select class="form-select" v-model="product.product_type">
+            <option value="hot_drink" label="Bebida Caliente" />
+            <option value="cold_drink" label="Bebida Fría" />
+            <option value="liquor_drink" label="Bebida con licór" />
+            <option value="handmade_dessert" label="Postres Artesanales" />
+            <option value="specialties" label="Especialidades" />
           </select>
         </div>
 
@@ -34,15 +33,16 @@ import Footer from "./Footer.vue";
             class="form-control"
             placeholder="imagen"
             accept=".jpg,.png"
-            v-bind:value="products.header_img"
+            v-on:change="onFileSelected"
           />
         </div>
         <div class="col-md-6">
           <input
-            type="text"
+            type="number"
             class="form-control"
             placeholder="precio"
-            v-bind:value="products.price"
+            min="0"
+            v-model="product.price"
           />
         </div>
 
@@ -50,9 +50,15 @@ import Footer from "./Footer.vue";
           <textarea
             class="form-control tamaño"
             placeholder="descripcion"
-            v-bind:value="products.description"
+            v-model="product.description"
           />
         </div>
+        <input
+          class="send-menu-changes"
+          type="button"
+          @click="patchProduct"
+          value="Enviar cambios"
+        />
       </form>
     </div>
   </div>
@@ -62,6 +68,7 @@ import Footer from "./Footer.vue";
 
 <script>
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default {
   name: "Menu",
@@ -71,33 +78,58 @@ export default {
 
   data() {
     return {
-      products: [],
-      name: String,
-      header_img: null,
-      price: Number,
-      description: String,
-      product_type: String,
+      product: [],
     };
   },
 
   methods: {
-    getData() {
-      console.log("ñe");
+    onFileSelected(event) {
+      this.product.header_img = event.target.files[0];
     },
 
-    makeJSON() {
-      return {
+    makeFormData() {
+      let formData = new FormData();
+      formData.append("header_img", this.product.header_img);
+      formData.append("name", this.product.name);
+      formData.append("price", this.product.price);
+      formData.append("description", this.product.description);
+      formData.append("product_type", this.product.product_type);
+      console.log(formData);
+      return formData;
+    },
 
-      }
-    }
+    patchProduct() {
+      const token = localStorage.getItem("authToken");
+      axios
+        .patch(
+          "http://127.0.0.1:8001/menu/product/" + this.$route.params.id,
+          this.makeFormData(),
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          
+        })
+        .catch((err) => {
+          console.log(err.response);
+          Swal.fire({
+            icon: "error",
+            title: "Datos no válidos",
+          });
+        });
+    },
   },
 
   mounted() {
     axios
       .get("http://127.0.0.1:8001/menu/product/" + this.$route.params.id) //ajustar la url en el futuro
       .then((res) => {
-        this.products = res.data;
-        console.log(this.products.product_type);
+        this.product = res.data;
+        console.log(object);
       })
       .catch((err) => {
         console.log(err);

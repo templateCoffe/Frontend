@@ -2,75 +2,49 @@
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 const taza = {img:"taza.png"} 
-const texto_taza = {img:"texto_taza.png"}
 
 </script>
 
 <template>
-  <div id="chat">
+  <div id="chat" class=" col-md-6 row">
     <div>
     <h1>pregunta</h1>
     <h1>pregunta</h1>
     <h1>pregunta</h1>
-    </div>
-    <div>
-      <img :src=taza.img>  
-    </div>
+    </div>   
+      <img :src=taza.img id="postaza_c">
+  </div>
+  <div>
+    
   </div>
 </template>
 
-<!--<template>
-
-    <Header/>
-    
-          <div id = chat class="row my-3">
-          <div class="col-md-2" id="preguntas">
-            <img :src=texto_taza.img >
-            <h1>pregunta</h1>
-            <h1>pregunta</h1>
-            <h1>pregunta</h1>
-            
-          </div>
-          <div class="col-md-5" id="img_taza">
-            <img :src=taza.img>
-          </div>
-          </div>
-</template>
-
-<style>
-
-    #chat{
-        
-       margin: 0 auto;
-       text-align: center
-        
-       
-    }
-
-    #img_taza{
-      
-        
-    }
-
-    #img_taza img{
-      width: 60%;
-      margin-top:100px;
-      margin-left: -50px
-      
-    }
-
-    #preguntas img{
-        width: 150%;
-
-    }
-    #preguntas h1{
-      text-align: right;
-    }
-
-</style>-->
-
 <style scoped>
   #chat{
-    display: flex;
+    position: sticky;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem,1fr));
+    text-align: center;
+    margin: 50px;
+    background-color: transparent;
+    text-align: right;
+    margin: 0 auto;
+    
+    
   }
+  #chat h1{
+    margin-top:12% ;
+margin-bottom:-3% ;
+  }
+  #postaza_c{
+    width: 100%;
+    margin-left: -100px;
+    height: 80%;
+  }
+
+ 
+
+  
+
+
 </style>

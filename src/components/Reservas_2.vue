@@ -146,7 +146,7 @@ import Footer from './Footer.vue';
 
     .enviar_s{
         margin: 0 auto;
-        width: 30%;
+        width: 300px;
 
     }
     .enviar_s input:hover{

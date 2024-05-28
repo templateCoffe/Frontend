@@ -25,15 +25,15 @@ import Footer from './Footer.vue';
             <input type="text" class="form-control" placeholder="nombre">
             </div>
 
-            <div class="col-md-12 row " >
-            <textarea rows="5" placeholder="Contenido"></textarea>
+            <div class="col-md-12 row ">
+            <textarea rows="5" id="posarea_mb" placeholder="Contenido"></textarea>
             </div>
             <div class="col-md-12 " >
             <input type= "file" class="form-control" placeholder="imagen">
             </div>
             <div class="col-md-12" >
 
-                <input type="submit" value="Editar" class="form-control style-submit">
+                <input type="submit" value="Editar" class="form-control style-submit_mb">
 
             </div>
 </form>
@@ -71,11 +71,11 @@ import Footer from './Footer.vue';
         margin: 10px;
     }
     
-    textarea{
+    #posarea_mb{
         margin-left: 23px;
     }
     
-    .style-submit{
+    .style-submit_mb{
         color:#E5E6E4;
         background-color: #A6A2A2;
         height: 60px;

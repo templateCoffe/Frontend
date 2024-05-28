@@ -6,11 +6,22 @@ const texto_taza = {img:"texto_taza.png"}
 
 </script>
 
-
 <template>
+  <div id="chat">
+    <div>
+    <h1>pregunta</h1>
+    <h1>pregunta</h1>
+    <h1>pregunta</h1>
+    </div>
+    <div>
+      <img :src=taza.img>  
+    </div>
+  </div>
+</template>
+
+<!--<template>
 
     <Header/>
-
     
           <div id = chat class="row my-3">
           <div class="col-md-2" id="preguntas">
@@ -56,4 +67,10 @@ const texto_taza = {img:"texto_taza.png"}
       text-align: right;
     }
 
+</style>-->
+
+<style scoped>
+  #chat{
+    display: flex;
+  }
 </style>

@@ -41,6 +41,6 @@ input {
   font-size: 40px;
   text-decoration: none;
   color: gray;
-  cursor: pointer;
+  
 }
 </style>

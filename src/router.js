@@ -20,6 +20,8 @@ import Administrador_chatbot from './components/Administrador_chatbot.vue'
 import Modificar_chatbot from './components/Modificar_chatbot.vue'
 import Anadir_chatbot from './components/Anadir_chatbot.vue'
 import Chatbot from './components/Chatbot.vue'
+import Administrador_reservas from './components/Administrador_reservas.vue'
+import Procesar_reservas from './components/Procesar_reservas.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -45,6 +47,8 @@ const router = createRouter({
         { path: '/Administrador_chatbot', component: Administrador_chatbot},
         { path: '/Modificar_chatbot', component: Modificar_chatbot},
         { path: '/Anadir_chatbot', component: Anadir_chatbot},
+        { path: '/Administrador_reservas', component: Administrador_reservas},
+        { path: '/Procesar_reservas', component: Procesar_reservas},
         
         {
             path: '/admin', component: Admin,

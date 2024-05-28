@@ -62,7 +62,6 @@ const mostrar = () =>{
     padding: 14px 20px;
     border: none;
     text-align: center;
-    cursor: pointer;
 }
 
 .headerButtons:hover {

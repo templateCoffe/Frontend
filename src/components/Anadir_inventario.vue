@@ -29,11 +29,11 @@ import Footer from './Footer.vue';
             <input type="password" class="form-control" placeholder="código">
             </div>
             <div class="col-md-12 row " >
-            <textarea rows="5" placeholder="Descripción..."></textarea>
+            <textarea rows="5" id="posarea_ai" placeholder="Descripción..."></textarea>
             </div>
             <div class="col-md-12" >
 
-                <input type="submit" value="Editar" class="form-control style-submit">
+                <input type="submit" value="Editar" class="form-control style-submit_ai">
 
             </div>
 
@@ -78,11 +78,11 @@ import Footer from './Footer.vue';
         margin: 10px;
     }
 
-    textarea{
+    #posarea_ai{
         margin-left: 23px;
     }
     
-    .style-submit{
+    .style-submit_ai{
         color:#E5E6E4;
         background-color: #A6A2A2;
         height: 60px;

@@ -7,11 +7,11 @@
                     <input v-model="idLogin" type="number" class="form-control" placeholder="Identificación" required>
                     <input v-model="passwordLogin" type="password" class="form-control" placeholder="Contraseña"
                         required>
-                    <div>
+                    <div class="keepLogin">
                         <input v-model="keepLogin" type="checkbox">
                         <label for="keepLogin">Mantener sesión iniciada</label>
                     </div>
-                    <input type="button" class="btn btn-primary" @click="doLogin" value="Iniciar Sesión">
+                    <input type="button" @click="doLogin" value="Iniciar Sesión">
                 </form>
             </div>
         </div>
@@ -87,6 +87,19 @@ export default {
 </script>
 
 <style>
+.keepLogin {
+    display: flex;
+    align-items: center;
+}
+
+input[type=button] {
+    display: flexbox;
+    width: 110px
+}
+input[type=checkbox] {
+    width: 20px
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -165,7 +178,6 @@ p {
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    /* grid-template-rows: 0.4fr 0.9fr 2.2fr 0.5fr; */
     grid-auto-columns: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;

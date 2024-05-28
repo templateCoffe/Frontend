@@ -20,7 +20,7 @@ const router = createRouter({
         { path: '/blog', component: Blog },
         { path: '/login', component: Login },
         { path: '/admin', component: Admin },
-        { path: '/Modificar_menu', component: Modificar_menu},
+        { path: '/Modificar_menu/:id', name:'Modificar_menu', component: Modificar_menu},
         {
             path: '/admin', component: Admin,
             meta: {

@@ -95,7 +95,7 @@ export default {
 
 input[type=button] {
     display: flexbox;
-    width: 110px
+    width: 200px
 }
 input[type=checkbox] {
     width: 20px

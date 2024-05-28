@@ -1,8 +1,6 @@
 <template>
   <div id="producto" class="row my-3">
-    <div class="col-md-1 text-center align-self-center">
-      <input type="checkbox" name="toDelete" />
-    </div>
+    
     <div class="col-md-1 text-center">
       <p>{{ product.id }}</p>
     </div>

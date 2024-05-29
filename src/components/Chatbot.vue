@@ -1,50 +1,91 @@
 <script setup>
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
-const taza = {img:"taza.png"} 
-
+const taza = {img:"taza.png"}
+const texto_taza = {img:"texto_taza.png"} 
 </script>
 
 <template>
-  <div id="chat" class=" col-md-6 row">
-    <div>
-    <h1>pregunta</h1>
-    <h1>pregunta</h1>
-    <h1>pregunta</h1>
-    </div>   
-      <img :src=taza.img id="postaza_c">
-  </div>
-  <div>
+
+    <Header/>
+
+    <div class="row my-3" id="pos_chat">
+
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
+
+
+            <table id="pos_tabla">
+
+                <tr>
+                    <td colspan="2" id="pos_taza_text_c2"><img :src=texto_taza.img>
+                    
+                    <p id="pos_text">que quieres saber</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td id="alinear"><h1>pregunta</h1>
+                        <h1>pregunta</h1>
+                        <h1>pregunta</h1>
+                    </td>
+                    <td><img :src=taza.img id="pos_taza_c2"></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
     
-  </div>
+    <Footer/>
+   
 </template>
 
 <style scoped>
-  #chat{
+
+#pos_chat{
     position: sticky;
-    display:grid;
+
+}
+
+#pos_tabla{
     grid-template-columns: repeat(auto-fit, minmax(9rem,1fr));
-    text-align: center;
-    margin: 50px;
     background-color: transparent;
-    text-align: right;
     margin: 0 auto;
-    
-    
-  }
-  #chat h1{
-    margin-top:12% ;
-margin-bottom:-3% ;
-  }
-  #postaza_c{
-    width: 100%;
-    margin-left: -100px;
-    height: 80%;
-  }
+}
+#pos_taza_c2{
 
- 
+    width: 320px;
 
-  
+}
+
+#pos_taza_text_c2{
+
+    position: relative;
+    width: 320px;
+
+}
+
+#pos_taza_text_c2 img{
+
+width: 320px;
+
+}
+
+#pos_taza_text_c2 p{
+    position: absolute;
+    top:3rem;
+    left: 1.5rem;
+    right: 11rem;
+    text-align: center;
 
 
+}
+#alinear{
+    text-align: right;
+}
 </style>

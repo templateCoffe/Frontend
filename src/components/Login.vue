@@ -2,7 +2,7 @@
     <div class="login-page">
         <div class="col-lg-4 col-md-6 col-sm-8 mx-auto">
             <div class="card login" v-bind:class="{ error: emptyFields }">
-                <h1>Sign In</h1>
+                <h1>Iniciar Sesión</h1>
                 <form class="form-group">
                     <input v-model="idLogin" type="number" class="form-control" placeholder="Identificación" required>
                     <input v-model="passwordLogin" type="password" class="form-control" placeholder="Contraseña"

@@ -89,7 +89,7 @@ export default {
 
 .enviar_s {
   margin: 0 auto;
-  width: 30%;
+  width: 300px;
 }
 .enviar_s input:hover {
   background-color: #847577;

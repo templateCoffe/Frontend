@@ -1,4 +1,5 @@
 <script setup>
+ import Chat_pregunta from "./subComponents/Chat_pregunta.vue"
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 const sobre_nosotros={img:"sobre_nosotros.png"}
@@ -8,6 +9,7 @@ const nuestras_especialidades={img:"nuestras_especialidades.png"}
 </script>
 
 <template>
+    <Chat_pregunta/>
     <Header />
    <div class="row my-3" id="edit_imagen">
 

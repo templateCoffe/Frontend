@@ -9,26 +9,31 @@ const texto_taza = {img:"texto_taza.png"}
 
     <Header/>
 
-    <div class="row my-3" id="pos_chat">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+
+
+    <div class="row my-3" id="pos_chat_c">
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
 
 
-            <table id="pos_tabla">
+            <table id="pos_tabla_c">
 
                 <tr>
-                    <td colspan="2" id="pos_taza_text_c2"><img :src=texto_taza.img>
+                    <td colspan="2" id="pos_taza_text_c"><img :src=texto_taza.img>
                     
-                    <p id="pos_text">que quieres saber</p>
+                    <p >¿Cuál es tu inquitud? </p>
 
                     </td>
                 </tr>
                 <tr>
-                    <td id="alinear"><h1>pregunta</h1>
+                    <td id="edit_pregunta_c"><h1>pregunta</h1>
                         <h1>pregunta</h1>
                         <h1>pregunta</h1>
                     </td>
-                    <td><img :src=taza.img id="pos_taza_c2"></td>
+                    <td><img :src=taza.img id="pos_taza_c"></td>
 
                 </tr>
                 <tr>
@@ -40,6 +45,31 @@ const texto_taza = {img:"texto_taza.png"}
         </div>
 
     </div>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex qui explicabo distinctio doloremque, enim id placeat, ut veniam est, ad doloribus. Blanditiis nostrum eaque culpa dolor optio commodi tenetur nam!</p>
+
+
+
     
     <Footer/>
    
@@ -47,45 +77,62 @@ const texto_taza = {img:"texto_taza.png"}
 
 <style scoped>
 
-#pos_chat{
-    position: sticky;
-
-}
-
-#pos_tabla{
-    grid-template-columns: repeat(auto-fit, minmax(9rem,1fr));
+#pos_tabla_c{
+    position: fixed;
+   left:1;
+   top:1;
+   right: 0;
+   bottom: 0;
     background-color: transparent;
-    margin: 0 auto;
+    transform: translate(9%, -45%) ;
+    
 }
-#pos_taza_c2{
+#pos_taza_c{
 
-    width: 320px;
+    width: 280px;
+    margin-top:-20px;
+    margin-left: -50px ;
 
 }
 
-#pos_taza_text_c2{
+#pos_taza_text_c{
 
     position: relative;
-    width: 320px;
+
 
 }
 
-#pos_taza_text_c2 img{
+#pos_taza_text_c img{
 
-width: 320px;
+width: 420px;
+margin-left:-13px;
 
 }
 
-#pos_taza_text_c2 p{
+#pos_taza_text_c p{
     position: absolute;
     top:3rem;
-    left: 1.5rem;
-    right: 11rem;
+    left: 0rem;
+    right: 8rem;
     text-align: center;
+    color: #847577;
+    font-size: 20px;
 
 
 }
-#alinear{
-    text-align: right;
+#edit_pregunta_c{
+    vertical-align: top;
+    
 }
+
+#edit_pregunta_c h1{
+
+    background-color: #e5e6e4;
+    border-radius: 5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    color:#847577
+
+}
+
 </style>

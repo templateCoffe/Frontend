@@ -48,14 +48,14 @@ const texto_taza = {img:"texto_taza.png"}
    right: 0;
    bottom: 0;
     background-color: transparent;
-    transform: translate(9%, 8%) ;
+    transform: translate(6%, 8%);
     
 }
 #pos_taza_cp{
 
-    width: 280px;
+    width: 180px;
     margin-top:-20px;
-    margin-left: -50px ;
+    margin-left: -40px ;
 
 }
 
@@ -68,34 +68,36 @@ const texto_taza = {img:"texto_taza.png"}
 
 #pos_taza_text_cp img{
 
-width: 420px;
-margin-left:-13px;
+width: 250px;
+margin-left:0px;
 
 }
 
 #pos_taza_text_cp p{
     position: absolute;
-    top:3rem;
+    top:2rem;
     left: 0rem;
-    right: 8rem;
+    right: 5rem;
     text-align: center;
     color: #847577;
-    font-size: 20px;
+    font-size: 10px;
 
 
 }
 #edit_pregunta{
     vertical-align: top;
-    
 }
 
 #edit_pregunta h1{
+    
 
     background-color: #e5e6e4;
     border-radius: 5rem;
     padding-left: 4rem;
     padding-right: 4rem;
-    color:#847577
+    color:#847577;
+    font-size: 12px;
+    border: 2px solid black;
 
 }
 

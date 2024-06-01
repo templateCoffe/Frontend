@@ -8,17 +8,44 @@ import Footer from "./Footer.vue";
     <div class="col-md-6" id="edit_menu_pr">
       <h1>Procesar Reserva</h1>
 
-      <div class="row my-5" id="info">
-        <div class="col-md-6"><p>{{ booking.names }} {{ booking.surnames }}</p></div>
-        <div class="col-md-6">2</div>
-        <div class="col-md-6">3</div>
-        <div class="col-md-6">4</div>
-        <div class="col-md-6">5</div>
-        <div class="col-md-6">6</div>
-        <div class="col-md-6">7</div>
-        <div class="col-md-6">8</div>
-        <div class="col-md-6">9</div>
-      </div>
+      <form class="row my-5" id="info">
+        <div class="col-md-6 my-3 " >
+            <p class="form-control">nombre completo:</p>
+            </div>
+
+            <div class="col-md-6 my-3"   >
+            <p class="form-control" > documento de identidad: </p>
+                </div>
+             <div class="col-md-6 my-3 " >
+            <p class="form-control">fecha:</p>
+            </div>
+            <div class="col-md-6 my-3 " >
+              <p class="form-control">hora:</p>
+            </div>
+            <div class="col-md-6 my-3 " >
+              <p class="form-control">número de contacto:</p>
+            </div>
+            <div class="col-md-6 my-3 " >
+              <p class="form-control">correo:</p>
+            </div>
+            <div class="col-md-6 my-3 " >
+              <p class="form-control">número de asistentes:</p>
+            </div>
+            <div class="col-md-6 my-3 " >
+              <p class="form-control">reserva empresarial:</p>
+            </div>
+            <div class="col-md-6 my-3"  >
+
+                <input type="submit" value="aceptar" class="form-control style-submit_pr">
+
+            </div>
+
+            <div class="col-md-6 my-3" >
+
+                <input type="submit" value="rechazar" class="form-control style-submit_pr">
+
+</div>
+      </form>
     </div>
   </div>
 
@@ -151,6 +178,7 @@ export default {
 #edit_menu_pr {
   margin: 0 auto;
   width: 100%;
+  
 }
 
 #edit_menu_pr h1 {
@@ -162,7 +190,7 @@ export default {
   margin: 0px auto;
   color: #847577;
 }
-#edit_menu_pr div #info {
+#edit_menu_pr #info {
   margin: 0 auto;
   width: 50%;
 }

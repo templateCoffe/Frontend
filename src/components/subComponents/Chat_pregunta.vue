@@ -48,7 +48,7 @@ const texto_taza = {img:"texto_taza.png"}
    right: 0;
    bottom: 0;
     background-color: transparent;
-    transform: translate(9%, -45%) ;
+    transform: translate(9%, 8%) ;
     
 }
 #pos_taza_cp{

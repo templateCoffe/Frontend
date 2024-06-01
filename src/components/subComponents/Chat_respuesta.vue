@@ -21,7 +21,7 @@ const texto_taza = {img:"texto_taza.png"}
                 </tr>
                 <tr>
                     <td id="respuesta">
-                        <p></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam expedita non illum eligendi saepe neque! Quod consequatur laboriosam sequi animi cupiditate voluptas perspiciatis fugiat, veritatis, rerum, excepturi odit! Culpa, nobis.</p>
                        
                        
                     </td>
@@ -48,7 +48,7 @@ const texto_taza = {img:"texto_taza.png"}
    right: 0;
    bottom: 0;
     background-color: transparent;
-    transform: translate(9%, -45%) ;
+    transform: translate(9%, -45%);
     
 }
 #pos_taza_cr{

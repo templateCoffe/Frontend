@@ -10,15 +10,28 @@
       <h1>Detalles de la solicitud</h1>
     </div>
     <div class="col-md-12 my-4">
-      <label for="fullname">Nombre Completo</label>
-      <input
-        class="form-control"
-        type="text"
-        name="fullname"
-        placeholder="Ingrese su nombre completo"
-        v-model="fullname"
-        required
-      />
+      <div class="col-md-12 my-4">
+        <label for="names">Nombres</label>
+        <input
+          class="form-control"
+          type="text"
+          name="names"
+          placeholder="Ingrese sus nombres"
+          v-model="names"
+          required
+        />
+      </div>
+      <div class="col-md-12 my-4">
+        <label for="surname">Apellidos</label>
+        <input
+          class="form-control"
+          type="text"
+          name="surname"
+          placeholder="Ingrese sus apellidos"
+          v-model="surnames"
+          required
+        />
+      </div>
 
       <div class="col-md-12 my-4">
         <label for="idDoc">Documento de identidad</label>
@@ -32,16 +45,16 @@
           required
         />
       </div>
-    
+
       <div class="col-md-12 my-4">
-        <label for="idDoc">Documento de identidad</label>
+        <label for="idDoc">Número telefónico</label>
         <input
           class="form-control"
           type="number"
-          name="idDoc"
-          placeholder="Ingrese su Documento de identidad"
+          name="cellphone"
+          placeholder="Ingrese su número telefónico de contacto"
           pattern="^((\d{8})|(\d{10})|(\d{11})|(\d{6}-\d{5}))?$"
-          v-model="idDoc"
+          v-model="cellphone"
           required
         />
       </div>
@@ -92,7 +105,7 @@
           type="checkbox"
           class="edit_check"
           name="isBusiness"
-          v-model="isBussiness"
+          v-model="is_local_reservation"
         />
       </div>
 
@@ -101,7 +114,7 @@
           type="button"
           class="form-control"
           value="Enviar solicitud"
-          @click=""
+          @click="sendData()"
         />
       </div>
     </div>
@@ -132,8 +145,10 @@ export default {
 
   data() {
     return {
-      fullname: null,
+      names: null,
+      surnames: null,
       idDoc: null,
+      cellphone: null,
       email: null,
       date: null,
       assistants: null,
@@ -142,36 +157,30 @@ export default {
   },
   methods: {
     makeReqFormat() {
-        return {
-            "document": "{{$randomInt}}",
-            "email": "{{$randomEmail}}",
-            "is_local_reservation": this.is_local_reservation,
-    "names": this.fullname,
-    "number_of_assistans": this.assistants,
-    "phones": 2,
-    "reservation_date": "2024-08-20",
-    "reservation_time": "20:45",
-    "surnames": "{{$randomLastName}}",
-    "type_document": "C.C."
-        }
+      let date = this.date.slice(0, -6);
+      let hour = this.date.slice(-5);
+
+      console.log(date, hour);
+
+      return {
+        document: this.idDoc.toString(),
+        email: this.email,
+        is_local_reservation: this.is_local_reservation,
+        names: this.names,
+        number_of_assistans: this.assistants,
+        phones: [this.cellphone.toString()],
+        reservation_date: date,
+        reservation_time: hour,
+        surnames: this.surnames,
+        type_document: "C.C.",
+      };
     },
 
     sendData() {
+      let data =this.makeReqFormat();
+      console.log(data);
       axios
-        .post(
-          "http://127.0.0.1:8001/booking/reservation", //For testing purposes
-          {
-            parameter: {
-              id: 0,
-              fullname: this.fullname,
-              idDoc: this.idDoc,
-              email: this.email,
-              date: this.date + "T00:00:00.000Z",
-              assistants: this.assistants,
-              isBussiness: this.isBussiness,
-            },
-          }
-        )
+        .post("http://127.0.0.1:8001/booking/reservation", data)
         .then((res) => {
           console.log(res);
           this.$refs.Post.reset();
@@ -179,12 +188,16 @@ export default {
             icon: "success",
             title: "Reserva enviada exitosamente",
           });
+          location.reload();
         })
         .catch((error) => {
-          this.response = error.response;
-          console.log(this.response);
+          console.log(error.response);
+          Swal.fire({
+            icon: "error",
+            title: "Su reserva no pudo ser enviada",
+            text: "Error: " + error.response.data.detailed,
+          });
         });
-      this.$refs.anyName.reset();
     },
   },
 };

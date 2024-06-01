@@ -1,7 +1,6 @@
 import { isAuthenticated } from './auth'
 import Index from './components/Index.vue'
 import Menu from './components/Menu.vue'
-import Reservas from './components/Reservas.vue'
 import Reservas_2 from './components/Reservas_2.vue'
 import Comentarios from './components/Comentarios.vue'
 import Modificar_menu from './components/Modificar_menu.vue'
@@ -45,7 +44,7 @@ const router = createRouter({
                 requiresAuth: true
             }
         },
-        { path: '/Publicacion', component: Publicacion },
+        { path: '/Publicacion/:id', component: Publicacion },
         {
             path: '/Administrador_inventario', component: Administrador_inventario,
             meta: {
@@ -59,7 +58,7 @@ const router = createRouter({
             }
         },
         {
-            path: '/Modificar_item', component: Modificar_item,
+            path: '/Modificar_item', name: 'Modificar_item', component: Modificar_item,
             meta: {
                 requiresAuth: true
             }
@@ -89,7 +88,7 @@ const router = createRouter({
             }
         },
         {
-            path: '/Modificar_chatbot', component: Modificar_chatbot,
+            path: '/Modificar_chatbot', name: 'Modificar_chatbot', component: Modificar_chatbot,
             meta: {
                 requiresAuth: true
             }
@@ -115,7 +114,13 @@ const router = createRouter({
             }
         },
         {
-            path: '/modificar_menu', component: Modificar_menu,
+            path: '/administrador_reservas', component: Administrador_reservas,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/procesar_reservas/:id', name: 'procesar_reservas', component: Procesar_reservas,
             meta: {
                 requiresAuth: true
             }

@@ -1,26 +1,6 @@
 <script setup>
 import Footer from "./Footer.vue";
 import AdminMenuProductFrame from "./subComponents/AdminMenuProductFrame.vue";
-import { ref } from "vue";
-let op = 1;
-let change = ref(1);
-const opciones = (op) => {
-  if (op == 1) {
-    change.value = 1;
-  }
-  if (op == 2) {
-    change.value = 2;
-  }
-  if (op == 3) {
-    change.value = 3;
-  }
-  if (op == 4) {
-    change.value = 4;
-  }
-  if (op == 5) {
-    change.value = 5;
-  }
-};
 </script>
 
 <template>

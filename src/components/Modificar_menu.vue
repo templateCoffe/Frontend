@@ -42,6 +42,7 @@ import Footer from "./Footer.vue";
             class="form-control"
             placeholder="precio"
             min="0"
+            step="1"
             v-model="product.price"
           />
         </div>
@@ -53,12 +54,21 @@ import Footer from "./Footer.vue";
             v-model="product.description"
           />
         </div>
-        <input
-          class="send-menu-changes"
-          type="button"
-          @click="patchProduct"
-          value="Enviar cambios"
-        />
+        <div class="row my-5 justify-content-center">
+          <input
+            class="send-menu-changes"
+            type="button"
+            @click="patchProduct"
+            value="Enviar cambios"
+          />
+
+          <input
+            class="delete-product"
+            type="button"
+            @click="deleteProduct"
+            value="Eliminar Producto"
+          />
+        </div>
       </form>
     </div>
   </div>
@@ -72,13 +82,11 @@ import Swal from "sweetalert2";
 
 export default {
   name: "Menu",
-  /* components: {
-    MenuProductFrame,
-  }, */
 
   data() {
     return {
       product: [],
+      product_reference: this.getProduct(),
     };
   },
 
@@ -89,13 +97,75 @@ export default {
 
     makeFormData() {
       let formData = new FormData();
-      formData.append("header_img", this.product.header_img);
-      formData.append("name", this.product.name);
-      formData.append("price", this.product.price);
-      formData.append("description", this.product.description);
-      formData.append("product_type", this.product.product_type);
+      let a = this.product;
+      let b = this.product_reference;
+
+      if (a.name != b.name) {
+        console.log(a.name, b.name);
+        formData.append("name", a.name);
+      }
+      if (a.price != b.price) {
+        formData.append("price", a.price);
+      }
+      if (a.description != b.description) {
+        formData.append("description", a.description);
+      }
+      if (a.product_type != b.product_type) {
+        formData.append("product_type", a.product_type);
+      }
+      if (a.header_img != b.header_img) {
+        formData.append("header_img", a.header_img);
+      }
+
       console.log(formData);
       return formData;
+    },
+
+    getProduct() {
+      axios
+        .get("http://127.0.0.1:8001/menu/product/" + this.$route.params.id) //ajustar la url en el futuro
+        .then((res) => {
+          this.product_reference = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    deleteProduct() {
+      const token = localStorage.getItem("authToken");
+      Swal.fire({
+        icon: "info",
+        title: "Va a eliminar " + this.product.name + ", ¿Está seguro?",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        preConfirm: async () => {
+          axios
+            .delete(
+              "http://127.0.0.1:8001/menu/product/" + this.$route.params.id,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err.response);
+            });
+        },
+        allowOutsideClick: () => !Swal.isLoading(),
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            icon: "success",
+            title: `Producto eliminado satisfactoriamente`,
+          });
+          this.$router.push("/Administrador_menu");
+        }
+      });
     },
 
     patchProduct() {
@@ -112,7 +182,11 @@ export default {
         )
         .then((res) => {
           console.log(res);
-          
+          Swal.fire({
+            icon: "success",
+            title: `Producto editado satisfactoriamente`,
+          });
+          this.$router.push("/Administrador_menu");
         })
         .catch((err) => {
           console.log(err.response);
@@ -129,7 +203,6 @@ export default {
       .get("http://127.0.0.1:8001/menu/product/" + this.$route.params.id) //ajustar la url en el futuro
       .then((res) => {
         this.product = res.data;
-        console.log(object);
       })
       .catch((err) => {
         console.log(err);
@@ -170,6 +243,10 @@ select {
 }
 .tamaño {
   padding-bottom: 100px;
+}
+
+.delete-product {
+  width: 200px;
 }
 </style>
 

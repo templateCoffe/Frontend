@@ -28,32 +28,84 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: Index },
-        { path: '/reservas', component: Reservas },
-        { path: '/reservas_2', component: Reservas_2 },
+        { path: '/reservas', component: Reservas_2 },
         { path: '/menu', component: Menu },
         { path: '/comentarios', component: Comentarios },
         { path: '/Chatbot', component: Chatbot },
         { path: '/blog', component: Blog },
         { path: '/login', component: Login },
-        { path: '/admin', component: Admin },
-        { path: '/Modificar_menu/:id', name:'Modificar_menu', component: Modificar_menu},
-        { path: '/Publicacion', component: Publicacion},
-        { path: '/Administrador_inventario', component: Administrador_inventario},
-        { path: '/Anadir_inventario', component: Anadir_inventario},
-        { path: '/Modificar_item', component: Modificar_item},
-        { path: '/Administrador_blog', component: Administrador_blog},
-        { path: '/Modificar_blog', component: Modificar_blog},
-        { path: '/Anadir_blog', component: Anadir_blog},
-        { path: '/Administrador_chatbot', component: Administrador_chatbot},
-        { path: '/Modificar_chatbot', component: Modificar_chatbot},
-        { path: '/Anadir_chatbot', component: Anadir_chatbot},
-        { path: '/Administrador_reservas', component: Administrador_reservas},
-        { path: '/Procesar_reservas', component: Procesar_reservas},
-        
+        {
+            path: '/admin', component: Admin, meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Modificar_menu/:id', name: 'Modificar_menu', component: Modificar_menu,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        { path: '/Publicacion', component: Publicacion },
+        {
+            path: '/Administrador_inventario', component: Administrador_inventario,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Anadir_inventario', component: Anadir_inventario,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Modificar_item', component: Modificar_item,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Administrador_blog', component: Administrador_blog,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Modificar_blog', component: Modificar_blog,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Anadir_blog', component: Anadir_blog,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Administrador_chatbot', component: Administrador_chatbot,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Modificar_chatbot', component: Modificar_chatbot,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/Anadir_chatbot', component: Anadir_chatbot,
+            meta: {
+                requiresAuth: true
+            }
+        },
+
+
         {
             path: '/admin', component: Admin,
             meta: {
-                requiresAuth: true // Todas las vistas de administración deberán tener esto de ahora en adelante
+                requiresAuth: true
             }
         },
         {
@@ -62,7 +114,12 @@ const router = createRouter({
                 requiresAuth: true
             }
         },
-        { path: '/modificar_menu', component: Modificar_menu },
+        {
+            path: '/modificar_menu', component: Modificar_menu,
+            meta: {
+                requiresAuth: true
+            }
+        },
 
     ]
 });

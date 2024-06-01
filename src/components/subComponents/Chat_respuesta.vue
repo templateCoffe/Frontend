@@ -98,16 +98,16 @@ margin-left:0px;
 
 
 #respuesta{
-width: 190px;
-text-align: center;
+width: 200px;
+text-align: justify;
 }
 
 #respuesta p{
     font-size:10px;
-    
     margin-top:-5px;
     background-color: #e5e6e4;
     border-radius: 10px;
+    padding: 10px;
 }
 
 </style>

@@ -122,7 +122,7 @@ const router = createRouter({
         {
             path: '/procesar_reservas/:id', name: 'procesar_reservas', component: Procesar_reservas,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
 

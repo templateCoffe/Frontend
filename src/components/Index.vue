@@ -11,7 +11,7 @@ const nuestras_especialidades={img:"nuestras_especialidades.png"}
 </script>
 
 <template>
-    <Chat_category/>
+    <Chat_respuesta/>
     <Header />
    <div class="row my-3" id="edit_imagen">
 

@@ -48,15 +48,14 @@ const texto_taza = {img:"texto_taza.png"}
    right: 0;
    bottom: 0;
     background-color: transparent;
-    transform: translate(9%, -45%);
+    transform: translate(6%, -2%);
     
 }
 #pos_taza_cr{
 
-    width: 280px;
+    width: 180px;
     margin-top:-20px;
-    margin-left: -50px ;
-
+    margin-left: -40px ;
 }
 
 #pos_taza_text_cr{
@@ -67,35 +66,48 @@ const texto_taza = {img:"texto_taza.png"}
 
 #pos_taza_text_cr img{
 
-width: 420px;
-margin-left:-13px;
+    width: 250px;
+margin-left:0px;
 
 }
 
 #pos_taza_text_cr p{
     position: absolute;
-    top:3rem;
+    top:2rem;
     left: 0rem;
-    right: 9rem;
+    right: 5rem;
     text-align: center;
     color: #847577;
-    font-size: 20px;
+    font-size: 10px;
 
 
 }
 #edit_atras_cr{
-    background-color: #e5e6e4;
-    border-radius: 5rem;
-    color:#847577;
     text-align: center;
- 
     
 }
+#edit_atras_cr h1{
+    background-color: #e5e6e4;
+    border: 2px solid black;
+    border-radius: 5rem;
+    color:#847577;
+    font-size: 12px;
+    margin-top: -10px ;
+
+}
+
 
 #respuesta{
-width: 318px;
-vertical-align: top;
+width: 190px;
 text-align: center;
+}
+
+#respuesta p{
+    font-size:10px;
+    
+    margin-top:-5px;
+    background-color: #e5e6e4;
+    border-radius: 10px;
 }
 
 </style>

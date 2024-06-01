@@ -22,10 +22,13 @@ import Chatbot from './components/Chatbot.vue'
 import Administrador_reservas from './components/Administrador_reservas.vue'
 import Procesar_reservas from './components/Procesar_reservas.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import Error404 from "./components/subComponents/Error404.vue"
+import Error401 from "./components/subComponents/Error401.vue"
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        { path: '/:pathMatch(.*)*', component: Error404 },
         { path: '/', component: Index },
         { path: '/reservas', component: Reservas_2 },
         { path: '/menu', component: Menu },

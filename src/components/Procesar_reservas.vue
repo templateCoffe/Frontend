@@ -9,7 +9,7 @@ import Footer from "./Footer.vue";
       <h1>Procesar Reserva</h1>
 
       <div class="row my-5" id="info">
-        <div class="col-md-6">{{ booking.names }} {{ booking.surnames }}</div>
+        <div class="col-md-6"><p>{{ booking.names }} {{ booking.surnames }}</p></div>
         <div class="col-md-6">2</div>
         <div class="col-md-6">3</div>
         <div class="col-md-6">4</div>

@@ -75,7 +75,7 @@ button:focus-visible {
 } */
 /* --- */
 
-html {
+##app {
   font-family: Ubuntu;
   color: #847577;
   background: #FBFBF2;

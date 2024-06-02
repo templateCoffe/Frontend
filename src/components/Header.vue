@@ -124,7 +124,7 @@ const mostrar = () =>{
         left:-4rem;
         right: -4rem;
         bottom: 1;
-        top: 45px;
+        top: 111px;
         background: #FFFFFF;
         transition:all 0.5s;
         

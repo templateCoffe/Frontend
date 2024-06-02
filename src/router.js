@@ -18,7 +18,6 @@ import Anadir_blog from './components/Anadir_blog.vue'
 import Administrador_chatbot from './components/Administrador_chatbot.vue'
 import Modificar_chatbot from './components/Modificar_chatbot.vue'
 import Anadir_chatbot from './components/Anadir_chatbot.vue'
-import Chatbot from './components/Chatbot.vue'
 import Administrador_reservas from './components/Administrador_reservas.vue'
 import Procesar_reservas from './components/Procesar_reservas.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -33,7 +32,6 @@ const router = createRouter({
         { path: '/reservas', component: Reservas_2 },
         { path: '/menu', component: Menu },
         { path: '/comentarios', component: Comentarios },
-        { path: '/Chatbot', component: Chatbot },
         { path: '/blog', component: Blog },
         { path: '/login', component: Login },
         {
@@ -107,7 +105,7 @@ const router = createRouter({
         {
             path: '/admin', component: Admin,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
         {

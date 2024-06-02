@@ -1,6 +1,6 @@
 <script setup>
 const taza = {img:"taza.png"}
-const texto_taza = {img:"texto_taza.png"} 
+const texto_taza = {img:"texto_taza.png"}
 </script>
 
 <template>
@@ -10,7 +10,7 @@ const texto_taza = {img:"texto_taza.png"}
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
 
 
-            <table id="pos_tabla_cc">
+            <table id="pos_tabla_cc" :class="{visible:mostrarc}">
 
                 <tr>
                     <td colspan="2" id="pos_taza_text_cc"><img :src=texto_taza.img>
@@ -20,7 +20,10 @@ const texto_taza = {img:"texto_taza.png"}
                     </td>
                 </tr>
                 <tr>
-                    <td id="edit_categoria"><h1>categoría</h1>
+                    <td id="edit_categoria">
+                        
+                        
+                        <button @click="prueba()"><h1 >categoría</h1> </button>
                         <h1>categoría</h1>
                         <h1>categoría</h1>
                     </td>
@@ -55,7 +58,11 @@ const texto_taza = {img:"texto_taza.png"}
     width: 180px;
     margin-top:-20px;
     margin-left: -40px ;
+}
 
+#pos_tabla_cc.visible{
+    opacity: 0;
+    visibility: visible;
 }
 
 #pos_taza_text_cc{
@@ -97,6 +104,11 @@ margin-left:0px;
     color:#847577;
     font-size: 12px;
     border: 2px solid black;
+    cursor: pointer;
+
+}
+#edit_categoria button{
+    background: red;
 
 }
 

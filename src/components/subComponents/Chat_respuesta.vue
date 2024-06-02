@@ -1,6 +1,6 @@
 <script setup>
 const taza = {img:"taza.png"}
-const texto_taza = {img:"texto_taza.png"} 
+const texto_taza = {img:"texto_taza.png"}
 </script>
 
 <template>
@@ -10,7 +10,7 @@ const texto_taza = {img:"texto_taza.png"}
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
 
 
-            <table id="pos_tabla_cr">
+            <table id="pos_tabla_cr" :class="{visible:mostrarr}">
 
                 <tr>
                     <td colspan="2" id="pos_taza_text_cr"><img :src=texto_taza.img>
@@ -49,7 +49,11 @@ const texto_taza = {img:"texto_taza.png"}
    bottom: 0;
     background-color: transparent;
     transform: translate(6%, -2%);
-    
+}
+
+#pos_tabla_cr.visible{
+    opacity: 0;
+    visibility: visible;
 }
 #pos_taza_cr{
 

@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-8 text-right" id="informacion">
       <a @click="toModificate(post.id)" class="name">
-        <p>{{ post.title }}</p>
+        <p>{{ post.title.slice(2, -2) }}</p>
       </a>
     </div>
   </div>

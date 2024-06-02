@@ -2,6 +2,7 @@
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 import MenuProductFrame from './subComponents/MenuProductFrame.vue';
+import Chatbot from "./Chatbot.vue"
 </script>
 
 <template>
@@ -31,6 +32,7 @@ import MenuProductFrame from './subComponents/MenuProductFrame.vue';
       </div>
     </div>
   </div>
+  <Chatbot/>
   <Footer />
 </template>
 

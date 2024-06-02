@@ -1,6 +1,7 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
+import Chatbot from "./Chatbot.vue"
 import Publicacion from './Publicacion.vue';
 
 
@@ -31,7 +32,7 @@ import Publicacion from './Publicacion.vue';
         </div>
         </div>
     </div>   
-
+    <Chatbot/>
     <Footer/>
 </template>
 

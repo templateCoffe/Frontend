@@ -1,18 +1,45 @@
+<script setup>
+import {ref} from "vue"
+let ver = ref(false)
+
+const mostrar = () =>{
+    if(ver.value==false){
+        ver.value = true
+    }
+    else if (ver.value==true){
+        ver.value = false
+    }
+}
+
+
+</script>
+
+
 <template>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="Header">
         <div class="LogoPlace">
             <router-link to="/">
                 <img src="https://github.com/templateCoffe/.github/blob/main/profile/images/logo.png?raw=true"
                     alt="logo" width="150" />
             </router-link>
+            
         </div>
-        <div class="MidPart"></div>
-        <div class="ButtonPlaces">
+        <input type="checkbox" @click="mostrar" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+        <nav class="ButtonPlaces" :class="{visible:ver}">
+            
+           
             <router-link to="/menu"><button type="button" class="headerButtons" name="">Menú</button></router-link>
             <router-link to="/comentarios"><button type="button" class="headerButtons">Comentarios</button></router-link>
             <router-link to="/reservas"><button type="button" class="headerButtons">Reservas</button></router-link>
             <router-link to="/blog"><button type="button" class="headerButtons">Blog</button></router-link>
-        </div>
+            
+            
+        </nav>
+        
     </div>
     <div class="Banner"></div>
     <router-view></router-view>
@@ -21,7 +48,7 @@
 <style scoped>
 .Header {
     display: grid;
-    grid-auto-flow: row;
+    grid-auto-flow: flow;
     grid-area: Header;
     min-height: 100px;
     align-items: center;
@@ -34,19 +61,13 @@
     background-color: transparent;
     padding: 14px 20px;
     border: none;
-    display: absolute;
     text-align: center;
-    cursor: pointer;
 }
 
 .headerButtons:hover {
-
-    transition: 0ms;
     padding: 14px 20px;
-    transform: translateY(-0px);
     background-color: #A6A2A2;
     color: #E5E6E4;
-    border: none;
 }
 
 .Banner {
@@ -66,23 +87,71 @@
     text-align: center;
 }
 
-.MidPart {
-    grid-column: 2;
-    /* Segunda columna */
-    grid-row: 1;
-    /* Primera fila */
-
-}
 
 .ButtonPlaces {
-    display: grid;
-    grid-auto-flow: column;
-    grid-column: 3;
+    
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem,1fr));
+    grid-column: 2;
     /* Tercera columna */
-    grid-row: 1;
     /* Primera fila */
     text-align: center;
-    gap: 0 38px;
     margin: 50px;
 }
+.checkbtn{
+    display: none;
+    position: absolute;
+    font-size: 30px;
+    color:#AAAA;;
+    cursor: pointer;
+    right: 0px;
+    top: 10px
+    
+}
+#check{
+    display: none
+}
+
+@media(max-width: 1386px){
+    .checkbtn{
+        display: block;
+
+    }
+    .ButtonPlaces{
+        opacity:0;
+        visibility:hidden;
+        position: absolute;
+        left:-4rem;
+        right: -4rem;
+        bottom: 1;
+        top: 111px;
+        background: #FFFFFF;
+        transition:all 0.5s;
+        
+        
+
+    }
+    .ButtonPlaces.visible{
+        opacity: 1;
+        visibility: visible;
+    }
+    .headerButtons{
+       margin:10px
+        
+    }
+    .LogoPlace {
+
+        position:absolute;
+   
+    }
+    .checkbtn{
+
+        position: absolute;
+        right: 10px;
+        top:30px
+
+    }
+    
+}
+
 </style>

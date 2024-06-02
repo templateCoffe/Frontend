@@ -1,0 +1,48 @@
+#g_cabecera {
+  padding: 19px;
+  background-color: #A6A2A2;
+  width: 90%;
+  margin: 0px auto;
+}
+
+#g_cuerpo {
+  background-color: #E5E6E4;
+  border: 3px solid #A6A2A2;
+  padding: 19px;
+  width: 90%;
+  margin: 0px auto;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#g_producto {
+  background-color: #FBFBF2;
+  width: 100%;
+
+  margin: 0px auto;
+  border-radius: 20px;
+}
+
+#g_informacion h1 {
+  text-align: center;
+
+}
+
+#g_informacion p {
+  text-align: left;
+}
+
+#g_botones {
+
+  padding: 19px;
+  width: 90%;
+
+  margin: 0px auto;
+
+}
+
+#g_botones button {
+  background: #CFD2CD;
+
+
+}

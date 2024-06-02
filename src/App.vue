@@ -1,4 +1,7 @@
 <template>
-  <router-view/> <!-- Provisional, mientras se prueba el funcionamiento. Lo ideal sería que este fuese el index-->
+  <router-view/>
 </template>
 
+<script setup>
+localStorage.setItem("token", "");
+</script>

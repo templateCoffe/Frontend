@@ -2,7 +2,6 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-const imagen_1 = {img:"imagen_1.png"}
     
 
 </script>
@@ -18,40 +17,47 @@ const imagen_1 = {img:"imagen_1.png"}
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="box">
-            <img :src=imagen_1.img id="img_publicacion">
+            <img :src=post.file_img id="img_publicacion">
             <div id="text_info">
-            <h1>titulo de publicacion #1</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cupiditate ab ea esse maiores ratione maxime enim eveniet? Accusantium distinctio quae possimus, incidunt aut amet iste totam eveniet nisi rerum viverra. Aliquam euism vitae in non proident.Aliquam euism vitae in non proident non proident. Aliquam euism vitae in non proident pro ident is just euism vitae. Aliquam eu non pro ident</p> 
+            <h1>{{ post.title}}</h1>
+            <p>{{ post.text }}</p>
+            <b v-if="post.category == 'article' " class="d-flex justify-content-end">Articulo, creado el {{post.created.slice(0,10)}} </b> 
+            <b v-if="post.category == 'news' " class="d-flex justify-content-end">Noticias, creado el {{post.created.slice(0,10)}} </b> 
+            <b v-if="post.category == 'event' " class="d-flex justify-content-end">Eventos, creado el {{post.created.slice(0,10)}} </b> 
         </div>
         </div>
     </div>    
     <Footer/>
 </template>
 
-<style>
+<script>
+import axios from 'axios';
 
-    #img_publicacion{
-        width: 100%;
-        
-    }
-    #box{
-        margin: 0 auto;
-    }
-    #text_info{
-        
-        background-color: #E5E6E4;
-        padding: 2px;
-    
-    }
-    .cabecera{
-      text-align: center;
-      color:#847577;
-      padding: -10px;
-    }
+export default {
+  name: 'Menu',
 
-    .cabecera p{
-      margin-bottom: -5px;
-    }
+  data() {
+    return {
+      post: []
+    };
+  },
 
+  methods: {
+    getProduct() {
+      axios.get('http://127.0.0.1:8001/blog/publication/' + this.$route.params.id)//ajustar la url en el futuro
+        .then((res) => {
+          if (res.data) {
+            this.post = res.data;
+          }
 
-</style>
+        }).catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+
+  mounted() {
+    this.getProduct();
+  }
+}
+</script>

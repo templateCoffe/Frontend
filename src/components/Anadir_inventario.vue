@@ -5,7 +5,6 @@ import Footer from './Footer.vue';
 </script>
 
 <template>
-    <Header/>
    <div class="row my-3 " id="edit_menu_ai">
       <div class="col-md-6" id="edit_menu_ai" >
         <h1>añadir item</h1>

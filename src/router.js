@@ -21,10 +21,14 @@ import Anadir_chatbot from './components/Anadir_chatbot.vue'
 import Administrador_reservas from './components/Administrador_reservas.vue'
 import Procesar_reservas from './components/Procesar_reservas.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import Error404 from "./components/subComponents/Error404.vue"
+import Anadir_producto from "./components/Anadir_producto.vue"
+import Error401 from "./components/subComponents/Error401.vue"
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        { path: '/:pathMatch(.*)*', component: Error404 },
         { path: '/', component: Index },
         { path: '/reservas', component: Reservas_2 },
         { path: '/menu', component: Menu },
@@ -56,7 +60,7 @@ const router = createRouter({
             }
         },
         {
-            path: '/Modificar_item', name: 'Modificar_item', component: Modificar_item,
+            path: '/Modificar_item/:id', name: 'Modificar_item', component: Modificar_item,
             meta: {
                 requiresAuth: true
             }
@@ -68,7 +72,7 @@ const router = createRouter({
             }
         },
         {
-            path: '/Modificar_blog', component: Modificar_blog,
+            path: '/Modificar_blog/:id', name: 'Modificar_blog', component: Modificar_blog,
             meta: {
                 requiresAuth: true
             }
@@ -80,13 +84,19 @@ const router = createRouter({
             }
         },
         {
+            path: '/Anadir_producto', component: Anadir_producto,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
             path: '/Administrador_chatbot', component: Administrador_chatbot,
             meta: {
                 requiresAuth: true
             }
         },
         {
-            path: '/Modificar_chatbot', name: 'Modificar_chatbot', component: Modificar_chatbot,
+            path: '/Modificar_chatbot/:id', name: 'Modificar_chatbot', component: Modificar_chatbot,
             meta: {
                 requiresAuth: true
             }
@@ -97,8 +107,6 @@ const router = createRouter({
                 requiresAuth: true
             }
         },
-
-
         {
             path: '/admin', component: Admin,
             meta: {

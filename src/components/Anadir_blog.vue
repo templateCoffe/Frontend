@@ -4,7 +4,6 @@ import Footer from './Footer.vue';
 </script>
 
 <template>
-    <Header/>
    <div class="row my-3 " id="edit_menu_ab">
       <div class="col-md-6" id="edit_menu_ab" >
         <h1>añadir publicación</h1>

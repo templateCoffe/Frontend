@@ -4,7 +4,6 @@ import Footer from './Footer.vue';
 </script>
 
 <template>
-    <Header />
     <div class="row my-1">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div id = "g_cabecera_adm">

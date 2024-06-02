@@ -1,8 +1,8 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-const imagen_1 = {img:"imagen_1.png"}
-const imagen_2 = {img:"imagen_2.png"}
+import Publicacion from './Publicacion.vue';
+
 
 </script>
 
@@ -18,27 +18,80 @@ const imagen_2 = {img:"imagen_2.png"}
     </div>
 
     <div class="row">
-        <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="box">
-            <img :src=imagen_1.img id="img_publicacion">
+        <div v-for="value in posts" class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="box">
+            <img :src=value.file_img id="img_publicacion">
             <div id="text_info">
-            <h1>titulo de publicacion #1</h1>
-            <router-link to="/Publicacion" class="nav-link"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cupiditate ab ea esse maiores ratione maxime enim eveniet? Accusantium distinctio quae possimus...</p></router-link> 
+            <h1>{{ value.title }}</h1>
+            <router-link :to="getPostURL(value)" class="nav-link">
+                <p>{{ value.text.slice(0, 200) }}...</p>
+                <b v-if="value.category == 'news'" class="d-flex justify-content-end">Noticias</b>
+                <b v-if="value.category == 'event'" class="d-flex justify-content-end">Eventos</b>
+                <b v-if="value.category == 'article'" class="d-flex justify-content-end">Articulos</b>
+            </router-link> 
         </div>
         </div>
-    </div>    
-
-    <div class="row my-3">
-        <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="box">
-            <img :src=imagen_2.img id="img_publicacion">
-            <div id="text_info">
-            <h1>titulo de publicacion #2</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cupiditate ab ea esse maiores ratione maxime enim eveniet? Accusantium distinctio quae possimus...</p> 
-        </div>
-        </div>
-    </div>    
+    </div>   
 
     <Footer/>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'Menu',
+  components: {
+    Publicacion,
+  },
+
+  data() {
+    return {
+      posts: [],
+      page: 1,
+      has_next: '',
+      has_previous: ''
+    };
+  },
+
+  methods: {
+
+    getPostURL(value) {
+        return "/Publicacion/" + value.id;
+    },
+
+    getProducts() {
+      axios.get('http://127.0.0.1:8001/blog/publication?page=' + this.page)//ajustar la url en el futuro
+        .then((res) => {
+
+          console.log(res.data);
+          if (res.data.data) {
+            this.posts = res.data.data;
+            this.has_next = res.data.has_next;
+            this.has_previous = res.data.has_previous;
+          }
+
+        }).catch((err) => {
+          console.log(err);
+        });
+    },
+
+    pagination(movement) {
+      if (this.has_next && movement == 'right') {
+        this.page = this.page + 1;
+        this.getProducts();
+      }
+      else if (this.has_previous && movement == 'left') {
+        this.page = this.page - 1;
+        this.getProducts();
+      }
+    }
+  },
+
+  mounted() {
+    this.getProducts();
+  }
+}
+</script>
 
 <style>
 
@@ -50,9 +103,8 @@ const imagen_2 = {img:"imagen_2.png"}
         margin: 0 auto;
     }
     #text_info{
-        
         background-color: #E5E6E4;
-        padding: 2px;
+        padding: 20px;
         color:#847577;
     
     }

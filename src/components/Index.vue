@@ -9,8 +9,8 @@ const nuestras_especialidades={img:"nuestras_especialidades.png"}
 </script>
 
 <template>
-    <Chatbot/>
     <Header />
+    
    <div class="row my-3" id="edit_imagen">
 
         <div class="col-md-4"> <img :src="sobre_nosotros.img"> </div>
@@ -18,6 +18,7 @@ const nuestras_especialidades={img:"nuestras_especialidades.png"}
         <div class="col-md-4"> <img :src="nuestros_servicios.img"></div>
         <div class="col-md-12 my-5"> <img :src="nuestras_especialidades.img"></div>
    </div>
+   <Chatbot/>
     <Footer />
 </template>
 

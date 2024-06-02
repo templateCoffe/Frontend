@@ -1,20 +1,34 @@
 <script setup>
     const taza = {img:"taza.png"}
     const texto_taza = {img:"texto_taza.png"}
+    const cerrar = {img:"cerrar.png"}
     import {ref} from "vue"
+import { viewDepthKey } from "vue-router";
     let mostrarc = ref(false)
     let mostrarp = ref(true)
     let mostrarr = ref(true)
-    let ocultar = ref(false)
+    let verc = ref(false)
+    let verp = ref(true)
+    let verr = ref(true)
+    let rotar = ref(false)
     const avanzar = () => {
         if(mostrarc.value == false){
             mostrarc.value = true
             mostrarp.value = false
+            verc.value = true
+            verp.value = false
+
         }
 
         else if (mostrarp.value == false){
             mostrarp.value = true
             mostrarr.value = false
+            verp.value = true
+            verr.value = false
+
+
+            
+
         }
     }
 
@@ -22,23 +36,67 @@
         if(mostrarp.value == false){
             mostrarc.value = false
             mostrarp.value = true
+            verc.value = false
+            verp.value = true
         }
 
         else if (mostrarr.value == false){
             mostrarp.value = false
             mostrarr.value = true
+            verp.value = false
+            verr.value = true
+
+
         }
     }
+
+    const abrir_cerrar = () =>{
+
+        if(mostrarc.value == false && verc.value == false){
+            verc.value = true
+            rotar.value = true
+        }
+        else if(mostrarc.value == false && verc.value == true){
+            verc.value = false
+            rotar.value = false
+        }
+
+        if(mostrarp.value == false && verp.value == false){
+            verp.value = true
+            rotar.value = true
+        }
+        else if(mostrarp.value == false && verp.value == true){
+            verp.value = false
+            rotar.value = false
+        }
+
+        if(mostrarr.value == false && verr.value == false){
+            verr.value = true
+            rotar.value = true
+        }
+        else if(mostrarr.value == false && verr.value == true){
+            verr.value = false
+            rotar.value = false
+        }
+
+
+
+
+    }
+
+    
 
 </script>
 
 <template>
-    <input type="button" id="ocultar_chat">
-    <label for="ocultar_chat" class="edit_button_img"><img :src=taza.img id="" ></label>
+    <div class="edit_button">
+    
+    <button @click="abrir_cerrar"><img :src=cerrar.img class="e_img" :class="{rotar:rotar}"></button>
+</div>
 <!--categoria-->
  <div class="row my-3">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
-            <table id="pos_tabla_cc" :class="{visible:mostrarc}">
+            <table id="pos_tabla_cc" :class="{es_visible:mostrarc, es_visible:verc}">
                 <tr>
                     <td colspan="2" id="pos_taza_text_cc"><img :src=texto_taza.img>
                     <p >¡hola!<br>¿en que puedo ayudarte? </p>
@@ -60,7 +118,7 @@
 
 <div class="row my-3">
 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
-    <table id="pos_tabla_cp" :class="{visible:mostrarp}">
+    <table id="pos_tabla_cp" :class="{es_visible:mostrarp, es_visible:verp}">
         <tr>
             <td colspan="2" id="pos_taza_text_cp"><img :src=texto_taza.img>
             <p >¿Cuál es tu inquietud? </p>
@@ -83,7 +141,7 @@
 
 <div class="row my-3">
 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
-    <table id="pos_tabla_cr" :class="{visible:mostrarr}">
+    <table id="pos_tabla_cr" :class="{es_visible:mostrarr,  es_visible:verr}">
         <tr>
             <td colspan="2" id="pos_taza_text_cr"><img :src=texto_taza.img>
             <p >Respuesta </p>
@@ -105,25 +163,29 @@
 </template>
 
 <style scoped>
-.edit_button_img{
-    background: silver;
-    width: 7%;
-    height: 100px;
-    border-radius: 100px ;
-    text-align: center;
-    display: none;
-}
 
-.edit_button_img img{
+.edit_button{
+    position: fixed;
+    left:1;
+   top:1;
+   right: 0;
+   bottom: 0;
+   transform: translate(-10%, 0%);
+
+}
+.edit_button img{
     width: 100%;
-    margin-top: 20px;
-    margin-left: -10px ;
+}
+.edit_button button
+{
+    width:50px;
+    background:transparent;
 }
 
-#ocultar_chat
-{
-    display: none;
+.e_img.rotar{
+    transform: rotate(180deg);
 }
+
 
 /*categoria*/
 #pos_tabla_cc{
@@ -133,18 +195,17 @@
    right: 0;
    bottom: 0;
     background-color: transparent;
-    transform: translate(6%, 0%) ;
+    transform: translate(-15%, 0%);
 
 }
 #pos_taza_cc{
-    width: 180px;
-    margin-top:-20px;
-    margin-left: -40px ;
+    width: 130px;
 }
-#pos_tabla_cc.visible{
+#pos_tabla_cc.es_visible{
     opacity: 0;
     visibility: visible;
     display: none;
+    transform:rotate(360deg);
 }
 #pos_taza_text_cc{
     position: relative;
@@ -183,17 +244,15 @@ margin-left:20px;
    right: 0;
    bottom: 0;
     background-color: transparent;
-    transform: translate(6%, 0%) ; 
+    transform: translate(-15%, 0%);
 }
-#pos_tabla_cp.visible{
+#pos_tabla_cp.es_visible{
     opacity: 0;
     visibility: visible;
     display: none;
 }
 #pos_taza_cp{
-    width: 180px;
-    margin-top:-20px;
-    margin-left: -40px ;
+    width: 130px;
 }
 #pos_taza_text_cp{
     position: relative;
@@ -231,17 +290,15 @@ margin-left:20px;
    right: 0;
    bottom: 0;
     background-color: transparent;
-    transform: translate(6%, -2%);
+    transform: translate(-15%, -2%);
 }
-#pos_tabla_cr.visible{
+#pos_tabla_cr.es_visible{
     opacity: 0;
     visibility: visible;
     display:none ;
 }
 #pos_taza_cr{
-    width: 180px;
-    margin-top:-20px;
-    margin-left: -40px ;
+    width: 130px;
 }
 #pos_taza_text_cr{
     position: relative;

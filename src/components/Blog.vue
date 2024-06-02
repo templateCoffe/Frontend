@@ -1,6 +1,7 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
+import Chatbot from "./Chatbot.vue"
 const imagen_1 = {img:"imagen_1.png"}
 const imagen_2 = {img:"imagen_2.png"}
 
@@ -36,7 +37,7 @@ const imagen_2 = {img:"imagen_2.png"}
         </div>
         </div>
     </div>    
-
+    <Chatbot/>
     <Footer/>
 </template>
 

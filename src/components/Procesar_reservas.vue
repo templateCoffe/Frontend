@@ -9,42 +9,63 @@ import Footer from "./Footer.vue";
       <h1>Procesar Reserva</h1>
 
       <form class="row my-5" id="info">
-        <div class="col-md-6 my-3 " >
-            <p class="form-control">nombre completo:</p>
-            </div>
+        <div class="col-md-6 my-3">
+          <b>Nombre Completo:</b>
+          <p class="form-control">
+            {{ booking.names }}
+            {{ booking.surnames }}
+          </p>
+        </div>
+        <div class="col-md-6 my-3">
+          <b>Documento de identidad:</b>
+          <p class="form-control">{{ booking.document }}</p>
+        </div>
+        <div class="col-md-6 my-3">
+          <b>Fecha de la Reservación:</b>
+          <p class="form-control">
+            {{ reservation.date }}
+          </p>
+        </div>
+        <div class="col-md-6 my-3">
+          <b>Hora de la reservación:</b>
+          <p class="form-control">{{ reservation.time }}</p>
+        </div>
+        <div class="col-md-6 my-3">
+          <b>Número de contacto:</b>
+          <p class="form-control">{{ phone }}</p>
+        </div>
+        <div class="col-md-6 my-3">
+          <b>Correo Electrónico</b>
+          <p class="form-control">{{ booking.email }}</p>
+        </div>
+        <div class="col-md-6 my-3">
+          <b>Número de asistentes:</b>
+          <p class="form-control">{{ booking.number_of_assistans }}</p>
+        </div>
+        <div class="col-md-6 my-3">
+          <b>¿Es una Reserva empresarial?:</b>
+          <p v-if="booking.is_local_reservation" class="form-control">Si</p>
+          <p v-else-if="!booking.is_local_reservation" class="form-control">
+            Si
+          </p>
+        </div>
+        <div class="col-md-6 my-3">
+          <input
+            type="button"
+            value="Aceptar Reserva"
+            class="form-control style-submit_pr"
+            @click="processBooking('approved')"
+          />
+        </div>
 
-            <div class="col-md-6 my-3"   >
-            <p class="form-control" > documento de identidad: </p>
-                </div>
-             <div class="col-md-6 my-3 " >
-            <p class="form-control">fecha:</p>
-            </div>
-            <div class="col-md-6 my-3 " >
-              <p class="form-control">hora:</p>
-            </div>
-            <div class="col-md-6 my-3 " >
-              <p class="form-control">número de contacto:</p>
-            </div>
-            <div class="col-md-6 my-3 " >
-              <p class="form-control">correo:</p>
-            </div>
-            <div class="col-md-6 my-3 " >
-              <p class="form-control">número de asistentes:</p>
-            </div>
-            <div class="col-md-6 my-3 " >
-              <p class="form-control">reserva empresarial:</p>
-            </div>
-            <div class="col-md-6 my-3"  >
-
-                <input type="submit" value="aceptar" class="form-control style-submit_pr">
-
-            </div>
-
-            <div class="col-md-6 my-3" >
-
-                <input type="submit" value="rechazar" class="form-control style-submit_pr">
-
-</div>
+        <div class="col-md-6 my-3 text-align-center">
+          <input
+            type="button"
+            value="Rechazar Reserva"
+            class="form-control style-submit_pr"
+            @click="processBooking('rejected')"
+          />
+        </div>
       </form>
     </div>
   </div>
@@ -62,14 +83,16 @@ export default {
   data() {
     return {
       booking: [],
+      reservation: [],
+      phone: [],
     };
   },
 
   methods: {
-    makeFormData(processResult) {
+    makeFormData(key, observation) {
       return {
-        status: processResult,
-        observation: this.observation,
+        status: key,
+        observation: observation,
       };
     },
 
@@ -87,17 +110,25 @@ export default {
         });
     },
 
-    processBooking() {
+    processBooking(status) {
       const token = localStorage.getItem("authToken");
+      console.log(token);
       Swal.fire({
         icon: "info",
-        title: "Va a eliminar " + this.booking.document + ", ¿Está seguro?",
+        title:
+          "Va a " +
+          (status == "approved" ? "aprobar" : "rechazar") +
+          " esta reserva, por favor deje sus observaciones para el cliente",
+        input: "text",
+        inputPlaceholder: "Observaciones para el cliente",
         showCancelButton: true,
         confirmButtonText: "Aceptar",
-        preConfirm: async () => {
+        preConfirm: async (observation) => {
           axios
             .patch(
-              "http://127.0.0.1:8001/booking/reservation" + this.$route.params.id,
+              "http://127.0.0.1:8001/booking/reservation/" +
+                this.$route.params.id,
+              this.makeFormData(status, observation),
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -115,41 +146,12 @@ export default {
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
-            icon: "success",
-            title: `Reserva Aceptada satisfactoriamente`,
+            icon: "info",
+            title: `Reserva Procesada satisfactoriamente`,
           });
-          this.$router.push("/Administrador_rersevas");
+          this.$router.push("/administrador_reservas");
         }
       });
-    },
-
-    patchProduct() {
-      const token = localStorage.getItem("authToken");
-      axios
-        .patch(
-          "http://127.0.0.1:8001/menu/product/" + this.$route.params.id,
-          this.makeFormData(),
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          Swal.fire({
-            icon: "success",
-            title: `Producto editado satisfactoriamente`,
-          });
-          this.$router.push("/Administrador_menu");
-        })
-        .catch((err) => {
-          console.log(err.response);
-          Swal.fire({
-            icon: "error",
-            title: "Datos no válidos",
-          });
-        });
     },
   },
 
@@ -166,6 +168,8 @@ export default {
       ) //ajustar la url en el futuro
       .then((res) => {
         this.booking = res.data;
+        this.reservation = this.booking.reservation;
+        this.phone = this.booking.phones[0];
       })
       .catch((err) => {
         console.log(err);
@@ -178,7 +182,6 @@ export default {
 #edit_menu_pr {
   margin: 0 auto;
   width: 100%;
-  
 }
 
 #edit_menu_pr h1 {
@@ -195,7 +198,7 @@ export default {
   width: 50%;
 }
 #edit_menu_pr p,
-select {
+b {
   margin: 10px;
 }
 
@@ -207,6 +210,7 @@ select {
   color: #e5e6e4;
   background-color: #a6a2a2;
   height: 60px;
-  font-size: 30px;
+  width: auto;
+  font-size: 20px;
 }
 </style>

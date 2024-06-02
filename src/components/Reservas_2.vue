@@ -2,6 +2,7 @@
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 import FormReserva from "./subComponents/FormReserva.vue";
+import Chatbot from "./Chatbot.vue"
 </script>
 
 <template>
@@ -37,6 +38,7 @@ import FormReserva from "./subComponents/FormReserva.vue";
   </div>
 
   <Footer />
+  <Chatbot/>
 </template>
 
 <script>

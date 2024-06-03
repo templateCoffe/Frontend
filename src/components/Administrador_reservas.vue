@@ -1,11 +1,11 @@
 <script setup>
+import HeaderAdministrador from "./HeaderAdministrador.vue";
 import Footer from "./Footer.vue";
 import AdminReservasFrame from "./subComponents/AdminReservasFrame.vue";
-import Pendientes from "./subComponents/Pendientes.vue";
-import Procesados from "./subComponents/Procesados.vue";
 </script>
 
 <template>
+  <HeaderAdministrador/>
   <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id="g_cabecera_adr">

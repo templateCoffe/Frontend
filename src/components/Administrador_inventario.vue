@@ -1,7 +1,7 @@
 <script setup>
-import Header from "./Header.vue";
-import Footer from "./Footer.vue";
 import HeaderAdministrador from "./HeaderAdministrador.vue";
+import Footer from "./Footer.vue";
+import AdminInventoryFrame from "./subComponents/AdminInventoryFrame.vue";
 </script>
 
 <template>
@@ -16,42 +16,28 @@ import HeaderAdministrador from "./HeaderAdministrador.vue";
 
       <div id="g_cuerpo_adi">
         <div class="row my-3">
-          <div class="col-md-12" id="g_producto_adi">
-            <router-link to="Modificar_item" class="nav-link" target="_blank"
-              ><h1>Servilletas</h1></router-link
-            >
-          </div>
+          <AdminInventoryFrame
+          v-for="item in items"
+          v-bind:key="item.id"
+          v-bind:item="item"
+        />
         </div>
-
-        <div class="row my-3">
-          <div class="col-md-12" id="g_producto_adi">
-            <router-link to="#" class="nav-link" target="_blank"
-              ><h1>Pitillos</h1></router-link
+        <div class="arrows">
+          <button v-if="has_previous" type="button" @click="pagination('left')">
+            <
+          </button>
+          <button v-if="has_next" type="button" @click="pagination('right')">
             >
-          </div>
-        </div>
-        <div class="row my-3">
-          <div class="col-md-12" id="g_producto_adi">
-            <router-link to="#" class="nav-link" target="_blank"
-              ><h1>[Insert name]</h1></router-link
-            >
-          </div>
-        </div>
-        <div class="row my-3">
-          <div class="col-md-12" id="g_producto_adi">
-            <router-link to="#" class="nav-link" target="_blank"
-              ><h1>[Insert name]</h1></router-link
-            >
-          </div>
+          </button>
         </div>
       </div>
+
       <div id="g_botones_adi">
         <button type="button" class="TableButtons">
           <router-link to="./Anadir_inventario" class="nav-link"
             ><a>Añadir producto</a></router-link
           >
         </button>
-        <button type="button" class="TableButtons">Eliminar producto</button>
       </div>
     </div>
   </div>
@@ -59,6 +45,67 @@ import HeaderAdministrador from "./HeaderAdministrador.vue";
   <Footer />
   <router-view></router-view>
 </template>
+
+<script>
+import axios from "axios";
+
+export default {
+  name: "Admin Reservas",
+
+  components: {
+    AdminInventoryFrame,
+  },
+
+  data() {
+    return {
+      items: [],
+      page: 1,
+      has_next: "",
+      has_previous: "",
+    };
+  },
+
+  methods: {
+    getItems() {
+      const token = localStorage.getItem("authToken");
+      axios
+        .get(
+          "http://127.0.0.1:8001/inventory/item?page=" +
+            this.page,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.data) {
+            this.items = res.data.data;
+            this.has_next = res.data.has_next;
+            this.has_previous = res.data.has_previous;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    pagination(movement) {
+      if (this.has_next && movement == "right") {
+        this.page = this.page + 1;
+        this.getItems();
+      } else if (this.has_previous && movement == "left") {
+        this.page = this.page - 1;
+        this.getItems();
+      }
+    },
+  },
+
+  mounted() {
+    this.getItems();
+  },
+};
+</script>
 
 <style>
 #g_cabecera_adi {

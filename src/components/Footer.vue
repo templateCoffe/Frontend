@@ -1,5 +1,6 @@
 <template>
-    <div class="SocialMedia">
+    <footer>
+    <div class="SocialMedia ">
         <b id="SMTitle">Lema del lugar</b>
         <a href="mailto:info@templatecoffee.com"><p id="SMMail">info@templatecoffee.com</p></a>
         <div id="SMIcons">
@@ -11,6 +12,7 @@
     <div class="Footer">
         <p>© 2024 Template Coffee</p>
     </div>
+</footer>
 </template>
 
 <style scoped>
@@ -47,6 +49,7 @@ a {
     text-align: center;
     align-content: center;
     color: #FBFBF2;
+    
 }
 
 #SMIcons {

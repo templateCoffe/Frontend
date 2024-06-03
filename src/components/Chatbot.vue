@@ -232,6 +232,7 @@ export default {
 
 <style scoped>
 .edit_button {
+    z-index: 100;
   position: fixed;
   left: 1;
   top: 1;
@@ -253,6 +254,7 @@ export default {
 
 /*categoria*/
 #pos_tabla_cc {
+    z-index: 100;
   position: fixed;
   left: 1;
   top: 1;
@@ -299,6 +301,7 @@ export default {
 }
 /*pregunta*/
 #pos_tabla_cp {
+    z-index: 100;
   position: fixed;
   left: 1;
   top: 1;
@@ -345,6 +348,7 @@ export default {
 /*respuesta*/
 
 #pos_tabla_cr {
+    z-index: 100;
   position: fixed;
   left: 1;
   top: 1;

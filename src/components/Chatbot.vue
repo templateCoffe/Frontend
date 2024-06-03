@@ -88,10 +88,11 @@
 </script>
 
 <template>
+    <!--boton abrir y cerrar-->
     <div class="edit_button">
-    
     <button @click="abrir_cerrar"><img :src=cerrar.img class="e_img" :class="{rotar:rotar}"></button>
-</div>
+    </div>
+
 <!--categoria-->
  <div class="row my-3">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" >
@@ -162,7 +163,7 @@
 </template>
 
 <style scoped>
-
+/*boton abrir-cerrat*/
 .edit_button{
     position: fixed;
     left:1;
@@ -204,7 +205,6 @@
     opacity: 0;
     visibility: visible;
     display: none;
-    transform:rotate(360deg);
 }
 #pos_taza_text_cc{
     position: relative;

@@ -23,6 +23,7 @@ import Procesar_reservas from './components/Procesar_reservas.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Error404 from "./components/subComponents/Error404.vue"
 import Anadir_producto from "./components/Anadir_producto.vue"
+
 import Error401 from "./components/subComponents/Error401.vue"
 
 const router = createRouter({

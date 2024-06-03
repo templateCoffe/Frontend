@@ -36,9 +36,8 @@ import Chatbot from "./Chatbot.vue"
 
     <FormReserva />
   </div>
-
-  <Footer />
   <Chatbot/>
+  <Footer />
 </template>
 
 <script>
@@ -79,14 +78,18 @@ export default {
   text-align: center;
 }
 
-#form_reservas input {
+.edit_input{
+
   width: 50%;
   margin: 0px auto;
   border: 1px solid black;
+
 }
 
 .edit_check {
   height: 20px;
+  vertical-align: bottom;
+  margin-left: -1rem;
 }
 
 .enviar_s {

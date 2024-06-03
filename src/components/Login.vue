@@ -116,6 +116,7 @@ input[type="button"] {
 }
 input[type="checkbox"] {
   width: 20px;
+  margin-top: 15px
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -138,7 +139,7 @@ label {
 
 .form-group {
   input {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 

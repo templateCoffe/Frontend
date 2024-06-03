@@ -3,7 +3,6 @@
     const texto_taza = {img:"texto_taza.png"}
     const cerrar = {img:"cerrar.png"}
     import {ref} from "vue"
-import { viewDepthKey } from "vue-router";
     let mostrarc = ref(false)
     let mostrarp = ref(true)
     let mostrarr = ref(true)

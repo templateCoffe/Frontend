@@ -23,6 +23,7 @@ import Procesar_reservas from './components/Procesar_reservas.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Error404 from "./components/subComponents/Error404.vue"
 import Anadir_producto from "./components/Anadir_producto.vue"
+import Reserva_procesada from "./components/Reserva_procesada.vue"
 
 import Error401 from "./components/subComponents/Error401.vue"
 
@@ -121,13 +122,19 @@ const router = createRouter({
             }
         },
         {
-            path: '/administrador_reservas', component: Administrador_reservas,
+            path: '/administrador_reservas', name: 'administrador_reservas', component: Administrador_reservas,
             meta: {
                 requiresAuth: true
             }
         },
         {
-            path: '/procesar_reservas/:id', name: 'procesar_reservas', component: Procesar_reservas,
+            path: '/procesar_reservas/:id', name: 'procesar_reserva', component: Procesar_reservas,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/reserva_procesada/:id', name: 'reserva_procesada', component: Reserva_procesada,
             meta: {
                 requiresAuth: true
             }

@@ -53,6 +53,14 @@ import Procesados from "./subComponents/Procesados.vue";
           v-bind:key="booking.id"
           v-bind:booking="booking"
         />
+        <div class="arrows">
+          <button v-if="has_previous" type="button" @click="pagination('left')">
+            <
+          </button>
+          <button v-if="has_next" type="button" @click="pagination('right')">
+            >
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -106,6 +114,15 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    pagination(movement) {
+      if (this.has_next && movement == "right") {
+        this.page = this.page + 1;
+        this.getBookings();
+      } else if (this.has_previous && movement == "left") {
+        this.page = this.page - 1;
+        this.getBookings();
+      }
     },
   },
 

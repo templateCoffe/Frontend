@@ -10,7 +10,10 @@ import AdminInventoryFrame from "./subComponents/AdminInventoryFrame.vue";
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id="g_cabecera_adi">
         <a
-          ><button type="button" class="TableButtons">Lista de items</button></a
+          ><button type="button" class="TableButtons">Items</button></a
+        >
+        <a
+          ><button type="button" class="TableButtons">Stock</button></a
         >
       </div>
 

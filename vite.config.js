@@ -13,4 +13,6 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
+  publicPath: "/Frontend",
+
 });

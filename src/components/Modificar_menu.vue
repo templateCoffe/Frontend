@@ -236,6 +236,9 @@ export default {
   margin: 0 auto;
   width: 50%;
 }
+#edit_menu textarea{
+  margin-left: 10px;
+}
 
 #edit_menu input,
 select {

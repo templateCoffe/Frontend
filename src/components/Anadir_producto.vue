@@ -161,6 +161,10 @@ select {
   margin: 10px;
 }
 
+#edit_menu_ai textarea{
+  margin-left: 10px;
+}
+
 #posarea_ai {
   margin-left: 23px;
 }

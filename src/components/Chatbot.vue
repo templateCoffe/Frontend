@@ -232,6 +232,7 @@ export default {
 
 <style scoped>
 .edit_button {
+    z-index: 100;
   position: fixed;
   left: 1;
   top: 1;

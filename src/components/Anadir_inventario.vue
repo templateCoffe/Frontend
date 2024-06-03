@@ -42,7 +42,7 @@ import Footer from "./Footer.vue";
           />
         </div>
 
-        <div class="col-md-12 text-align-center">
+        <div class="col-md-12 centrar_ai">
             <input
             class="send-menu-changes"
             type="button"
@@ -137,6 +137,10 @@ export default {
 #edit_menu_ai input,
 select {
   margin: 10px;
+}
+
+.centrar_ai{
+  text-align: center;
 }
 
 #posarea_ai {

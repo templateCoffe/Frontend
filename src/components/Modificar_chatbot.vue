@@ -26,7 +26,7 @@ import Footer from "./Footer.vue";
           />
         </div>
 
-        <div class="col-md-12 row">
+        <div class="col-md-12">
           <textarea
             class="form-control tamaño"
             placeholder="descripcion"
@@ -116,7 +116,9 @@ export default {
 select {
   margin: 10px;
 }
-
+#edit_menu_mc textarea{
+  margin-left: 10px;
+}
 #posarea_mc {
   margin-left: 23px;
 }

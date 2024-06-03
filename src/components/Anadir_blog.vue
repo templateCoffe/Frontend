@@ -1,5 +1,4 @@
 <script setup>
-import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 </script>
 
@@ -10,7 +9,7 @@ import Footer from "./Footer.vue";
 
       <form class="row my-5">
         <div class="col-md-12">
-          <select class="form-select" v-model="post.category">
+          <select class="form-select" v-model="category">
             <option value="event" label="Eventos" />
             <option value="news" label="Noticias" />
             <option value="article" label="Artículos" />
@@ -22,7 +21,7 @@ import Footer from "./Footer.vue";
             type="text"
             class="form-control"
             placeholder="Titulo"
-            v-model="post.title"
+            v-model="title"
           />
         </div>
 
@@ -31,7 +30,7 @@ import Footer from "./Footer.vue";
             rows="5"
             id="posarea_mb"
             placeholder="Text"
-            v-model="post.text"
+            v-model="text"
           ></textarea>
         </div>
         <div class="col-md-6">
@@ -47,16 +46,10 @@ import Footer from "./Footer.vue";
           <input
             class="send-menu-changes"
             type="button"
-            @click="patchPost"
+            @click="createPost"
             value="Enviar cambios"
           />
 
-          <input
-            class="delete-product"
-            type="button"
-            @click="deletePost"
-            value="Eliminar Publicación"
-          />
         </div>
       </form>
     </div>
@@ -64,6 +57,70 @@ import Footer from "./Footer.vue";
 
   <Footer />
 </template>
+
+<script>
+import axios from "axios";
+import Swal from "sweetalert2";
+
+export default {
+  name: "Menu",
+
+  data() {
+    return {
+      title: null,
+      file_img: null,
+      text: null,
+      category: "event",
+    };
+  },
+
+  methods: {
+    onFileSelected(event) {
+      this.file_img = event.target.files[0];
+    },
+
+    makeFormData() {
+      let formData = new FormData();
+
+      formData.append("title", this.title);
+      formData.append("file_img", this.file_img);
+      formData.append("text", this.text);
+      formData.append("category", this.category);
+      console.log(formData);
+      return formData;
+    },
+
+    createPost() {
+      const token = localStorage.getItem("authToken");
+      axios
+        .post(
+          "http://127.0.0.1:8001/blog/publication",
+          this.makeFormData(),
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          Swal.fire({
+            icon: "success",
+            title: `Publicación Creada satisfactoriamente`,
+          });
+          this.$router.push("/Administrador_blog");
+        })
+        .catch((err) => {
+          console.log(err.response);
+          Swal.fire({
+            icon: "error",
+            title: "Datos no válidos",
+          });
+        });
+    },
+  },
+};
+</script>
 
 <style>
 #edit_menu_ab {

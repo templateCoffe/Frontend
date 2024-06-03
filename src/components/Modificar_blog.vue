@@ -89,16 +89,17 @@ export default {
       let a = this.post;
       let b = this.post_reference;
       if (a.title != b.title) {
-        console.log(a.title, b.title);
+        console.log(a, b);
         formData.append("title", a.title);
       }
-      if (a.title != b.title) {
+      if (a.text != b.text) {
         formData.append("text", a.text);
       }
       if (a.category != b.category) {
         formData.append("category", a.category);
       }
       if (a.file_img != b.file_img) {
+        console.log(b.file_img);
         formData.append("file_img", a.file_img);
       }
 
@@ -146,7 +147,7 @@ export default {
         if (result.isConfirmed) {
           Swal.fire({
             icon: "success",
-            title: `Publicación eliminado satisfactoriamente`,
+            title: `Publicación eliminada satisfactoriamente`,
           });
           this.$router.push("/Administrador_blog");
         }
@@ -169,7 +170,7 @@ export default {
           console.log(res);
           Swal.fire({
             icon: "success",
-            title: `Publicación editado satisfactoriamente`,
+            title: `Publicación editada satisfactoriamente`,
           });
           this.$router.push("/Administrador_blog");
         })
@@ -188,8 +189,7 @@ export default {
       .get("http://127.0.0.1:8001/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
       .then((res) => {
         this.post = res.data;
-        this.post.title = this.post.title.slice(2, -2);
-        this.post.text = this.post.text.slice(4, -4);
+        
       })
       .catch((err) => {
         console.log(err);

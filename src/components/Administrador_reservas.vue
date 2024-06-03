@@ -21,6 +21,30 @@ import Procesados from "./subComponents/Procesados.vue";
             Pendientes
           </button></a
         >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'approved';
+              getBookings();
+            "
+            class="TableButtons"
+          >
+            Aprobadas
+          </button></a
+        >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'rejected';
+              getBookings();
+            "
+            class="TableButtons"
+          >
+            Rechazadas
+          </button></a
+        >
       </div>
 
       <div id="g_cuerpo_adr">

@@ -46,7 +46,7 @@ import Footer from "./Footer.vue";
           <b>¿Es una Reserva empresarial?:</b>
           <p v-if="booking.is_local_reservation" class="form-control">Si</p>
           <p v-else-if="!booking.is_local_reservation" class="form-control">
-            Si
+            No
           </p>
         </div>
         <div class="col-md-6 my-3">

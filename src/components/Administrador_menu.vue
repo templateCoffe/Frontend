@@ -84,7 +84,7 @@ import AdminMenuProductFrame from "./subComponents/AdminMenuProductFrame.vue";
         </div>
         <div id="g_botones_adi">
           <button type="button" class="TableButtons">
-            <router-link to="./Anadir_inventario" class="nav-link">
+            <router-link to="./Anadir_producto" class="nav-link">
               Añadir producto
             </router-link>
           </button>

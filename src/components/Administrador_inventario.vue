@@ -14,10 +14,7 @@ import Footer from "./Footer.vue";
 
       <div id="g_cuerpo_adi">
         <div class="row my-3">
-          <div class="col-md-1">
-            <input type="checkbox" id="check_adi" />
-          </div>
-          <div class="col-md-11" id="g_producto_adi">
+          <div class="col-md-12" id="g_producto_adi">
             <router-link to="Modificar_item" class="nav-link" target="_blank"
               ><h1>Servilletas</h1></router-link
             >
@@ -25,30 +22,21 @@ import Footer from "./Footer.vue";
         </div>
 
         <div class="row my-3">
-          <div class="col-md-1">
-            <input type="checkbox" id="check_adi" />
-          </div>
-          <div class="col-md-11" id="g_producto_adi">
+          <div class="col-md-12" id="g_producto_adi">
             <router-link to="#" class="nav-link" target="_blank"
               ><h1>Pitillos</h1></router-link
             >
           </div>
         </div>
         <div class="row my-3">
-          <div class="col-md-1">
-            <input type="checkbox" id="check_adi" />
-          </div>
-          <div class="col-md-11" id="g_producto_adi">
+          <div class="col-md-12" id="g_producto_adi">
             <router-link to="#" class="nav-link" target="_blank"
               ><h1>[Insert name]</h1></router-link
             >
           </div>
         </div>
         <div class="row my-3">
-          <div class="col-md-1">
-            <input type="checkbox" id="check_adi" />
-          </div>
-          <div class="col-md-11" id="g_producto_adi">
+          <div class="col-md-12" id="g_producto_adi">
             <router-link to="#" class="nav-link" target="_blank"
               ><h1>[Insert name]</h1></router-link
             >
@@ -103,12 +91,5 @@ import Footer from "./Footer.vue";
 }
 #g_botones_adi button {
   background: #cfd2cd;
-}
-
-#check_adi {
-  position: absolute;
-  left: 60px;
-  margin-top: 10px;
-  height: 24px;
 }
 </style>

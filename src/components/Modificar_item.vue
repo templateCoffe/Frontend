@@ -7,51 +7,57 @@ import Footer from "./Footer.vue";
   <HeaderAdministrador />
   <div class="row my-3" id="edit_menu_mi">
     <div class="col-md-6" id="edit_menu_ai">
-        <h1>Añadir item</h1>
-  
-        <form class="row my-5">
-          <div class="col-md-12">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Nombre del Item"
-              v-model="name"
-            />
-          </div>
-          <div class="col-md-6">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Código"
-              v-model="code"
-            />
-          </div>
-  
-          <div class="col-md-6">
-            <select class="form-select" v-model="brand">
-              <option value="consumible" label="Consumible" />
-              <option value="for_cleaning" label="Limpieza" />
-              <option value="others" label="Otros" />
-            </select>
-          </div>
-          <div class="col-md-12">
-            <textarea
-              class="form-control"
-              placeholder="Descripcion del producto"
-              v-model="description"
-            />
-          </div>
-  
-          <div class="col-md-12 text-align-center">
-              <input
-              class="send-menu-changes"
-              type="button"
-              @click="createItem"
-              value="Crear Item"
-            />
-          </div>
-        </form>
-      </div>
+      <h1>Modificar item</h1>
+
+      <form class="row my-5">
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre del Item"
+            v-model="item.name"
+          />
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Código"
+            v-model="item.code"
+          />
+        </div>
+
+        <div class="col-md-6">
+          <select class="form-select" v-model="item.brand">
+            <option value="consumible" label="Consumible" />
+            <option value="for_cleaning" label="Limpieza" />
+            <option value="others" label="Otros" />
+          </select>
+        </div>
+        <div class="col-md-12">
+          <textarea
+            class="form-control"
+            placeholder="Descripcion del producto"
+            v-model="item.description"
+          />
+        </div>
+
+        <div class="col-md-12 text-align-center">
+          <input
+            class="send-menu-changes"
+            type="button"
+            @click="patchItem()"
+            value="Enviar Cambios"
+          />
+          <input
+            class="send-menu-changes"
+            type="button"
+            @click="deleteItem()"
+            value="Eliminar Item"
+          />
+        </div>
+      </form>
+    </div>
   </div>
 
   <Footer />
@@ -66,31 +72,31 @@ export default {
 
   data() {
     return {
-      question: [],
-      question_reference: [],
+      item: [],
     };
   },
 
   methods: {
     makeJSON() {
       return {
-        "module": this.question.module,
-        "question": this.question.question,
-        "answer": this.question.answer,
+        name: this.item.name,
+        description: this.item.description,
+        brand: this.item.brand,
+        code: this.item.code,
       };
     },
 
-    deleteQuestion() {
+    deleteItem() {
       const token = localStorage.getItem("authToken");
       Swal.fire({
         icon: "info",
-        title: 'Va a eliminar "' + this.question.question + '", ¿Está seguro?',
+        title: 'Va a eliminar "' + this.item.item + '", ¿Está seguro?',
         showCancelButton: true,
         confirmButtonText: "Aceptar",
         preConfirm: async () => {
           axios
             .delete(
-              "http://127.0.0.1:8001/chatbot/chatbot/" + this.$route.params.id,
+              "http://127.0.0.1:8001/inventory/item/" + this.$route.params.id,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -109,18 +115,18 @@ export default {
         if (result.isConfirmed) {
           Swal.fire({
             icon: "success",
-            title: `Pregunta eliminada satisfactoriamente`,
+            title: `Item eliminado satisfactoriamente`,
           });
-          this.$router.push("/Administrador_chatbot");
+          this.$router.push("/Administrador_inventario");
         }
       });
     },
 
-    patchQuestion() {
+    patchItem() {
       const token = localStorage.getItem("authToken");
       axios
         .patch(
-          "http://127.0.0.1:8001/chatbot/chatbot/" + this.$route.params.id,
+          "http://127.0.0.1:8001/inventory/item/" + this.$route.params.id,
           this.makeJSON(),
           {
             headers: {
@@ -132,9 +138,9 @@ export default {
           console.log(res);
           Swal.fire({
             icon: "success",
-            title: `Pregunta editada satisfactoriamente`,
+            title: `Item editado satisfactoriamente`,
           });
-          this.$router.push("/Administrador_chatbot");
+          this.$router.push("/Administrador_inventario");
         })
         .catch((err) => {
           console.log(this.makeJSON());
@@ -148,14 +154,16 @@ export default {
   },
 
   mounted() {
+    const token = localStorage.getItem("authToken");
     axios
-      .get(
-        "http://127.0.0.1:8001/chatbot/public_chatbot?get_answer&pk=" +
-          this.$route.params.id
-      ) //ajustar la url en el futuro
+      .get("http://127.0.0.1:8001/inventory/item/" + this.$route.params.id, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }) //ajustar la url en el futuro
       .then((res) => {
         console.log(res.data);
-        this.question = res.data[0];
+        this.item = res.data;
       })
       .catch((err) => {
         console.log(err);

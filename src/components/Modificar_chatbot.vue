@@ -65,7 +65,6 @@ export default {
   data() {
     return {
       question: [],
-      question_reference: [],
     };
   },
 

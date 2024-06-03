@@ -60,8 +60,8 @@ import AdminPublicationFrame from "./subComponents/AdminPublicationFrame.vue";
           </button>
         </div>
         <div id="g_botones_adi">
-          <router-link to="./Anadir_producto" class="nav-link">
-            <input type="button" value="Añadir producto" />
+          <router-link to="./Anadir_blog" class="nav-link">
+            <input type="button" value="Añadir Publicación" />
           </router-link>
         </div>
       </div>

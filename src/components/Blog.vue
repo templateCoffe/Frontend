@@ -22,9 +22,9 @@ import Publicacion from './Publicacion.vue';
         <div v-for="value in posts" class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="box">
             <img :src=value.file_img id="img_publicacion">
             <div id="text_info">
-            <h1>{{ value.title }}</h1>
+            <h1>{{ value.title.slice(2,-2) }}</h1>
             <router-link :to="getPostURL(value)" class="nav-link">
-                <p>{{ value.text.slice(0, 200) }}...</p>
+                <p>{{ value.text.slice(2,-2).slice(0, 200) }}...</p>
                 <b v-if="value.category == 'news'" class="d-flex justify-content-end">Noticias</b>
                 <b v-if="value.category == 'event'" class="d-flex justify-content-end">Eventos</b>
                 <b v-if="value.category == 'article'" class="d-flex justify-content-end">Articulos</b>

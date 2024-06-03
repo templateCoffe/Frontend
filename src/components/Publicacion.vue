@@ -19,8 +19,8 @@ import Footer from './Footer.vue';
         <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="box">
             <img :src=post.file_img id="img_publicacion">
             <div id="text_info">
-            <h1>{{ post.title}}</h1>
-            <p>{{ post.text }}</p>
+            <h1>{{ post.title.slice(2,-2)}}</h1>
+            <p>{{ post.text.slice(2,-2) }}</p>
             <b v-if="post.category == 'article' " class="d-flex justify-content-end">Articulo, creado el {{post.created.slice(0,10)}} </b> 
             <b v-if="post.category == 'news' " class="d-flex justify-content-end">Noticias, creado el {{post.created.slice(0,10)}} </b> 
             <b v-if="post.category == 'event' " class="d-flex justify-content-end">Eventos, creado el {{post.created.slice(0,10)}} </b> 

@@ -2,6 +2,7 @@
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 import FormReserva from "./subComponents/FormReserva.vue";
+import Chatbot from "./Chatbot.vue"
 </script>
 
 <template>
@@ -35,7 +36,7 @@ import FormReserva from "./subComponents/FormReserva.vue";
 
     <FormReserva />
   </div>
-
+  <Chatbot/>
   <Footer />
 </template>
 
@@ -77,14 +78,18 @@ export default {
   text-align: center;
 }
 
-#form_reservas input {
+.edit_input{
+
   width: 50%;
   margin: 0px auto;
   border: 1px solid black;
+
 }
 
 .edit_check {
   height: 20px;
+  vertical-align: bottom;
+  margin-left: -1rem;
 }
 
 .enviar_s {

@@ -1,53 +1,66 @@
 <script setup>
-import HeaderAdministrador from "./HeaderAdministrador.vue";
+import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 </script>
 
 <template>
-  <HeaderAdministrador />
   <div class="row my-3" id="edit_menu_ai">
     <div class="col-md-6" id="edit_menu_ai">
-      <h1>Añadir item</h1>
+      <h1>Añadir Producto</h1>
 
       <form class="row my-5">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <input
             type="text"
             class="form-control"
-            placeholder="Nombre del Item"
+            placeholder="nombre"
             v-model="name"
           />
         </div>
+
         <div class="col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Código"
-            v-model="code"
-          />
+          <select class="form-select" v-model="product_type">
+            <option value="hot_drink" label="Bebida Caliente" />
+            <option value="cold_drink" label="Bebida Fría" />
+            <option value="liquor_drink" label="Bebida con licór" />
+            <option value="handmade_dessert" label="Postres Artesanales" />
+            <option value="specialties" label="Especialidades" />
+          </select>
         </div>
 
         <div class="col-md-6">
-          <select class="form-select" v-model="brand">
-            <option value="consumible" label="Consumible" />
-            <option value="for_cleaning" label="Limpieza" />
-            <option value="others" label="Otros" />
-          </select>
+          <input
+            type="file"
+            class="form-control"
+            placeholder="imagen"
+            accept=".jpg,.png"
+            v-on:change="onFileSelected"
+          />
         </div>
+        <div class="col-md-6">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="precio"
+            min="0"
+            step="1"
+            v-model="price"
+          />
+        </div>
+
         <div class="col-md-12">
           <textarea
-            class="form-control"
-            placeholder="Descripcion del producto"
+            class="form-control tamaño"
+            placeholder="descripcion"
             v-model="description"
           />
         </div>
-
-        <div class="col-md-12 centrar_ai">
+        <div class="row my-5 justify-content-center">
           <input
             class="send-menu-changes"
             type="button"
-            @click="createItem"
-            value="Crear Item"
+            @click="createProduct"
+            value="Crear Producto"
           />
         </div>
       </form>
@@ -67,41 +80,46 @@ export default {
   data() {
     return {
       name: null,
+      header_img: null,
+      price: null,
       description: null,
-      brand: "consumible",
-      code: null,
+      product_type: "hot_drink",
     };
   },
 
   methods: {
-    makeJSON() {
-      return {
-        name: this.name,
-        description: this.description,
-        brand: this.brand,
-        code: this.code,
-      };
+    onFileSelected(event) {
+      this.header_img = event.target.files[0];
     },
 
-    createItem() {
+    makeFormData() {
+      let formData = new FormData();
+
+      formData.append("name", this.name);
+      formData.append("price", this.price);
+      formData.append("description", this.description);
+      formData.append("product_type", this.product_type);
+      formData.append("header_img", this.header_img);
+      console.log(formData);
+      return formData;
+    },
+
+    createProduct() {
       const token = localStorage.getItem("authToken");
       axios
-        .post("http://18.221.240.167/inventory/item", this.makeJSON(), {
+        .post("http://18.221.240.167/menu/product", this.makeFormData(), {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then((res) => {
-          console.log(this.makeJSON());
           console.log(res);
-          location.reload();
           Swal.fire({
             icon: "success",
-            title: `Item agregado satisfactoriamente`,
+            title: `Producto Creado satisfactoriamente`,
           });
         })
         .catch((err) => {
-          console.log(this.makeJSON());
           console.log(err.response);
           Swal.fire({
             icon: "error",
@@ -138,8 +156,8 @@ select {
   margin: 10px;
 }
 
-.centrar_ai {
-  text-align: center;
+#edit_menu_ai textarea {
+  margin-left: 10px;
 }
 
 #posarea_ai {

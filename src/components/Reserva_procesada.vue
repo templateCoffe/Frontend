@@ -6,7 +6,8 @@ import Footer from "./Footer.vue";
 <template>
   <div class="row my-3" id="edit_menu_pr">
     <div class="col-md-6" id="edit_menu_pr">
-      <h1>Procesar Reserva</h1>
+      <h1 v-if="booking.status == 'approved'">Reserva Aprobada</h1>
+      <h1 v-if="booking.status == 'Rejected'">Reserva Rechazada</h1>
 
       <form class="row my-5" id="info">
         <div class="col-md-6 my-3">
@@ -49,21 +50,26 @@ import Footer from "./Footer.vue";
             No
           </p>
         </div>
-        <div class="col-md-6 my-3">
+        <div>
+          <b>Observaciones realizadas:</b>
+          <p class="form-control">{{ booking.observation }}</p>
+        </div>
+
+        <div class="col-md-6 my-3 text-align-center">
           <input
             type="button"
-            value="Aceptar Reserva"
+            value="Volver"
             class="form-control style-submit_pr"
-            @click="processBooking('approved')"
+            @click="this.$router.push({ name: 'administrador_reservas' })"
           />
         </div>
 
         <div class="col-md-6 my-3 text-align-center">
           <input
             type="button"
-            value="Rechazar Reserva"
+            value="Eliminar Reserva"
             class="form-control style-submit_pr"
-            @click="processBooking('rejected')"
+            @click="deleteBooking()"
           />
         </div>
       </form>
@@ -89,13 +95,6 @@ export default {
   },
 
   methods: {
-    makeFormData(key, observation) {
-      return {
-        status: key,
-        observation: observation,
-      };
-    },
-
     getBooking() {
       axios
         .get(
@@ -110,25 +109,19 @@ export default {
         });
     },
 
-    processBooking(status) {
+    deleteBooking() {
       const token = localStorage.getItem("authToken");
       console.log(token);
       Swal.fire({
         icon: "info",
-        title:
-          "Va a " +
-          (status == "approved" ? "aprobar" : "rechazar") +
-          " esta reserva, por favor deje sus observaciones para el cliente",
-        input: "text",
-        inputPlaceholder: "Observaciones para el cliente",
+        title: "Va a eliminar esta reserva, ¿Está seguro?",
         showCancelButton: true,
         confirmButtonText: "Aceptar",
-        preConfirm: async (observation) => {
+        preConfirm: async () => {
           axios
-            .patch(
+            .delete(
               "http://18.221.240.167/booking/reservation/" +
                 this.$route.params.id,
-              this.makeFormData(status, observation),
               {
                 headers: {
                   Authorization: `Bearer ${token}`,

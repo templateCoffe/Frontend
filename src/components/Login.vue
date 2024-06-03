@@ -32,7 +32,7 @@
 <script>
 import axios from "axios";
 import Swal from "sweetalert2";
-import { logout } from '../auth'
+import { logout } from "../auth";
 
 export default {
   name: "Login",
@@ -51,7 +51,7 @@ export default {
         this.emptyFields = true;
       } else {
         axios
-          .post("http://127.0.0.1:8001/base/auth", {
+          .post("http://18.221.240.167/base/auth", {
             //ajustar la url en el futuro
             keep_logged_in: this.keepLogin,
             password: this.passwordLogin,
@@ -68,7 +68,6 @@ export default {
             let button = "OK";
             switch (code) {
               case "invalid_body":
-                
                 Swal.fire({
                   title: "Error!",
                   text: data.data.password,
@@ -116,6 +115,7 @@ input[type="button"] {
 }
 input[type="checkbox"] {
   width: 20px;
+  margin-top: 15px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -138,7 +138,7 @@ label {
 
 .form-group {
   input {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 

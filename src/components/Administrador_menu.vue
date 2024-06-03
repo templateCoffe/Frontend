@@ -84,7 +84,7 @@ import AdminMenuProductFrame from "./subComponents/AdminMenuProductFrame.vue";
         </div>
         <div id="g_botones_adi">
           <button type="button" class="TableButtons">
-            <router-link to="./Anadir_inventario" class="nav-link">
+            <router-link to="./Anadir_producto" class="nav-link">
               Añadir producto
             </router-link>
           </button>
@@ -119,7 +119,7 @@ export default {
     getProducts() {
       axios
         .get(
-          "http://127.0.0.1:8001/menu/product?page=" +
+          "http://18.221.240.167/menu/product?page=" +
             this.page +
             "&product_type=" +
             this.filter

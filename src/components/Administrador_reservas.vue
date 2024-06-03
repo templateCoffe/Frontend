@@ -1,11 +1,11 @@
 <script setup>
+import HeaderAdministrador from "./HeaderAdministrador.vue";
 import Footer from "./Footer.vue";
 import AdminReservasFrame from "./subComponents/AdminReservasFrame.vue";
-import Pendientes from "./subComponents/Pendientes.vue";
-import Procesados from "./subComponents/Procesados.vue";
 </script>
 
 <template>
+  <HeaderAdministrador />
   <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id="g_cabecera_adr">
@@ -21,6 +21,30 @@ import Procesados from "./subComponents/Procesados.vue";
             Pendientes
           </button></a
         >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'approved';
+              getBookings();
+            "
+            class="TableButtons"
+          >
+            Aprobadas
+          </button></a
+        >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'rejected';
+              getBookings();
+            "
+            class="TableButtons"
+          >
+            Rechazadas
+          </button></a
+        >
       </div>
 
       <div id="g_cuerpo_adr">
@@ -29,6 +53,14 @@ import Procesados from "./subComponents/Procesados.vue";
           v-bind:key="booking.id"
           v-bind:booking="booking"
         />
+        <div class="arrows">
+          <button v-if="has_previous" type="button" @click="pagination('left')">
+            <
+          </button>
+          <button v-if="has_next" type="button" @click="pagination('right')">
+            >
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -61,7 +93,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .get(
-          "http://127.0.0.1:8001/booking/reservation?page=" +
+          "http://18.221.240.167/booking/reservation?page=" +
             this.page +
             "&status=" +
             this.filter,
@@ -82,6 +114,15 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    pagination(movement) {
+      if (this.has_next && movement == "right") {
+        this.page = this.page + 1;
+        this.getBookings();
+      } else if (this.has_previous && movement == "left") {
+        this.page = this.page - 1;
+        this.getBookings();
+      }
     },
   },
 

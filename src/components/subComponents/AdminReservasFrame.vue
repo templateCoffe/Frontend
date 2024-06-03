@@ -5,17 +5,26 @@
         <p>{{ booking.id }}</p>
       </div>
       <div class="col">
-        <a @click="toModificate(booking.id)" class="name"
+        <a v-if="booking.status == 'pending'" @click="toModificate(booking.id)" class="name"
+          ><p>{{ booking.document }}</p>
+        </a>
+        <a v-if="booking.status == 'approved' || booking.status == 'rejected'" @click="toView(booking.id)" class="name"
           ><p>{{ booking.document }}</p>
         </a>
       </div>
       <div class="col">
-        <a @click="toModificate(booking.id)" class="name"
+        <a v-if="booking.status == 'pending'" @click="toModificate(booking.id)" class="name"
+          ><p>{{ booking.reservation.date }}</p>
+        </a>
+        <a v-if="booking.status == 'approved' || booking.status == 'rejected'" @click="toView(booking.id)" class="name"
           ><p>{{ booking.reservation.date }}</p>
         </a>
       </div>
       <div class="col">
-        <a @click="toModificate(booking.id)" class="name"
+        <a v-if="booking.status == 'pending'" @click="toModificate(booking.id)" class="name"
+          ><p>{{ booking.reservation.time }}</p>
+        </a>
+        <a v-if="booking.status == 'approved' || booking.status == 'rejected'" @click="toView(booking.id)" class="name"
           ><p>{{ booking.reservation.time }}</p>
         </a>
       </div>
@@ -31,9 +40,14 @@ export default {
   methods: {
     toModificate(id) {
       console.log(id);
-      this.$router.push({ name: "procesar_reservas", params: { id: id } });
+      this.$router.push({ name: "procesar_reserva", params: { id: id } });
+    },
+    toView(id) {
+      console.log(id);
+      this.$router.push({ name: "reserva_procesada", params: { id: id } });
     },
   },
+  
 };
 </script>
 

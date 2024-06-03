@@ -81,14 +81,38 @@ const abrir_cerrar = () => {
         <tr>
           <td colspan="2" id="pos_taza_text_cc">
             <img :src="texto_taza.img" />
-            <p>¡hola!<br />¿en que puedo ayudarte?</p>
+            <p>¡hola!<br />¡Hola! ¿En que puedo ayudarte?</p>
           </td>
         </tr>
         <tr>
           <td id="edit_categoria">
-            <input type="button" @click="avanzar" value="categoria" />
-            <input type="button" @click="avanzar" value="categoria" />
-            <input type="button" @click="avanzar" value="categoria" />
+            <input
+              type="button"
+              @click="
+                filter = 'faq';
+                getQuestions();
+                avanzar();
+              "
+              value="Preguntas Frecuentes"
+            />
+            <input
+              type="button"
+              @click="
+                filter = 'location';
+                getQuestions();
+                avanzar();
+              "
+              value="Ubicación"
+            />
+            <input
+              type="button"
+              @click="
+                filter = 'contact';
+                getQuestions();
+                avanzar();
+              "
+              value="Contacto"
+            />
           </td>
           <td><img :src="taza.img" id="pos_taza_cc" /></td>
         </tr>
@@ -112,15 +136,10 @@ const abrir_cerrar = () => {
         </tr>
         <tr>
           <td id="edit_pregunta">
-            <input
-              type="button"
-              @click="avanzar"
-              id="e_input_cc"
-              value="pregunta"
-            />
-            <input type="button" @click="avanzar" value="Ubicación" v-model="location" />
-            <input type="button" @click="avanzar" value="Contacto" v-model="contact"/>
-            <input type="button" @click="avanzar" value="Contacto" v-model="faq"/>
+            <div v-for="question in questions">
+              <input type="button" @click="avanzar; " :value="question.question" />
+            </div>
+
             <input type="button" @click="retroceder" value="salir" />
           </td>
           <td><img :src="taza.img" id="pos_taza_cp" /></td>
@@ -140,16 +159,13 @@ const abrir_cerrar = () => {
         <tr>
           <td colspan="2" id="pos_taza_text_cr">
             <img :src="texto_taza.img" />
-            <p>Respuesta</p>
+            <p>Esto se al respecto</p>
           </td>
         </tr>
         <tr>
           <td id="respuesta">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              expedita non illum eligendi saepe neque! Quod consequatur
-              laboriosam sequi animi cupiditate voluptas perspiciatis fugiat,
-              veritatis, rerum, excepturi odit! Culpa, nobis.
+              {{  }}
             </p>
           </td>
           <td><img :src="taza.img" id="pos_taza_cr" /></td>
@@ -165,7 +181,41 @@ const abrir_cerrar = () => {
 </template>
 
 <script>
+import axios from "axios";
 
+export default {
+  name: "Chatbot",
+
+  data() {
+    return {
+      questions: null,
+      filter: null,
+      questionID: null,
+    };
+  },
+
+  methods: {
+
+    questionFilter(id) {
+      return id >= 
+    }
+
+    getQuestions() {
+      axios
+        .get(
+          "http://127.0.0.1:8001//chatbot/public_chatbot?get_question&module=" +
+            this.filter
+        ) //ajustar la url en el futuro
+        .then((res) => {
+          console.log(res.data);
+          this.questions = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>

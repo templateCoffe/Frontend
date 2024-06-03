@@ -8,7 +8,7 @@ import Footer from './Footer.vue';
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div id = "g_cabecera_adm">
   
-                <a><button type="button" class="TableButtons"> Lista de preguntas </button></a>
+                <a><button type="button" class="TableButtons"> Preguntas Frecuentes </button></a>
           </div>
     
         <div id = g_cuerpo_adm >
@@ -47,8 +47,8 @@ import Footer from './Footer.vue';
         </div>
         </div>
           <div id="g_botones_adm">
-        <button type="button" class="TableButtons"> <router-link to="./Anadir_chatbot" class="nav-link" ><a>añadir producto</a></router-link> </button>
-         <button type="button" class="TableButtons"  > eliminar producto </button>
+        <button type="button" class="TableButtons"> <router-link to="./Anadir_chatbot" class="nav-link" ><a>Añadir Pregunta</a></router-link> </button>
+         <button type="button" class="TableButtons"  > Eliminar Pregunta </button>
         </div>
         </div>
       </div>

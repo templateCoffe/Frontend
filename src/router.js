@@ -52,7 +52,7 @@ const router = createRouter({
         {
             path: '/Administrador_inventario', component: Administrador_inventario,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
         {

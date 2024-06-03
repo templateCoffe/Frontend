@@ -51,7 +51,7 @@ import HeaderAdministrador from "./HeaderAdministrador.vue";
             ><a>Añadir producto</a></router-link
           >
         </button>
-        <button type="button" class="TableButtons">Eliminar item</button>
+        <button type="button" class="TableButtons">Eliminar producto</button>
       </div>
     </div>
   </div>

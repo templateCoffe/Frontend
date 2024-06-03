@@ -57,6 +57,7 @@ export default {
   methods: {
     logout() {
       logout();
+      this.$router.push("/");
     },
   },
 };

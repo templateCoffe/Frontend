@@ -57,64 +57,32 @@ import Footer from "./Footer.vue";
 
 <script>
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default {
   name: "Chatbot",
 
   data() {
     return {
-        question: [],
-        question_reference: [],
+      question: [],
+      question_reference: [],
     };
   },
 
   methods: {
-
     makeJSON() {
-        this.question_reference();
-        let json = {};
-        let a = this.question;
-        let b = this.question_reference
-        
-
-        if (a.question != b.question)
-        {
-            json.question = a.question;
-        }
-
-        if (a.answer != b.answer)
-        {
-            json.answer = a.answer;
-        }
-
-        if (a.module != b.module)
-        {
-            json.module = a.module;
-        }
-
-        return json;
-    },
-
-    getData() {
-      axios
-        .get(
-          "http://127.0.0.1:8001/chatbot/public_chatbot?get_answer&pk=" +
-            this.$route.params.id
-        ) //ajustar la url en el futuro
-        .then((res) => {
-          console.log(res.data);
-          this.question_reference = res.data[0];
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      return {
+        "module": this.question.module,
+        "question": this.question.question,
+        "answer": this.question.answer,
+      };
     },
 
     deleteQuestion() {
       const token = localStorage.getItem("authToken");
       Swal.fire({
         icon: "info",
-        title: "Va a eliminar \"" + this.question.question + "\", ¿Está seguro?",
+        title: 'Va a eliminar "' + this.question.question + '", ¿Está seguro?',
         showCancelButton: true,
         confirmButtonText: "Aceptar",
         preConfirm: async () => {
@@ -150,7 +118,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .patch(
-          "http://127.0.0.1:8001/menu/product/" + this.$route.params.id,
+          "http://127.0.0.1:8001/chatbot/chatbot/" + this.$route.params.id,
           this.makeJSON(),
           {
             headers: {
@@ -167,6 +135,7 @@ export default {
           this.$router.push("/Administrador_chatbot");
         })
         .catch((err) => {
+          console.log(this.makeJSON());
           console.log(err.response);
           Swal.fire({
             icon: "error",
@@ -216,9 +185,10 @@ export default {
 select {
   margin: 10px;
 }
-#edit_menu_mc textarea{
+#edit_menu_mc textarea {
   margin-left: 10px;
 }
+
 #posarea_mc {
   margin-left: 23px;
 }

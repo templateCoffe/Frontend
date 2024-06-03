@@ -99,7 +99,7 @@ export default {
     getBooking() {
       axios
         .get(
-          "http://127.0.0.1:8001/booking/reservation/" + this.$route.params.id
+          "http://18.221.240.167/booking/reservation/" + this.$route.params.id
         ) //ajustar la url en el futuro
         .then((res) => {
           this.booking = res.data;
@@ -126,7 +126,7 @@ export default {
         preConfirm: async (observation) => {
           axios
             .patch(
-              "http://127.0.0.1:8001/booking/reservation/" +
+              "http://18.221.240.167/booking/reservation/" +
                 this.$route.params.id,
               this.makeFormData(status, observation),
               {
@@ -159,7 +159,7 @@ export default {
     const token = localStorage.getItem("authToken");
     axios
       .get(
-        "http://127.0.0.1:8001/booking/reservation/" + this.$route.params.id,
+        "http://18.221.240.167/booking/reservation/" + this.$route.params.id,
         {
           headers: {
             Authorization: `Bearer ${token}`,

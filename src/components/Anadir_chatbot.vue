@@ -76,7 +76,7 @@ export default {
     createProduct() {
       const token = localStorage.getItem("authToken");
       axios
-        .post("http://127.0.0.1:8001/chatbot/chatbot", this.makeJSON(), {
+        .post("http://18.221.240.167/chatbot/chatbot", this.makeJSON(), {
           headers: {
             Authorization: `Bearer ${token}`,
           },

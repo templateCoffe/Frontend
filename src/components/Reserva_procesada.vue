@@ -98,7 +98,7 @@ export default {
     getBooking() {
       axios
         .get(
-          "http://127.0.0.1:8001/booking/reservation/" + this.$route.params.id
+          "http://18.221.240.167/booking/reservation/" + this.$route.params.id
         ) //ajustar la url en el futuro
         .then((res) => {
           this.booking = res.data;
@@ -114,14 +114,13 @@ export default {
       console.log(token);
       Swal.fire({
         icon: "info",
-        title:
-          "Va a eliminar esta reserva, ¿Está seguro?",
+        title: "Va a eliminar esta reserva, ¿Está seguro?",
         showCancelButton: true,
         confirmButtonText: "Aceptar",
         preConfirm: async () => {
           axios
             .delete(
-              "http://127.0.0.1:8001/booking/reservation/" +
+              "http://18.221.240.167/booking/reservation/" +
                 this.$route.params.id,
               {
                 headers: {
@@ -153,7 +152,7 @@ export default {
     const token = localStorage.getItem("authToken");
     axios
       .get(
-        "http://127.0.0.1:8001/booking/reservation/" + this.$route.params.id,
+        "http://18.221.240.167/booking/reservation/" + this.$route.params.id,
         {
           headers: {
             Authorization: `Bearer ${token}`,

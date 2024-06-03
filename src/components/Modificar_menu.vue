@@ -123,7 +123,7 @@ export default {
 
     getProduct() {
       axios
-        .get("http://127.0.0.1:8001/menu/product/" + this.$route.params.id) //ajustar la url en el futuro
+        .get("http://18.221.240.167/menu/product/" + this.$route.params.id) //ajustar la url en el futuro
         .then((res) => {
           this.product_reference = res.data;
         })
@@ -142,7 +142,7 @@ export default {
         preConfirm: async () => {
           axios
             .delete(
-              "http://127.0.0.1:8001/menu/product/" + this.$route.params.id,
+              "http://18.221.240.167/menu/product/" + this.$route.params.id,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .patch(
-          "http://127.0.0.1:8001/menu/product/" + this.$route.params.id,
+          "http://18.221.240.167/menu/product/" + this.$route.params.id,
           this.makeFormData(),
           {
             headers: {
@@ -200,7 +200,7 @@ export default {
 
   mounted() {
     axios
-      .get("http://127.0.0.1:8001/menu/product/" + this.$route.params.id) //ajustar la url en el futuro
+      .get("http://18.221.240.167/menu/product/" + this.$route.params.id) //ajustar la url en el futuro
       .then((res) => {
         this.product = res.data;
       })
@@ -236,7 +236,7 @@ export default {
   margin: 0 auto;
   width: 50%;
 }
-#edit_menu textarea{
+#edit_menu textarea {
   margin-left: 10px;
 }
 

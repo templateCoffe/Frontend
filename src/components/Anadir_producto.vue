@@ -62,7 +62,6 @@ import Footer from "./Footer.vue";
             @click="createProduct"
             value="Crear Producto"
           />
-
         </div>
       </form>
     </div>
@@ -108,15 +107,11 @@ export default {
     createProduct() {
       const token = localStorage.getItem("authToken");
       axios
-        .post(
-          "http://127.0.0.1:8001/menu/product",
-          this.makeFormData(),
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+        .post("http://18.221.240.167/menu/product", this.makeFormData(), {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((res) => {
           console.log(res);
           Swal.fire({
@@ -161,7 +156,7 @@ select {
   margin: 10px;
 }
 
-#edit_menu_ai textarea{
+#edit_menu_ai textarea {
   margin-left: 10px;
 }
 

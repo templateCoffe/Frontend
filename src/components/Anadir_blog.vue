@@ -49,7 +49,6 @@ import Footer from "./Footer.vue";
             @click="createPost"
             value="Enviar cambios"
           />
-
         </div>
       </form>
     </div>
@@ -93,15 +92,11 @@ export default {
     createPost() {
       const token = localStorage.getItem("authToken");
       axios
-        .post(
-          "http://127.0.0.1:8001/blog/publication",
-          this.makeFormData(),
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+        .post("http://18.221.240.167/blog/publication", this.makeFormData(), {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((res) => {
           console.log(res);
           Swal.fire({

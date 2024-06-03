@@ -136,7 +136,7 @@ const router = createRouter({
         {
             path: '/reserva_procesada/:id', name: 'reserva_procesada', component: Reserva_procesada,
             meta: {
-                requiresAuth: false
+                requiresAuth: true
             }
         },
 

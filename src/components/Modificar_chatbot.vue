@@ -33,11 +33,19 @@ import Footer from "./Footer.vue";
             v-model="question.answer"
           />
         </div>
-        <div class="col-md-12">
+        <div class="row my-5 justify-content-center">
           <input
+            class="send-menu-changes"
             type="button"
-            value="Editar"
-            class="form-control style-submit_mc"
+            @click="patchQuestion"
+            value="Enviar cambios"
+          />
+
+          <input
+            class="delete-product"
+            type="button"
+            @click="deleteQuestion"
+            value="Eliminar Pregunta"
           />
         </div>
       </form>
@@ -55,11 +63,38 @@ export default {
 
   data() {
     return {
-      question: [],
+        question: [],
+        question_reference: [],
     };
   },
 
   methods: {
+
+    makeJSON() {
+        this.question_reference();
+        let json = {};
+        let a = this.question;
+        let b = this.question_reference
+        
+
+        if (a.question != b.question)
+        {
+            json.question = a.question;
+        }
+
+        if (a.answer != b.answer)
+        {
+            json.answer = a.answer;
+        }
+
+        if (a.module != b.module)
+        {
+            json.module = a.module;
+        }
+
+        return json;
+    },
+
     getData() {
       axios
         .get(
@@ -68,10 +103,75 @@ export default {
         ) //ajustar la url en el futuro
         .then((res) => {
           console.log(res.data);
-          this.question = res.data;
+          this.question_reference = res.data[0];
         })
         .catch((err) => {
           console.log(err);
+        });
+    },
+
+    deleteQuestion() {
+      const token = localStorage.getItem("authToken");
+      Swal.fire({
+        icon: "info",
+        title: "Va a eliminar \"" + this.question.question + "\", ¿Está seguro?",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        preConfirm: async () => {
+          axios
+            .delete(
+              "http://127.0.0.1:8001/chatbot/chatbot/" + this.$route.params.id,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+            })
+            .catch((err) => {
+              console.log(err.response);
+            });
+        },
+        allowOutsideClick: () => !Swal.isLoading(),
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            icon: "success",
+            title: `Pregunta eliminada satisfactoriamente`,
+          });
+          this.$router.push("/Administrador_chatbot");
+        }
+      });
+    },
+
+    patchQuestion() {
+      const token = localStorage.getItem("authToken");
+      axios
+        .patch(
+          "http://127.0.0.1:8001/menu/product/" + this.$route.params.id,
+          this.makeJSON(),
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          Swal.fire({
+            icon: "success",
+            title: `Pregunta editada satisfactoriamente`,
+          });
+          this.$router.push("/Administrador_chatbot");
+        })
+        .catch((err) => {
+          console.log(err.response);
+          Swal.fire({
+            icon: "error",
+            title: "Datos no válidos",
+          });
         });
     },
   },

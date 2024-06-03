@@ -86,7 +86,7 @@ export default {
     createItem() {
       const token = localStorage.getItem("authToken");
       axios
-        .post("https://18.221.240.167/inventory/item", this.makeJSON(), {
+        .post("http://18.221.240.167/inventory/item", this.makeJSON(), {
           headers: {
             Authorization: `Bearer ${token}`,
           },

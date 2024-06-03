@@ -95,7 +95,7 @@ export default {
     getQuestions() {
       axios
         .get(
-          "https://18.221.240.167//chatbot/public_chatbot?get_question&module=" +
+          "http://18.221.240.167//chatbot/public_chatbot?get_question&module=" +
             this.filter
         ) //ajustar la url en el futuro
         .then((res) => {
@@ -112,7 +112,7 @@ export default {
     getQuestions() {
       axios
         .get(
-          "https://18.221.240.167//chatbot/public_chatbot?get_question&module=" +
+          "http://18.221.240.167//chatbot/public_chatbot?get_question&module=" +
             this.filter
         ) //ajustar la url en el futuro
         .then((res) => {

@@ -135,7 +135,7 @@ export default {
     getPosts() {
       axios
         .get(
-          "https://18.221.240.167/blog/publication?page=" +
+          "http://18.221.240.167/blog/publication?page=" +
             this.page +
             "&category=" +
             this.filter

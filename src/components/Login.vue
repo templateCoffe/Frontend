@@ -51,7 +51,7 @@ export default {
         this.emptyFields = true;
       } else {
         axios
-          .post("https://18.221.240.167/base/auth", {
+          .post("http://18.221.240.167/base/auth", {
             //ajustar la url en el futuro
             keep_logged_in: this.keepLogin,
             password: this.passwordLogin,

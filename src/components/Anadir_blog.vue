@@ -92,7 +92,7 @@ export default {
     createPost() {
       const token = localStorage.getItem("authToken");
       axios
-        .post("https://18.221.240.167/blog/publication", this.makeFormData(), {
+        .post("http://18.221.240.167/blog/publication", this.makeFormData(), {
           headers: {
             Authorization: `Bearer ${token}`,
           },

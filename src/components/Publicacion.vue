@@ -47,7 +47,7 @@ export default {
   methods: {
     getProduct() {
       axios
-        .get("https://18.221.240.167/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
+        .get("http://18.221.240.167/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
         .then((res) => {
           if (res.data) {
             this.post = res.data;

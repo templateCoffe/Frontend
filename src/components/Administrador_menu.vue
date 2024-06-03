@@ -119,7 +119,7 @@ export default {
     getProducts() {
       axios
         .get(
-          "https://18.221.240.167/menu/product?page=" +
+          "http://18.221.240.167/menu/product?page=" +
             this.page +
             "&product_type=" +
             this.filter

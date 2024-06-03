@@ -109,7 +109,7 @@ export default {
 
     getPost() {
       axios
-        .get("https://18.221.240.167/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
+        .get("http://18.221.240.167/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
         .then((res) => {
           this.post_reference = res.data;
         })
@@ -128,8 +128,7 @@ export default {
         preConfirm: async () => {
           axios
             .delete(
-              "https://18.221.240.167/blog/publication/" +
-                this.$route.params.id,
+              "http://18.221.240.167/blog/publication/" + this.$route.params.id,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -159,7 +158,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .patch(
-          "https://18.221.240.167/blog/publication/" + this.$route.params.id,
+          "http://18.221.240.167/blog/publication/" + this.$route.params.id,
           this.makeFormData(),
           {
             headers: {
@@ -187,7 +186,7 @@ export default {
 
   mounted() {
     axios
-      .get("https://18.221.240.167/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
+      .get("http://18.221.240.167/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
       .then((res) => {
         this.post = res.data;
       })

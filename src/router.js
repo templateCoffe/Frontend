@@ -94,7 +94,7 @@ const router = createRouter({
         {
             path: '/Administrador_chatbot', component: Administrador_chatbot,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
         {

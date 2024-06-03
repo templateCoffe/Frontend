@@ -281,9 +281,9 @@ export default {
 }
 #pos_taza_text_cc p {
   position: absolute;
-  top: 1.5rem;
+  top: 1rem;
   left: 0rem;
-  right: 4rem;
+  right: 3.5rem;
   text-align: center;
   color: #847577;
   font-size: 10px;

@@ -6,7 +6,7 @@ import AdminChatbotFrame from "./subComponents/AdminChatbotFrame.vue";
 <template>
   <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <div id="cabecera">
+      <div id="cabecera_ac">
         <a
           ><button
             type="button"
@@ -44,7 +44,7 @@ import AdminChatbotFrame from "./subComponents/AdminChatbotFrame.vue";
           </button></a
         >
       </div>
-      <div id="cuerpo">
+      <div id="cuerpo_ac">
         <AdminChatbotFrame
           v-for="question in questions"
           v-bind:key="question.id"
@@ -58,7 +58,7 @@ import AdminChatbotFrame from "./subComponents/AdminChatbotFrame.vue";
             >
           </button>
         </div>
-        <div id="g_botones_adi">
+        <div id="g_botones_ac">
           <button type="button" class="TableButtons">
             <router-link to="./Anadir_chatbot" class="nav-link">
               Añadir Pregunta

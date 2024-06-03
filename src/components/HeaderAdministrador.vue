@@ -1,6 +1,6 @@
 <template>
     <div  class="row" id="edit_row_ha">
-        <div id="edit_col_ha" class="col-md-4 col-sm-6">
+        <div id="edit_col_ha" class="col-md-6 col-sm-8 col-xl-4">
             <router-link to="/admin">
                 <img src="https://github.com/templateCoffe/.github/blob/main/profile/images/logo.png?raw=true"
                     alt="logo" width="150" />

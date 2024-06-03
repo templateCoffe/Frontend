@@ -41,4 +41,31 @@ input {
   color: gray;
   
 }
+
+#cabecera_ac {    
+    padding: 19px;
+    background-color: #A6A2A2 ;
+    width: 90%;
+    margin: 0px auto;
+    text-align: center;
+    }
+
+    #cuerpo_ac {
+    background-color: #E5E6E4;    
+    border:3px solid #A6A2A2;
+    padding: 19px;
+    width: 90%;
+    margin: 0px auto;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    }
+
+  #g_botones_ac {
+  padding: 19px;
+  width: 90%;
+  text-align: center;
+  margin: 0px auto;
+}
+
+
 </style>

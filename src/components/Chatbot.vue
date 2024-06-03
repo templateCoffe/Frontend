@@ -189,6 +189,7 @@
 
 /*categoria*/
 #pos_tabla_cc{
+    z-index: 100;
     position: fixed;
    left:1;
    top:1;
@@ -237,6 +238,7 @@ margin-left:20px;
 }
 /*pregunta*/
 #pos_tabla_cp{
+    z-index: 100;
     position: fixed;
    left:1;
    top:1;
@@ -283,6 +285,7 @@ margin-left:20px;
 /*respuesta*/
 
 #pos_tabla_cr{
+    z-index: 100;
     position: fixed;
    left:1;
    top:1;

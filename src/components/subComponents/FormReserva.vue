@@ -13,7 +13,7 @@
       <div class="col-md-12 my-4">
         <label for="names">Nombres</label>
         <input
-          class="form-control"
+          class="form-control edit_input"
           type="text"
           name="names"
           placeholder="Ingrese sus nombres"
@@ -24,7 +24,7 @@
       <div class="col-md-12 my-4">
         <label for="surname">Apellidos</label>
         <input
-          class="form-control"
+          class="form-control edit_input"
           type="text"
           name="surname"
           placeholder="Ingrese sus apellidos"
@@ -36,7 +36,7 @@
       <div class="col-md-12 my-4">
         <label for="idDoc">Documento de identidad</label>
         <input
-          class="form-control"
+          class="form-control edit_input"
           type="number"
           name="idDoc"
           placeholder="Ingrese su Documento de identidad"
@@ -49,7 +49,7 @@
       <div class="col-md-12 my-4">
         <label for="idDoc">Número telefónico</label>
         <input
-          class="form-control"
+          class="form-control edit_input"
           type="number"
           name="cellphone"
           placeholder="Ingrese su número telefónico de contacto"
@@ -62,7 +62,7 @@
       <div class="col-md-12 my-4">
         <label for="email">Correo Electrónico</label>
         <input
-          class="form-control"
+          class="form-control edit_input"
           type="email"
           name="email"
           placeholder="Ingrese su Correo electrónico"
@@ -74,7 +74,7 @@
       <div class="col-md-12 my-4">
         <label for="date">Fecha de Reserva (Día y Hora)</label>
         <input
-          class="form-control"
+          class="form-control edit_input"
           type="datetime-local"
           name="date"
           placeholder="Ingrese la fecha y hora de su reserva"
@@ -86,7 +86,7 @@
       <div class="col-md-12 my-4">
         <label for="assistants">Número de asistentes</label>
         <input
-          class="form-control"
+          class="form-control edit_input"
           type="number"
           min="2"
           max="30"
@@ -98,21 +98,19 @@
       </div>
 
       <div class="col-md-12 my-2">
-        <label for="isBusiness">Reserva empresarial</label>
-      </div>
-      <div class="col-md-12 my-4">
         <input
           type="checkbox"
           class="edit_check"
           name="isBusiness"
           v-model="is_local_reservation"
         />
+        <label for="isBusiness">Reserva empresarial</label>
       </div>
 
       <div class="col-md-12 my-3 enviar_s">
         <input
           type="button"
-          class="form-control"
+          class="form-control  edit_input"
           value="Enviar solicitud"
           @click="sendData()"
         />

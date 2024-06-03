@@ -188,8 +188,8 @@ export default {
       .get("http://127.0.0.1:8001/blog/publication/" + this.$route.params.id) //ajustar la url en el futuro
       .then((res) => {
         this.post = res.data;
-        this.post.title = this.post.title.slice(2, -2);
-        this.post.text = this.post.text.slice(4, -4);
+        this.post.title = this.post.title;
+        this.post.text = this.post.text;
       })
       .catch((err) => {
         console.log(err);

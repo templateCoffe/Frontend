@@ -1,5 +1,4 @@
 <script setup>
-import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 </script>
 
@@ -64,6 +63,8 @@ import Footer from "./Footer.vue";
 
   <Footer />
 </template>
+
+
 
 <style>
 #edit_menu_ab {

@@ -27,7 +27,7 @@ import Anadir_producto from "./components/Anadir_producto.vue"
 import Error401 from "./components/subComponents/Error401.vue"
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('#'),
     routes: [
         { path: '/:pathMatch(.*)*', component: Error404 },
         { path: '/', component: Index },

@@ -200,7 +200,7 @@ export default {
     getAnswer(pepe) {
       axios
         .get(
-          "http://127.0.0.1:8001//chatbot/public_chatbot?get_answer&pk=" +
+          "http://127.0.0.1:8001/chatbot/public_chatbot?get_answer&pk=" +
             pepe
         ) //ajustar la url en el futuro
         .then((res) => {
@@ -215,7 +215,7 @@ export default {
     getQuestions() {
       axios
         .get(
-          "http://127.0.0.1:8001//chatbot/public_chatbot?get_question&module=" +
+          "http://127.0.0.1:8001/chatbot/public_chatbot?get_question&module=" +
             this.filter
         ) //ajustar la url en el futuro
         .then((res) => {

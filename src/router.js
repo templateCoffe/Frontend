@@ -94,7 +94,7 @@ const router = createRouter({
         {
             path: '/Administrador_chatbot', component: Administrador_chatbot,
             meta: {
-                requiresAuth: false
+                requiresAuth: true
             }
         },
         {
@@ -136,7 +136,7 @@ const router = createRouter({
         {
             path: '/reserva_procesada/:id', name: 'reserva_procesada', component: Reserva_procesada,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
 

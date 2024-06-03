@@ -13,6 +13,6 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
-  publicPath: "/Frontend",
+  base:'http://templateCoffe.github.io/Frontend/'
 
 });

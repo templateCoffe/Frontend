@@ -5,7 +5,7 @@ import HeaderAdministrador from "./HeaderAdministrador.vue";
 </script>
 
 <template>
-  <HeaderAdministrador/>
+  <HeaderAdministrador />
   <div class="row my-1">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id="g_cabecera_adi">
@@ -47,7 +47,8 @@ import HeaderAdministrador from "./HeaderAdministrador.vue";
       </div>
       <div id="g_botones_adi">
         <button type="button" class="TableButtons">
-          <router-link to="./Anadir_inventario" class="nav-link"><a>Añadir producto</a></router-link
+          <router-link to="./Anadir_inventario" class="nav-link"
+            ><a>Añadir producto</a></router-link
           >
         </button>
         <button type="button" class="TableButtons">Eliminar producto</button>

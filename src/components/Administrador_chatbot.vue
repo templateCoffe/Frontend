@@ -1,115 +1,144 @@
 <script setup>
-import Header from './Header.vue';
-import Footer from './Footer.vue';
+import Footer from "./Footer.vue";
+import AdminChatbotFrame from "./subComponents/AdminChatbotFrame.vue";
 </script>
 
 <template>
-    <div class="row my-1">
-      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div id = "g_cabecera_adm">
-  
-                <a><button type="button" class="TableButtons"> Preguntas Frecuentes </button></a>
-          </div>
-    
-        <div id = g_cuerpo_adm >
-    <div  class="row my-3">
-        <div class="col-md-1">
-            <input type="checkbox" id="check_adm"/>
+  <div class="row my-3">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div id="cabecera">
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'contact';
+              getQuestions();
+            "
+            class="TableButtons"
+          >
+            Contacto
+          </button></a
+        >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'faq';
+              getQuestions();
+            "
+            class="TableButtons"
+          >
+            Preguntas Frecuentes
+          </button></a
+        >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'location';
+              getQuestions();
+            "
+            class="TableButtons"
+          >
+            Ubicación
+          </button></a
+        >
+      </div>
+      <div id="cuerpo">
+        <AdminChatbotFrame
+          v-for="question in questions"
+          v-bind:key="question.id"
+          v-bind:question="question"
+        />
+        <div class="arrows">
+          <button v-if="has_previous" type="button" @click="pagination('left')">
+            <
+          </button>
+          <button v-if="has_next" type="button" @click="pagination('right')">
+            >
+          </button>
         </div>
-          <div class="col-md-11" id="g_producto_adm" >
-            <router-link to="#" class="nav-link" target="_blank"><h1>¿?</h1></router-link>
-          </div>
-        </div>
-        
-        <div  class="row my-3">
-        <div class="col-md-1">
-            <input type="checkbox" id="check_adm"/>
-        </div>
-          <div class="col-md-11" id="g_producto_adm" >
-            <router-link to="#" class="nav-link" target="_blank"><h1>¿?</h1></router-link>
-          </div>
-        </div>
-        <div  class="row my-3">
-        <div class="col-md-1">
-            <input type="checkbox" id="check_adm"/>
-        </div>
-          <div class="col-md-11" id="g_producto_adm" >
-            <router-link to="#" class="nav-link" target="_blank"><h1>¿?</h1></router-link>
-          </div>
-        </div>
-        <div  class="row my-3">
-        <div class="col-md-1">
-            <input type="checkbox" id="check_adm"/>
-        </div>
-          <div class="col-md-11" id="g_producto_adm" >
-            <router-link to="./Modificar_chatbot" class="nav-link" target="_blank"><h1>pregunta</h1></router-link>
-          </div>
-        </div>
-        </div>
-          <div id="g_botones_adm">
-        <button type="button" class="TableButtons"> <router-link to="./Anadir_chatbot" class="nav-link" ><a>Añadir Pregunta</a></router-link> </button>
-         <button type="button" class="TableButtons"  > Eliminar Pregunta </button>
-        </div>
+        <div id="g_botones_adi">
+          <button type="button" class="TableButtons">
+            <router-link to="./Anadir_chatbot" class="nav-link">
+              Añadir Pregunta
+            </router-link>
+          </button>
         </div>
       </div>
-
-
-    <Footer />
-    <router-view></router-view>
+    </div>
+  </div>
+  <Footer />
 </template>
 
-<style>
+<script>
+import axios from "axios";
 
-    #g_cabecera_adm{ 
-    background-color: #A6A2A2 ;
-    width: 90%;
-    margin: 0px auto;
-    text-align: center;
+export default {
+  name: "Chatbot",
 
-    }
+  components: {
+    AdminChatbotFrame,
+  },
 
-    #g_cuerpo_adm{
-    position: relative;
-    background-color: #E5E6E4;    
-    border:3px solid #A6A2A2;
-    padding: 19px;
-    width: 90%;
-    margin: 0px auto;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    }
-    #g_producto_adm {
-        
-      
-      width: 90%;
-      text-align: center;
-      color:#847577;
-      background-color: #FBFBF2;
-      margin: 0px auto;
-      border-radius: 20px;
-    }
-    #g_botones_adm{
-      
-      padding: 19px;
-      width: 90%;
-      
-      margin: 0px auto;
+  data() {
+    return {
+      questions: [],
+      filter: "contact",
+      page: 1,
+      has_next: "",
+      has_previous: "",
+    };
+  },
 
-    }
-    #g_botones_adm  button{
-      background: #CFD2CD;
-      margin-left:20%;
-      margin-right:12% ;
-      
+  methods: {
+    getQuestions() {
+      axios
+        .get(
+          "http://127.0.0.1:8001//chatbot/public_chatbot?get_question&module=" +
+            this.filter
+        ) //ajustar la url en el futuro
+        .then((res) => {
+          console.log(res.data);
+          this.questions = res.data;
+          this.has_next = res.data.has_next;
+          this.has_previous = res.data.has_previous;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
 
-    }
+    getQuestions() {
+      axios
+        .get(
+          "http://127.0.0.1:8001//chatbot/public_chatbot?get_question&module=" +
+            this.filter
+        ) //ajustar la url en el futuro
+        .then((res) => {
+          console.log(res.data);
+          this.questions = res.data;
+          this.has_next = res.data.has_next;
+          this.has_previous = res.data.has_previous;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
 
-    #check_adm{
-        position: absolute;
-        left:60px;
-        margin-top:10px;
-        height: 24px;
-        
-    }
+    pagination(movement) {
+      if (this.has_next && movement == "right") {
+        this.page = this.page + 1;
+        this.getQuestions();
+      } else if (this.has_previous && movement == "left") {
+        this.page = this.page - 1;
+        this.getQuestions();
+      }
+    },
+  },
 
-</style>
+  mounted() {
+    this.getQuestions();
+  },
+};
+</script>

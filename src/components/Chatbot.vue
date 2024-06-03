@@ -81,7 +81,7 @@ const abrir_cerrar = () => {
         <tr>
           <td colspan="2" id="pos_taza_text_cc">
             <img :src="texto_taza.img" />
-            <p>¡hola!<br />¡Hola! ¿En que puedo ayudarte?</p>
+            <p>¡Hola!<br>¿En que puedo ayudarte?</p>
           </td>
         </tr>
         <tr>
@@ -137,7 +137,11 @@ const abrir_cerrar = () => {
         <tr>
           <td id="edit_pregunta">
             <div v-for="question in questions">
-              <input type="button" @click="avanzar; " :value="question.question" />
+              <input
+                type="button"
+                @click="avanzar(); getAnswer(question.id)"
+                :value="question.question"
+              />
             </div>
 
             <input type="button" @click="retroceder" value="salir" />
@@ -164,9 +168,7 @@ const abrir_cerrar = () => {
         </tr>
         <tr>
           <td id="respuesta">
-            <p>
-              {{  }}
-            </p>
+            <p>{{ answer }}</p>
           </td>
           <td><img :src="taza.img" id="pos_taza_cr" /></td>
         </tr>
@@ -190,15 +192,25 @@ export default {
     return {
       questions: null,
       filter: null,
-      questionID: null,
+      answer: null,
     };
   },
 
   methods: {
-
-    questionFilter(id) {
-      return id >= 
-    }
+    getAnswer(pepe) {
+      axios
+        .get(
+          "http://127.0.0.1:8001//chatbot/public_chatbot?get_answer&pk=" +
+            pepe
+        ) //ajustar la url en el futuro
+        .then((res) => {
+          console.log(res.data);
+          this.answer = res.data[0].answer;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
 
     getQuestions() {
       axios

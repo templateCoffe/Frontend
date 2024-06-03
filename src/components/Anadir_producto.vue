@@ -107,7 +107,7 @@ export default {
     createProduct() {
       const token = localStorage.getItem("authToken");
       axios
-        .post("http://18.221.240.167/menu/product", this.makeFormData(), {
+        .post("https://18.221.240.167/menu/product", this.makeFormData(), {
           headers: {
             Authorization: `Bearer ${token}`,
           },

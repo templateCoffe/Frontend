@@ -87,7 +87,7 @@ export default {
         preConfirm: async () => {
           axios
             .delete(
-              "http://18.221.240.167/chatbot/chatbot/" + this.$route.params.id,
+              "https://18.221.240.167/chatbot/chatbot/" + this.$route.params.id,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -117,7 +117,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .patch(
-          "http://18.221.240.167/chatbot/chatbot/" + this.$route.params.id,
+          "https://18.221.240.167/chatbot/chatbot/" + this.$route.params.id,
           this.makeJSON(),
           {
             headers: {
@@ -147,7 +147,7 @@ export default {
   mounted() {
     axios
       .get(
-        "http://18.221.240.167/chatbot/public_chatbot?get_answer&pk=" +
+        "https://18.221.240.167/chatbot/public_chatbot?get_answer&pk=" +
           this.$route.params.id
       ) //ajustar la url en el futuro
       .then((res) => {

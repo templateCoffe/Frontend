@@ -68,7 +68,7 @@ export default {
     getItems() {
       const token = localStorage.getItem("authToken");
       axios
-        .get("http://18.221.240.167/inventory/item?page=" + this.page, {
+        .get("https://18.221.240.167/inventory/item?page=" + this.page, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

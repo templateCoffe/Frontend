@@ -70,7 +70,7 @@ export default {
 
     getProducts() {
       axios
-        .get("http://18.221.240.167/blog/publication?page=" + this.page) //ajustar la url en el futuro
+        .get("https://18.221.240.167/blog/publication?page=" + this.page) //ajustar la url en el futuro
         .then((res) => {
           console.log(res.data);
           if (res.data.data) {

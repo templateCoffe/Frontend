@@ -5,7 +5,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://18.221.240.167",
+        target: "https://18.221.240.167",
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ""),
@@ -13,6 +13,6 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
-  base:'http://templateCoffe.github.io/Frontend/'
+  base: '/Frontend/'
 
 });

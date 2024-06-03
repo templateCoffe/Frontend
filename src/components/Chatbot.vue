@@ -203,7 +203,7 @@ export default {
     getAnswer(pepe) {
       axios
         .get(
-          "http://18.221.240.167/chatbot/public_chatbot?get_answer&pk=" + pepe
+          "https://18.221.240.167/chatbot/public_chatbot?get_answer&pk=" + pepe
         ) //ajustar la url en el futuro
         .then((res) => {
           console.log(res.data);
@@ -217,7 +217,7 @@ export default {
     getQuestions() {
       axios
         .get(
-          "http://18.221.240.167/chatbot/public_chatbot?get_question&module=" +
+          "https://18.221.240.167/chatbot/public_chatbot?get_question&module=" +
             this.filter
         ) //ajustar la url en el futuro
         .then((res) => {

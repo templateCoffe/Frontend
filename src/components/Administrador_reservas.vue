@@ -93,7 +93,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .get(
-          "http://18.221.240.167/booking/reservation?page=" +
+          "https://18.221.240.167/booking/reservation?page=" +
             this.page +
             "&status=" +
             this.filter,

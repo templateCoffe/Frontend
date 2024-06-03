@@ -178,7 +178,7 @@ export default {
       let data = this.makeReqFormat();
       console.log(data);
       axios
-        .post("http://18.221.240.167/booking/reservation", data)
+        .post("https://18.221.240.167/booking/reservation", data)
         .then((res) => {
           console.log(res);
           this.$refs.Post.reset();

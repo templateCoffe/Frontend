@@ -39,7 +39,7 @@ import Footer from "../Footer.vue";
             class="send-menu-changes"
             type="button"
             @click="createProduct"
-            value="Crear Producto"
+            value="Crear Pregunta"
           />
         </div>
       </form>

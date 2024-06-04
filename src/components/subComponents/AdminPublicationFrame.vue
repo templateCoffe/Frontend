@@ -1,10 +1,10 @@
 <template>
-  <div id="producto" class="row my-3">
+  <div id="producto_ab" class="row my-3 ">
     
-    <div class="col-md-1 text-center">
-      <p>{{ post.id }}</p>
+    <div class="col-md-1 row " id="informacion_ab_id">
+      <b>{{ post.id }}</b>
     </div>
-    <div class="col-md-8 text-right" id="informacion">
+    <div class="col-md-8">
       <a @click="toModificate(post.id)" class="name">
         <p>{{ post.title }}</p>
       </a>
@@ -40,5 +40,19 @@ input {
   text-decoration: none;
   color: gray;
   
+}
+
+#producto_ab {
+    background-color: #FBFBF2;
+    padding: 20px;
+    width: 100%;
+    margin: 0px auto;
+    border-radius: 20px;
+    text-align: left;
+    }
+
+#informacion_ab_id{
+  margin-top: 20px;
+  font-size: 20px;
 }
 </style>

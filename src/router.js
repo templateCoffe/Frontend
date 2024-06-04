@@ -121,7 +121,7 @@ const router = createRouter({
         {
             path: '/administrador_menu', component: Administrador_menu,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
         {

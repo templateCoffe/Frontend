@@ -77,7 +77,7 @@ import AdminPublicationFrame from "../subComponents/AdminPublicationFrame.vue";
   width: 90%;
   margin: 0px auto;
   text-align: center;
-  height: 50px;
+  height: 60px;
 }
 
 #g_cuerpo_adb {

@@ -1,7 +1,7 @@
 <template>
   <div id="producto" class="row my-3">
     <div class="row" id="informacion">
-      <div class="col-md-1 text-center">
+      <div class="col-md-1 row" id="informacion_ai_id">
         <p>{{ item.id }}</p>
       </div>
       <div class="col">
@@ -10,7 +10,6 @@
       </div>
       <div class="col">
         <a @click="toModificate(item.id)" class="name"><p>{{ item.brand }}</p></a>
-        
       </div>
     </div>
   </div>
@@ -48,5 +47,10 @@ input {
   font-size: 40px;
   text-decoration: none;
   color: gray;
+}
+
+#informacion_ai_id{
+  margin-top: 20px;
+  font-size: 20px;
 }
 </style>

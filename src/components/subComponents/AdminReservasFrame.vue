@@ -1,8 +1,8 @@
 <template>
   <div id="producto" class="row my-3">
-    <div class="row" id="informacion">
-      <div class="col-md-1 text-center">
-        <p>{{ booking.id }}</p>
+    <div class="row">
+      <div class="col-md-1 row" id="informacion_ar_id">
+        <b>{{ booking.id }}</b>
       </div>
       <div class="col">
         <a v-if="booking.status == 'pending'" @click="toModificate(booking.id)" class="name"
@@ -65,5 +65,10 @@ input {
   font-size: 40px;
   text-decoration: none;
   color: gray;
+}
+
+#informacion_ar_id{
+  margin-top: 20px;
+  font-size: 20px;
 }
 </style>

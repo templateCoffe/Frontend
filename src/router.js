@@ -72,7 +72,7 @@ const router = createRouter({
         {
             path: '/Administrador_blog', component: Administrador_blog,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
         {

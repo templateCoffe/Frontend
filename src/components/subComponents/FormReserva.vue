@@ -165,7 +165,7 @@ export default {
         email: this.email,
         is_local_reservation: this.is_local_reservation,
         names: this.names,
-        number_of_assistans: this.assistants,
+        number_of_assistants: this.assistants,
         phones: [this.cellphone.toString()],
         reservation_date: date,
         reservation_time: hour,

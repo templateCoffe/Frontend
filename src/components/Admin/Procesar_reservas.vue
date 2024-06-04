@@ -41,7 +41,7 @@ import Footer from "../Footer.vue";
         </div>
         <div class="col-md-6 my-3">
           <b>Número de asistentes:</b>
-          <p class="form-control">{{ booking.number_of_assistans }}</p>
+          <p class="form-control">{{ booking.number_of_assistants }}</p>
         </div>
         <div class="col-md-6 my-3">
           <b>¿Es una Reserva empresarial?:</b>
@@ -113,7 +113,6 @@ export default {
 
     processBooking(status) {
       const token = localStorage.getItem("authToken");
-      console.log(token);
       Swal.fire({
         icon: "info",
         title:

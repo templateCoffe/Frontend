@@ -42,7 +42,7 @@ import Footer from "../Footer.vue";
         </div>
         <div class="col-md-6 my-3">
           <b>Número de asistentes:</b>
-          <p class="form-control">{{ booking.number_of_assistans }}</p>
+          <p class="form-control">{{ booking.number_of_assistants }}</p>
         </div>
         <div class="col-md-6 my-3">
           <b>¿Es una Reserva empresarial?:</b>
@@ -61,7 +61,7 @@ import Footer from "../Footer.vue";
             type="button"
             value="Volver"
             class="form-control style-submit_pr"
-            @click="this.$router.push({ name: 'administrador_reservas' })"
+            @click="this.$router.push('/administrador_reservas')"
           />
         </div>
 
@@ -96,19 +96,6 @@ export default {
   },
 
   methods: {
-    getBooking() {
-      axios
-        .get(
-          "http://18.221.240.167/booking/reservation/" + this.$route.params.id
-        ) //ajustar la url en el futuro
-        .then((res) => {
-          this.booking = res.data;
-          console.log(this.booking);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
 
     deleteBooking() {
       const token = localStorage.getItem("authToken");
@@ -153,7 +140,7 @@ export default {
     const token = localStorage.getItem("authToken");
     axios
       .get(
-        "https://18.221.240.167/booking/reservation/" + this.$route.params.id,
+        "http://18.221.240.167/booking/reservation/" + this.$route.params.id,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -161,6 +148,7 @@ export default {
         }
       ) //ajustar la url en el futuro
       .then((res) => {
+        console.log(res.data);
         this.booking = res.data;
         this.reservation = this.booking.reservation;
         this.phone = this.booking.phones[0];

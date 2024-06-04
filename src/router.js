@@ -15,6 +15,7 @@ import Administrador_menu from './components/Admin/Administrador_menu.vue'
 import Administrador_inventario from './components/Admin/Administrador_inventario.vue'
 import Administrador_blog from './components/Admin/Administrador_blog.vue'
 import Administrador_reservas from './components/Admin/Administrador_reservas.vue'
+import Validar_Reserva from './components/Admin/Validar_Reserva.vue'
 //----------------------------------------------------------------
 import Anadir_producto from "./components/Admin/Anadir_producto.vue"
 import Anadir_inventario from './components/Admin/Anadir_inventario.vue'
@@ -26,7 +27,7 @@ import Modificar_chatbot from './components/Admin/Modificar_chatbot.vue'
 import Modificar_item from './components/Admin/Modificar_item.vue'
 import Modificar_blog from './components/Admin/Modificar_blog.vue'
 import Procesar_reservas from './components/Admin/Procesar_reservas.vue'
-import Reserva_procesadas from './components/Admin/Reserva_procesada.vue'
+import Reserva_procesada from './components/Admin/Reserva_procesada.vue'
 //----------------------------------------------------------------
 import Error404 from "./components/subComponents/Error404.vue"
 
@@ -137,7 +138,13 @@ const router = createRouter({
             }
         },
         {
-            path: '/reserva_procesada/:id', name: 'reserva_procesada', component: Procesar_reservas,
+            path: '/reserva_procesada/:id', name: 'reserva_procesada', component: Reserva_procesada,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/validar_reserva/:comprobante', name: 'validar_reserva', component: Validar_Reserva,
             meta: {
                 requiresAuth: true
             }

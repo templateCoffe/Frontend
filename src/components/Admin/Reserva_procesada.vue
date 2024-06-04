@@ -1,6 +1,6 @@
 <script setup>
 import HeaderAdministrador from "../Admin/HeaderAdministrador.vue";
-import Footer from ".../Footer.vue";
+import Footer from "../Footer.vue";
 </script>
 
 <template>

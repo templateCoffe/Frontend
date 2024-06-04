@@ -26,6 +26,7 @@ import Modificar_chatbot from './components/Admin/Modificar_chatbot.vue'
 import Modificar_item from './components/Admin/Modificar_item.vue'
 import Modificar_blog from './components/Admin/Modificar_blog.vue'
 import Procesar_reservas from './components/Admin/Procesar_reservas.vue'
+import Reserva_procesadas from './components/Admin/Reserva_procesada.vue'
 //----------------------------------------------------------------
 import Error404 from "./components/subComponents/Error404.vue"
 
@@ -131,6 +132,12 @@ const router = createRouter({
         },
         {
             path: '/procesar_reservas/:id', name: 'procesar_reservas', component: Procesar_reservas,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/reserva_procesada/:id', name: 'reserva_procesada', component: Procesar_reservas,
             meta: {
                 requiresAuth: true
             }

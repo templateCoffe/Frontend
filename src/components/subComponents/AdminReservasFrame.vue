@@ -40,7 +40,7 @@ export default {
   methods: {
     toModificate(id) {
       console.log(id);
-      this.$router.push({ name: "procesar_reserva", params: { id: id } });
+      this.$router.push({ name: "procesar_reservas", params: { id: id } });
     },
     toView(id) {
       console.log(id);

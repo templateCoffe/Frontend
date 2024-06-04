@@ -18,17 +18,18 @@ import Footer from "./Footer.vue";
         <h1>{{ post.title }}</h1>
         <p>{{ post.text }}</p>
         <b v-if="post.category == 'article'" class="d-flex justify-content-end"
-          >Articulo, creado el {{ post.created.slice(0, 10) }}
+          >Articulo, creado el {{ post.created }}
         </b>
         <b v-if="post.category == 'news'" class="d-flex justify-content-end"
-          >Noticias, creado el {{ post.created.slice(0, 10) }}
+          >Noticias, creado el {{ post.created }}
         </b>
         <b v-if="post.category == 'events'" class="d-flex justify-content-end"
-          >Eventos, creado el {{ post.created.slice(0, 10) }}
+          >Eventos, creado el {{ post.created }}
         </b>
       </div>
     </div>
   </div>
+  <Chatbot />
   <Footer />
 </template>
 

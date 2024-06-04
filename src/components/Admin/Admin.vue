@@ -21,9 +21,6 @@
       <router-link to="administrador_chatbot">
         <input type="button" value="Chatbot" />
       </router-link>
-      <router-link to="administrador_inventario">
-        <input type="button" value="Inventario" />
-      </router-link>
       <input type="button" @click="logout" value="Cerrar Sesión"
     </div>
   </div>

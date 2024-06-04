@@ -1,9 +1,10 @@
 <script setup>
-import Header from "./Header.vue";
-import Footer from "./Footer.vue";
+import HeaderAdministrador from "./HeaderAdministrador.vue";
+import Footer from "../Footer.vue";
 </script>
 
 <template>
+  <HeaderAdministrador />
   <div class="row my-3" id="edit_menu_mb">
     <div class="col-md-6" id="edit_menu_mb">
       <h1>Editar publicación {{ post.id }}</h1>

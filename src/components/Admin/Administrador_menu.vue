@@ -1,54 +1,80 @@
 <script setup>
-import Footer from "./Footer.vue";
-import AdminPublicationFrame from "./subComponents/AdminPublicationFrame.vue";
+import HeaderAdministrador from "./HeaderAdministrador.vue";
+import Footer from "../Footer.vue";
+import AdminMenuProductFrame from "../subComponents/AdminMenuProductFrame.vue";
 </script>
 
 <template>
+  <HeaderAdministrador />
   <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <div id="g_cabecera_adb">
+      <div id="cabecera">
         <a
           ><button
             type="button"
             @click="
-              filter = 'event';
-              getPosts();
+              filter = 'hot_drink';
+              getProducts();
             "
             class="TableButtons"
           >
-            Eventos
+            Bebidas Calientes
           </button></a
         >
         <a
           ><button
             type="button"
             @click="
-              filter = 'article';
-              getPosts();
+              filter = 'cold_drink';
+              getProducts();
             "
             class="TableButtons"
           >
-            Articulos
+            Bebidas Frias
           </button></a
         >
         <a
           ><button
             type="button"
             @click="
-              filter = 'news';
-              getPosts();
+              filter = 'liquor_drink';
+              getProducts();
             "
             class="TableButtons"
           >
-            Noticias
+            Bebidas con Licor
+          </button></a
+        >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'handmade_dessert';
+              getProducts();
+            "
+            class="TableButtons"
+          >
+            Postres artesanales
+          </button></a
+        >
+        <a
+          ><button
+            type="button"
+            @click="
+              filter = 'specialties';
+              getProducts();
+            "
+            class="TableButtons"
+          >
+            Especialidades
           </button></a
         >
       </div>
       <div id="cuerpo">
-        <AdminPublicationFrame
-          v-for="post in posts"
-          v-bind:key="post.id"
-          v-bind:post="post"
+        <AdminMenuProductFrame
+          v-for="product in products"
+          v-bind:key="product.id"
+          v-bind:product="product"
         />
         <div class="arrows">
           <button v-if="has_previous" type="button" @click="pagination('left')">
@@ -59,9 +85,11 @@ import AdminPublicationFrame from "./subComponents/AdminPublicationFrame.vue";
           </button>
         </div>
         <div id="g_botones_adi">
-          <router-link to="./Anadir_blog" class="nav-link">
-            <input type="button" value="Añadir Publicación" />
-          </router-link>
+          <button type="button" class="TableButtons">
+            <router-link to="./Anadir_producto" class="nav-link">
+              Añadir producto
+            </router-link>
+          </button>
         </div>
       </div>
     </div>
@@ -69,62 +97,20 @@ import AdminPublicationFrame from "./subComponents/AdminPublicationFrame.vue";
   <Footer />
 </template>
 
-<style>
-#g_cabecera_adb {
-  background-color: #a6a2a2;
-  width: 90%;
-  margin: 0px auto;
-  text-align: center;
-  height: 50px;
-}
-
-#g_cuerpo_adb {
-  position: relative;
-  background-color: #e5e6e4;
-  border: 3px solid #a6a2a2;
-  padding: 19px;
-  width: 90%;
-  margin: auto;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-#g_producto_adb {
-  width: 90%;
-  text-align: center;
-  color: #847577;
-  background-color: #fbfbf2;
-  margin: 0px auto;
-  border-radius: 20px;
-}
-
-#g_botones_adb button {
-  background: #cfd2cd;
-  margin-left: 20%;
-  margin-right: 12%;
-}
-
-#check_adb {
-  position: absolute;
-  left: 60px;
-  margin-top: 10px;
-  height: 24px;
-}
-</style>
-
 <script>
 import axios from "axios";
 
 export default {
-  name: "Posts",
+  name: "Menu",
 
   components: {
-    AdminPublicationFrame,
+    AdminMenuProductFrame,
   },
 
   data() {
     return {
-      posts: [],
-      filter: "event",
+      products: [],
+      filter: "hot_drink",
       page: 1,
       has_next: "",
       has_previous: "",
@@ -132,18 +118,18 @@ export default {
   },
 
   methods: {
-    getPosts() {
+    getProducts() {
       axios
         .get(
-          "http://18.221.240.167/blog/publication?page=" +
+          "http://18.221.240.167/menu/product?page=" +
             this.page +
-            "&category=" +
+            "&product_type=" +
             this.filter
         ) //ajustar la url en el futuro
         .then((res) => {
           console.log(res.data);
           if (res.data.data) {
-            this.posts = res.data.data;
+            this.products = res.data.data;
             this.has_next = res.data.has_next;
             this.has_previous = res.data.has_previous;
           }
@@ -156,16 +142,16 @@ export default {
     pagination(movement) {
       if (this.has_next && movement == "right") {
         this.page = this.page + 1;
-        this.getPosts();
+        this.getProducts();
       } else if (this.has_previous && movement == "left") {
         this.page = this.page - 1;
-        this.getPosts();
+        this.getProducts();
       }
     },
   },
 
   mounted() {
-    this.getPosts();
+    this.getProducts();
   },
 };
 </script>

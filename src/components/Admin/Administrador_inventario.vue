@@ -1,7 +1,7 @@
 <script setup>
 import HeaderAdministrador from "./HeaderAdministrador.vue";
-import Footer from "./Footer.vue";
-import AdminInventoryFrame from "./subComponents/AdminInventoryFrame.vue";
+import Footer from "../Footer.vue";
+import AdminInventoryFrame from "../subComponents/AdminInventoryFrame.vue";
 </script>
 
 <template>
@@ -58,6 +58,7 @@ export default {
   data() {
     return {
       items: [],
+      item_names: [],
       page: 1,
       has_next: "",
       has_previous: "",
@@ -65,6 +66,9 @@ export default {
   },
 
   methods: {
+
+    
+
     getItems() {
       const token = localStorage.getItem("authToken");
       axios

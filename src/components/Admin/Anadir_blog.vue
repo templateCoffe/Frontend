@@ -1,8 +1,10 @@
 <script setup>
-import Footer from "./Footer.vue";
+import HeaderAdministrador from "./HeaderAdministrador.vue";
+import Footer from "../Footer.vue";
 </script>
 
 <template>
+  <HeaderAdministrador />
   <div class="row my-3" id="edit_menu_ab">
     <div class="col-md-6" id="edit_menu_ab">
       <h1>añadir publicación</h1>

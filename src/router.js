@@ -1,37 +1,40 @@
 import { isAuthenticated } from './auth'
+import { createRouter, createWebHistory } from 'vue-router'
+//----------------------------------------------------------------
 import Index from './components/Index.vue'
 import Menu from './components/Menu.vue'
-import Reservas_2 from './components/Reservas_2.vue'
+import Reservas from './components/Reservas.vue'
 import Comentarios from './components/Comentarios.vue'
-import Modificar_menu from './components/Modificar_menu.vue'
 import Blog from './components/Blog.vue'
 import Publicacion from './components/Publicacion.vue'
+//----------------------------------------------------------------
 import Login from './components/Login.vue'
-import Admin from './components/Admin.vue'
-import Administrador_menu from './components/Administrador_menu.vue'
-import Administrador_inventario from './components/Administrador_inventario.vue'
-import Anadir_inventario from './components/Anadir_inventario.vue'
-import Modificar_item from './components/Modificar_item.vue'
-import Administrador_blog from './components/Administrador_blog.vue'
-import Modificar_blog from './components/Modificar_blog.vue'
-import Anadir_blog from './components/Anadir_blog.vue'
-import Administrador_chatbot from './components/Administrador_chatbot.vue'
-import Modificar_chatbot from './components/Modificar_chatbot.vue'
-import Anadir_chatbot from './components/Anadir_chatbot.vue'
-import Administrador_reservas from './components/Administrador_reservas.vue'
-import Procesar_reservas from './components/Procesar_reservas.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import Admin from './components/Admin/Admin.vue'
+import Administrador_chatbot from './components/Admin/Administrador_chatbot.vue'
+import Administrador_menu from './components/Admin/Administrador_menu.vue'
+import Administrador_inventario from './components/Admin/Administrador_inventario.vue'
+import Administrador_blog from './components/Admin/Administrador_blog.vue'
+import Administrador_reservas from './components/Admin/Administrador_reservas.vue'
+//----------------------------------------------------------------
+import Anadir_producto from "./components/Admin/Anadir_producto.vue"
+import Anadir_inventario from './components/Admin/Anadir_inventario.vue'
+import Anadir_chatbot from './components/Admin/Anadir_chatbot.vue'
+import Anadir_blog from './components/Admin/Anadir_blog.vue'
+//----------------------------------------------------------------
+import Modificar_menu from './components/Admin/Modificar_menu.vue'
+import Modificar_chatbot from './components/Admin/Modificar_chatbot.vue'
+import Modificar_item from './components/Admin/Modificar_item.vue'
+import Modificar_blog from './components/Admin/Modificar_blog.vue'
+import Procesar_reservas from './components/Admin/Procesar_reservas.vue'
+//----------------------------------------------------------------
 import Error404 from "./components/subComponents/Error404.vue"
-import Anadir_producto from "./components/Anadir_producto.vue"
-
-import Error401 from "./components/subComponents/Error401.vue"
 
 const router = createRouter({
-    history: createWebHistory('#'),
+    history: createWebHistory(),
     routes: [
         { path: '/:pathMatch(.*)*', component: Error404 },
         { path: '/', component: Index },
-        { path: '/reservas', component: Reservas_2 },
+        { path: '/reservas', component: Reservas },
         { path: '/menu', component: Menu },
         { path: '/comentarios', component: Comentarios },
         { path: '/blog', component: Blog },

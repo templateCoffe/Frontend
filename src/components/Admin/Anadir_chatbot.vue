@@ -1,53 +1,45 @@
 <script setup>
 import HeaderAdministrador from "./HeaderAdministrador.vue";
-import Footer from "./Footer.vue";
+import Footer from "../Footer.vue";
 </script>
 
 <template>
   <HeaderAdministrador />
-  <div class="row my-3" id="edit_menu_ai">
-    <div class="col-md-6" id="edit_menu_ai">
-      <h1>Añadir item</h1>
+  <div class="row my-3" id="edit_menu_ac">
+    <div class="col-md-6" id="edit_menu_ac">
+      <h1>Añadir pregunta</h1>
 
       <form class="row my-5">
         <div class="col-md-12">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Nombre del Item"
-            v-model="name"
-          />
-        </div>
-        <div class="col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Código"
-            v-model="code"
-          />
-        </div>
-
-        <div class="col-md-6">
-          <select class="form-select" v-model="brand">
-            <option value="consumible" label="Consumible" />
-            <option value="for_cleaning" label="Limpieza" />
-            <option value="others" label="Otros" />
+          <select class="form-select" v-model="module">
+            <option value="contact" label="Contacto" />
+            <option value="faq" label="Preguntas Frecuentes" />
+            <option value="location" label="Ubicación" />
           </select>
         </div>
+
         <div class="col-md-12">
-          <textarea
+          <input
+            type="text"
             class="form-control"
-            placeholder="Descripcion del producto"
-            v-model="description"
+            placeholder="Pregunta"
+            v-model="question"
           />
         </div>
 
-        <div class="col-md-12 centrar_ai">
+        <div class="col-md-12">
+          <textarea
+            class="form-control tamaño"
+            placeholder="Respuesta"
+            v-model="answer"
+          />
+        </div>
+        <div class="row my-5 justify-content-center">
           <input
             class="send-menu-changes"
             type="button"
-            @click="createItem"
-            value="Crear Item"
+            @click="createProduct"
+            value="Crear Producto"
           />
         </div>
       </form>
@@ -66,27 +58,25 @@ export default {
 
   data() {
     return {
-      name: null,
-      description: null,
-      brand: "consumible",
-      code: null,
+      module: "contact",
+      question: null,
+      answer: null,
     };
   },
 
   methods: {
     makeJSON() {
       return {
-        name: this.name,
-        description: this.description,
-        brand: this.brand,
-        code: this.code,
+        module: this.module,
+        question: this.question,
+        answer: this.answer,
       };
     },
 
-    createItem() {
+    createProduct() {
       const token = localStorage.getItem("authToken");
       axios
-        .post("http://18.221.240.167/inventory/item", this.makeJSON(), {
+        .post("http://18.221.240.167/chatbot/chatbot", this.makeJSON(), {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -94,10 +84,9 @@ export default {
         .then((res) => {
           console.log(this.makeJSON());
           console.log(res);
-          location.reload();
           Swal.fire({
             icon: "success",
-            title: `Item agregado satisfactoriamente`,
+            title: `Pregunta agregada satisfactoriamente`,
           });
         })
         .catch((err) => {
@@ -114,12 +103,12 @@ export default {
 </script>
 
 <style>
-#edit_menu_ai {
+#edit_menu_ac {
   margin: 0 auto;
   width: 100%;
 }
 
-#edit_menu_ai h1 {
+#edit_menu_ac h1 {
   text-align: center;
   background-color: #e5e6e4;
   height: 60px;
@@ -128,28 +117,27 @@ export default {
   margin: 0px auto;
   color: #847577;
 }
-
-#edit_menu_ai form {
+#edit_menu_ac form {
   margin: 0 auto;
   width: 50%;
 }
-#edit_menu_ai input,
+#edit_menu_ac input,
 select {
   margin: 10px;
 }
 
-.centrar_ai {
-  text-align: center;
-}
-
-#posarea_ai {
+#posarea_ac {
   margin-left: 23px;
 }
 
-.style-submit_ai {
+.style-submit_ac {
   color: #e5e6e4;
   background-color: #a6a2a2;
   height: 60px;
   font-size: 30px;
+}
+
+#edit_menu_ac textarea {
+  margin-left: 10px;
 }
 </style>

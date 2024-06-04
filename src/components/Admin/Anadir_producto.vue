@@ -1,9 +1,10 @@
 <script setup>
-import Header from "./Header.vue";
-import Footer from "./Footer.vue";
+import HeaderAdministrador from "./HeaderAdministrador.vue";
+import Footer from "../Footer.vue";
 </script>
 
 <template>
+  <HeaderAdministrador />
   <div class="row my-3" id="edit_menu_ai">
     <div class="col-md-6" id="edit_menu_ai">
       <h1>Añadir Producto</h1>

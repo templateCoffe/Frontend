@@ -1,7 +1,7 @@
 <script setup>
 import HeaderAdministrador from "./HeaderAdministrador.vue";
-import Footer from "./Footer.vue";
-import AdminReservasFrame from "./subComponents/AdminReservasFrame.vue";
+import Footer from "../Footer.vue";
+import AdminReservasFrame from "../subComponents/AdminReservasFrame.vue";
 </script>
 
 <template>

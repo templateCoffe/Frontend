@@ -1,11 +1,11 @@
 <script setup>
 import HeaderAdministrador from "./HeaderAdministrador.vue";
-import Footer from "./Footer.vue";
-import AdminChatbotFrame from "./subComponents/AdminChatbotFrame.vue";
+import Footer from "../Footer.vue";
+import AdminChatbotFrame from "../subComponents/AdminChatbotFrame.vue";
 </script>
 
 <template>
-  <HeaderAdministrador/>
+  <HeaderAdministrador />
   <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id="cabecera_ac">

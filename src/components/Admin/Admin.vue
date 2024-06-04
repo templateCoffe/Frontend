@@ -50,7 +50,7 @@
 </style>
 
 <script>
-import { logout } from "../auth";
+import { logout } from "../../auth";
 export default {
   name: "Login",
 

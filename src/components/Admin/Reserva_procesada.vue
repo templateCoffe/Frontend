@@ -1,10 +1,10 @@
 <script setup>
-import HeaderAdministrador from "./HeaderAdministrador.vue";
-import Footer from "./Footer.vue";
+import HeaderAdministrador from "../Admin/HeaderAdministrador.vue";
+import Footer from ".../Footer.vue";
 </script>
 
 <template>
-  <HeaderAdministrador/>
+  <HeaderAdministrador />
   <div class="row my-3" id="edit_menu_pr">
     <div class="col-md-6" id="edit_menu_pr">
       <h1 v-if="booking.status == 'approved'">Reserva Aprobada</h1>

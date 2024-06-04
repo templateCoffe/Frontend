@@ -2,21 +2,22 @@
   <div id="producto" class="row my-3">
     <div class="row" id="informacion">
       <div class="col-md-1 row" id="informacion_ai_id">
-        <p>{{ item.id }}</p>
+        <b>{{ item.id }}</b>
       </div>
       <div class="col">
         <a @click="toModificate(item.id)" class="name"><p>{{ item.name }}</p></a>
         
       </div>
       <div class="col">
-        <a @click="toModificate(item.id)" class="name"><p>{{ item.brand }}</p></a>
+        <a v-if="item.brand == 'for_cleaning'" @click="toModificate(item.id)" class="name"><p> Limpieza </p></a>
+        <a v-if="item.brand == 'others'" @click="toModificate(item.id)" class="name"><p> Otros </p></a>
+        <a v-if="item.brand == 'consumible'" @click="toModificate(item.id)" class="name"><p> Consumible </p></a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 export default {
   props: ["item"],
 

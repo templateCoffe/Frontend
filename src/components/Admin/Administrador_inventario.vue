@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       items: [],
-      item_names: []
+      item_names: [],
       page: 1,
       has_next: "",
       has_previous: "",
@@ -67,7 +67,7 @@ export default {
 
   methods: {
 
-    
+
 
     getItems() {
       const token = localStorage.getItem("authToken");

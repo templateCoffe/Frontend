@@ -30,7 +30,7 @@ import Procesar_reservas from './components/Admin/Procesar_reservas.vue'
 import Error404 from "./components/subComponents/Error404.vue"
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('#'),
     routes: [
         { path: '/:pathMatch(.*)*', component: Error404 },
         { path: '/', component: Index },

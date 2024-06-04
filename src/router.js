@@ -72,7 +72,7 @@ const router = createRouter({
         {
             path: '/Administrador_blog', component: Administrador_blog,
             meta: {
-                requiresAuth: false
+                requiresAuth: true
             }
         },
         {
@@ -120,7 +120,7 @@ const router = createRouter({
         {
             path: '/administrador_menu', component: Administrador_menu,
             meta: {
-                requiresAuth: true
+                requiresAuth: false
             }
         },
         {

@@ -96,7 +96,7 @@ export default {
         preConfirm: async () => {
           axios
             .delete(
-              "http://127.0.0.1:8001/inventory/item/" + this.$route.params.id,
+              "http://18.221.240.167/inventory/item/" + this.$route.params.id,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -126,7 +126,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .patch(
-          "http://127.0.0.1:8001/inventory/item/" + this.$route.params.id,
+          "http://18.221.240.167/inventory/item/" + this.$route.params.id,
           this.makeJSON(),
           {
             headers: {
@@ -156,7 +156,7 @@ export default {
   mounted() {
     const token = localStorage.getItem("authToken");
     axios
-      .get("http://127.0.0.1:8001/inventory/item/" + this.$route.params.id, {
+      .get("http://18.221.240.167/inventory/item/" + this.$route.params.id, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

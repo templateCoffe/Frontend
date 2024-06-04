@@ -9,21 +9,17 @@ import AdminInventoryFrame from "./subComponents/AdminInventoryFrame.vue";
   <div class="row my-1">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id="g_cabecera_adi">
-        <a
-          ><button type="button" class="TableButtons">Items</button></a
-        >
-        <a
-          ><button type="button" class="TableButtons">Stock</button></a
-        >
+        <a><button type="button" class="TableButtons">Items</button></a>
+        <a><button type="button" class="TableButtons">Stock</button></a>
       </div>
 
       <div id="g_cuerpo_adi">
         <div class="row my-3">
           <AdminInventoryFrame
-          v-for="item in items"
-          v-bind:key="item.id"
-          v-bind:item="item"
-        />
+            v-for="item in items"
+            v-bind:key="item.id"
+            v-bind:item="item"
+          />
         </div>
         <div class="arrows">
           <button v-if="has_previous" type="button" @click="pagination('left')">
@@ -72,15 +68,11 @@ export default {
     getItems() {
       const token = localStorage.getItem("authToken");
       axios
-        .get(
-          "http://127.0.0.1:8001/inventory/item?page=" +
-            this.page,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
+        .get("http://18.221.240.167/inventory/item?page=" + this.page, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((res) => {
           console.log(res.data);
           if (res.data.data) {

@@ -5,7 +5,7 @@ import AdminReservasFrame from "./subComponents/AdminReservasFrame.vue";
 </script>
 
 <template>
-  <HeaderAdministrador/>
+  <HeaderAdministrador />
   <div class="row my-3">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div id="g_cabecera_adr">
@@ -93,7 +93,7 @@ export default {
       const token = localStorage.getItem("authToken");
       axios
         .get(
-          "http://127.0.0.1:8001/booking/reservation?page=" +
+          "http://18.221.240.167/booking/reservation?page=" +
             this.page +
             "&status=" +
             this.filter,

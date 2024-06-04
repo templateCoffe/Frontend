@@ -43,7 +43,7 @@ import Footer from "./Footer.vue";
         </div>
 
         <div class="col-md-12 centrar_ai">
-            <input
+          <input
             class="send-menu-changes"
             type="button"
             @click="createItem"
@@ -68,7 +68,7 @@ export default {
     return {
       name: null,
       description: null,
-      brand: 'consumible',
+      brand: "consumible",
       code: null,
     };
   },
@@ -86,7 +86,7 @@ export default {
     createItem() {
       const token = localStorage.getItem("authToken");
       axios
-        .post("http://127.0.0.1:8001/inventory/item", this.makeJSON(), {
+        .post("http://18.221.240.167/inventory/item", this.makeJSON(), {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -109,7 +109,6 @@ export default {
           });
         });
     },
-
   },
 };
 </script>
@@ -139,7 +138,7 @@ select {
   margin: 10px;
 }
 
-.centrar_ai{
+.centrar_ai {
   text-align: center;
 }
 

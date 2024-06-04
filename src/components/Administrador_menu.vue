@@ -121,7 +121,7 @@ export default {
     getProducts() {
       axios
         .get(
-          "http://127.0.0.1:8001/menu/product?page=" +
+          "http://18.221.240.167/menu/product?page=" +
             this.page +
             "&product_type=" +
             this.filter

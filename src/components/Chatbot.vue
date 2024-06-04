@@ -81,7 +81,7 @@ const abrir_cerrar = () => {
         <tr>
           <td colspan="2" id="pos_taza_text_cc">
             <img :src="texto_taza.img" />
-            <p>¡Hola!<br>¿En que puedo ayudarte?</p>
+            <p>¡Hola!<br />¿En que puedo ayudarte?</p>
           </td>
         </tr>
         <tr>
@@ -139,7 +139,10 @@ const abrir_cerrar = () => {
             <div v-for="question in questions">
               <input
                 type="button"
-                @click="avanzar(); getAnswer(question.id)"
+                @click="
+                  avanzar();
+                  getAnswer(question.id);
+                "
                 :value="question.question"
               />
             </div>
@@ -200,8 +203,7 @@ export default {
     getAnswer(pepe) {
       axios
         .get(
-          "http://127.0.0.1:8001//chatbot/public_chatbot?get_answer&pk=" +
-            pepe
+          "http://18.221.240.167/chatbot/public_chatbot?get_answer&pk=" + pepe
         ) //ajustar la url en el futuro
         .then((res) => {
           console.log(res.data);
@@ -215,7 +217,7 @@ export default {
     getQuestions() {
       axios
         .get(
-          "http://127.0.0.1:8001//chatbot/public_chatbot?get_question&module=" +
+          "http://18.221.240.167/chatbot/public_chatbot?get_question&module=" +
             this.filter
         ) //ajustar la url en el futuro
         .then((res) => {
@@ -232,7 +234,7 @@ export default {
 
 <style scoped>
 .edit_button {
-    z-index: 100;
+  z-index: 100;
   position: fixed;
   left: 1;
   top: 1;
@@ -254,7 +256,7 @@ export default {
 
 /*categoria*/
 #pos_tabla_cc {
-    z-index: 100;
+  z-index: 100;
   position: fixed;
   left: 1;
   top: 1;
@@ -301,7 +303,7 @@ export default {
 }
 /*pregunta*/
 #pos_tabla_cp {
-    z-index: 100;
+  z-index: 100;
   position: fixed;
   left: 1;
   top: 1;
@@ -348,7 +350,7 @@ export default {
 /*respuesta*/
 
 #pos_tabla_cr {
-    z-index: 100;
+  z-index: 100;
   position: fixed;
   left: 1;
   top: 1;

@@ -110,7 +110,7 @@
       <div class="col-md-12 my-3 enviar_s">
         <input
           type="button"
-          class="form-control  edit_input"
+          class="form-control edit_input"
           value="Enviar solicitud"
           @click="sendData()"
         />
@@ -175,10 +175,10 @@ export default {
     },
 
     sendData() {
-      let data =this.makeReqFormat();
+      let data = this.makeReqFormat();
       console.log(data);
       axios
-        .post("http://127.0.0.1:8001/booking/reservation", data)
+        .post("http://18.221.240.167/booking/reservation", data)
         .then((res) => {
           console.log(res);
           this.$refs.Post.reset();

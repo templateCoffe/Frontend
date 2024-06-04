@@ -4,7 +4,6 @@ import Footer from "./Footer.vue";
 import AdminPublicationFrame from "./subComponents/AdminPublicationFrame.vue";
 </script>
 
-
 <template>
   <HeaderAdministrador/>
   <div class="row my-3">
@@ -121,7 +120,7 @@ export default {
   name: "Posts",
 
   components: {
-    AdminPublicationFrame
+    AdminPublicationFrame,
   },
 
   data() {
@@ -138,7 +137,7 @@ export default {
     getPosts() {
       axios
         .get(
-          "http://127.0.0.1:8001/blog/publication?page=" +
+          "http://18.221.240.167/blog/publication?page=" +
             this.page +
             "&category=" +
             this.filter

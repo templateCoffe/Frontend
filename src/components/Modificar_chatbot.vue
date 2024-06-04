@@ -1,9 +1,10 @@
 <script setup>
-import Header from "./Header.vue";
+import HeaderAdministrador from "./HeaderAdministrador.vue";
 import Footer from "./Footer.vue";
 </script>
 
 <template>
+  <HeaderAdministrador/>
   <div class="row my-3" id="edit_menu_mc">
     <div class="col-md-6" id="edit_menu_mc">
       <h1>modificar pregunta</h1>

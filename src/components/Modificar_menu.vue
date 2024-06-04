@@ -1,8 +1,10 @@
 <script setup>
+import HeaderAdministrador from "./HeaderAdministrador.vue";
 import Footer from "./Footer.vue";
 </script>
 
 <template>
+  <HeaderAdministrador/>
   <div class="row my-3" id="edit_menu">
     <div class="col-md-6" id="edit_menu">
       <h1>Editar "{{ product.name }}"</h1>

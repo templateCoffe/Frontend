@@ -23,9 +23,9 @@ import Publicacion from "./Publicacion.vue";
     >
       <img :src="value.file_img" id="img_publicacion" />
       <div id="text_info">
-        <h1>{{ value.title.slice(2, -2) }}</h1>
+        <h1>{{ value.title }}</h1>
         <router-link :to="getPostURL(value)" class="nav-link">
-          <p>{{ value.text.slice(2, -2).slice(0, 200) }}...</p>
+          <p>{{ value.text.slice(0, 200) }}...</p>
           <b v-if="value.category == 'news'" class="d-flex justify-content-end"
             >Noticias</b
           >

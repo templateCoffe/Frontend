@@ -24,9 +24,7 @@
       <router-link to="administrador_inventario">
         <input type="button" value="Inventario" />
       </router-link>
-      <router-link
-        ><input type="button" @click="logout" value="Cerrar Sesión"
-      /></router-link>
+      <input type="button" @click="logout" value="Cerrar Sesión"
     </div>
   </div>
 </template>
